@@ -14,3 +14,9 @@ development:
 test:
   <<: *default
   database: my2ndapp_test
+
+production:
+  <<: *default
+  database: my2ndapp_production
+  username: postgres
+  password: <%= ENV['MY2NDAPP_DATABASE_PASSWORD'] %>
