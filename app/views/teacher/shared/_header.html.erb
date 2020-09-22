@@ -1,3 +1,10 @@
 <header>
   <span class="logo-mark">metista</span>
+  <%= 
+    if current_teacher_member
+      link_to "ログアウト", :teacher_session, method: :delete
+    else
+      link_to "ログイン", :teacher_login
+    end
+  %>
 </header>
