@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   namespace :teacher do
     root "top#index"
     get "login" => "sessions#new", as: :login
-    post "session" => "sessons#create", as: :session
+    post "session" => "sessions#create", as: :session
     delete "session" => "sessions#destroy"
   end
 
