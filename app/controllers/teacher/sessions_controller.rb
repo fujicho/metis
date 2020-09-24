@@ -21,4 +21,9 @@ class Teacher::SessionsController < Teacher::Base
       render action: "new"
     end
   end
+  
+  def destroy
+    session.delete(:teacher_member_id)
+    redirect_to :teacher_root
+  end
 end
