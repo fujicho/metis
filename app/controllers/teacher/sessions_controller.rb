@@ -14,7 +14,7 @@ class Teacher::SessionsController < Teacher::Base
       teacher_member =
         TeacherMember.find_by("LOWER(email) = ?", @form.email.downcase)
     end
-    if teacher_member
+    if Teacher::Authenticator.new(teacher_member).authenticate(@form.password)
       session[:teacher_member_id] = teacher_member.id
       redirect_to :teacher_root
     else
