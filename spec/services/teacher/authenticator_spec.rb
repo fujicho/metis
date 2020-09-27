@@ -18,7 +18,7 @@ describe Teacher::Authenticator do
     end
 
     example "停止フラグが立っていればfalseを返す" do
-      m = build(:teacher_member, suspended: nil)
+      m = build(:teacher_member, suspended: true)
       expect(Teacher::Authenticator.new(m).authenticate("pw")).to be_falsey
     end
 
