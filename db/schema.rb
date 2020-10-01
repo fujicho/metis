@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_28_113128) do
+ActiveRecord::Schema.define(version: 2020_10_01_085614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,27 @@ ActiveRecord::Schema.define(version: 2020_09_28_113128) do
   create_table "administrators", force: :cascade do |t|
     t.string "admin_number", null: false
     t.string "hashed_password"
+    t.boolean "suspended", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "student_members", force: :cascade do |t|
+    t.string "student_number", null: false
+    t.string "email"
+    t.string "family_name", null: false
+    t.string "given_name", null: false
+    t.string "family_name_kana", null: false
+    t.string "given_name_kana", null: false
+    t.integer "birth_day"
+    t.integer "telephone_number"
+    t.integer "emergency_contact", null: false
+    t.string "hashed_password"
+    t.integer "grade"
+    t.integer "a_class"
+    t.string "homeroom_teacher"
+    t.date "start_date", null: false
+    t.date "graduation_date"
     t.boolean "suspended", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
