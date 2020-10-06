@@ -1,0 +1,19 @@
+<% @title = "ログイン" %>
+
+<div id="login-form">
+  <h1><%= @title %></h1>
+
+  <%= form_with model: @form, url: :student_session do |f| %>
+    <div>
+      <%= f.label :student_number, "学生ID" %>
+      <%= f.text_field :student_number %>
+    </div>
+    <div>
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password %>
+    </div>
+    <div>
+      <%= f.submit "ログイン" %>
+    </div>
+  <% end %>
+</div>
