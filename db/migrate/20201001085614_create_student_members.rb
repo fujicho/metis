@@ -1,7 +1,7 @@
 class CreateStudentMembers < ActiveRecord::Migration[6.0]
   def change
     create_table :student_members do |t|
-      t.string :student_number, null: false # 学生ID
+      t.string :student_number, null: false # 8桁の学生ID
       t.string :email # メールアドレス
       t.string :family_name, null: false # 姓
       t.string :given_name, null: false # 名
