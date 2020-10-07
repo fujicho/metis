@@ -1,4 +1,4 @@
-class Student::TopController < ApplicationController
+class Student::TopController < Student::Base
   def index
     render action: "index"
   end
