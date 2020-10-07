@@ -1,5 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe StudentMember, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#password=" do
+    example "文字列を与えるとhashed_passwordは長さ60の文字列になる" do
+      member = StudentMember.new
+      member.password = "password"
+      expect(member.hashed_password).to be_kind_of(String)
+      expect(member.hashed_password.size).to eq(60)
+    end
+
+    example "nilを与えると、hashed_passwordはnilになる"do
+      member = StudentMember.new(hashed_password: "hohohoge")
+      member.password = nil
+      expect(member.hashed_password).to be_nil
+    end
+  end
 end
