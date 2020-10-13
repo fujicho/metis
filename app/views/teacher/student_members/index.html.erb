@@ -1,0 +1,12 @@
+<% @title = "生徒一覧"  %>
+<h1><%= @title %></h1>
+
+<% @student_members.each do |m|  %>
+  <%= m.family_name %>
+  <%= m.given_name %>
+  <%= m.grade %>
+  <%= m.a_class %>
+  <%= link_to "編集", [ :edit, :teacher , m ] %>
+  <%= link_to "削除", [ :teacher , m ], method: :delete, 
+    data: { confirm: "本当に削除しますか？" }%>
+<% end %>
