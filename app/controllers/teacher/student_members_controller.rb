@@ -1,5 +1,10 @@
 class Teacher::StudentMembersController < Teacher::Base
   def index
-    @student_members = StudentMember.order(:family_name_kana,:given_name_kana)
+    @student_members = StudentMember.order(:grade, :a_class)
+  end
+
+  def show
+    staff_member = StaffMember.find(params[:id])
+    redirect_to [ :edit, :teacher, staff_member]
   end
 end
