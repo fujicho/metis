@@ -7,4 +7,12 @@ class Teacher::StudentMembersController < Teacher::Base
     staff_member = StaffMember.find(params[:id])
     redirect_to [ :edit, :teacher, staff_member]
   end
+
+  def new
+    @student_member = StudentMember.new
+  end
+  
+  def edit
+    @student_member = StudentMember.find(params[:id])
+  end
 end
