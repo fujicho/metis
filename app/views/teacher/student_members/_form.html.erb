@@ -11,14 +11,15 @@
 
 <%= f.label :family_name_kana, "フリガナ"  %>
 <%= f.text_field :family_name_kana, required: true  %>
+<%= f.text_field :given_name_kana, required: true  %>
 
 <% if f.object.new_record? %>
   <%= f.label :password, "パスワード"  %>
   <%= f.password_field :password, required: true  %>
 <% end %>
 
-<%= f.label :emergency_contact, "緊急連絡先"  %>
-<%= f.text_field :emergency_contact, required: true  %>
+<%= f.label :emergency_contact, "緊急連絡先" %>
+<%= f.text_field :emergency_contact, required: true %>
 
 <%= f.label :start_date, "入学日"  %>
 <%= f.date_field :start_date, required: true %>
