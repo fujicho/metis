@@ -35,4 +35,10 @@ class Teacher::StudentMembersController < Teacher::Base
       render action: "edit"
     end
   end
+
+  def destroy
+    student_member = StaffMember.find(params[:id])
+    staff_member.destroy!
+    redirect_to :teacher_student_members
+  end
 end
