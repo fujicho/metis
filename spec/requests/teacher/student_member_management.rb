@@ -10,6 +10,12 @@ describe "教職員による生徒管理" do
       post teacher_student_members_url, params:{ student_member: params_hash}
       expect(response).to redirect_to(teacher_student_members_url)
     end
+
+    example "例外 ActionController::ParameterMissingが発生" do
+      expect { post teacher_student_members_url}.
+        to raise_error(ActionController::ParameterMissing)
+    end
+
   end
 
   # describe "更新" do
