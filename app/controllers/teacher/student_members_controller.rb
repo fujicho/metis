@@ -17,7 +17,7 @@ class Teacher::StudentMembersController < Teacher::Base
   end
 
   def create
-    @student_member = StudentMember.new(params[:student_member])
+    @student_member = StudentMember.new(teacher_student_params)
     if @student_member.save
       flash.notice = "学生アカウントを新規登録しました。"
       redirect_to :teacher_student_members
@@ -27,8 +27,8 @@ class Teacher::StudentMembersController < Teacher::Base
   end
 
   def update
-    @student_member = StaffMember.find(params[:id])
-    @student_member.assign_attributes(params[:student_member])
+    @student_member = StudentMember.find(params[:id])
+    @student_member.assign_attributes(teacher_student_params)
     if @student_member.save
       redirect_to :teacher_student_members
     else
@@ -40,5 +40,12 @@ class Teacher::StudentMembersController < Teacher::Base
     student_member = StaffMember.find(params[:id])
     staff_member.destroy!
     redirect_to :teacher_student_members
+  end
+
+  private def teacher_student_params
+    params.require(:student_member)
+      .permit(:student_number,:family_name,:given_name,
+        :family_name_kana,:given_name_kana,:password,:emergency_contact,
+        :start_date,:grade,:a_class,:suspended)
   end
 end
