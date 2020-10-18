@@ -18,10 +18,24 @@ describe "教職員による生徒管理" do
 
   end
 
-  # describe "更新" do
-  #   let(:student_member){ create(:student_member)}
-  #   let(:params_hash){ attributes_for(:student_member)}
+  describe "更新" do
+    let(:student_member){ create(:student_member)}
+    let(:params_hash){ attributes_for(:student_member)}
+    
+    example "suspendedフラグをセットする" do
+      params_hash.merge!(suspended: true)
+      patch teacher_student_member_url(student_member),
+        params: { student_member: params_hash}
+      student_member.reload
+      expect(student_member).to be_suspended
+    end
 
-
-  # end
+    example "hashed_passwordの書き換え不可" do
+      params_hash.delete(:password)
+      params_hash.merge!(hashed_password: "abc")
+      expect{ patch teacher_student_member_url(student_member),
+        params: { student_member: params_hash}
+      }.not_to change{ student_member.hashed_password.to_s}
+    end
+  end
 end
