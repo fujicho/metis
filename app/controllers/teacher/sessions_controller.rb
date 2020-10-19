@@ -9,7 +9,7 @@ class Teacher::SessionsController < Teacher::Base
   end
 
   def create
-    @form = Teacher::LoginForm.new(params[:teacher_login_form])
+    @form = Teacher::LoginForm.new(login_form_params)
     if @form.email.present?
       teacher_member =
         TeacherMember.find_by("LOWER(email) = ?", @form.email.downcase)
@@ -25,5 +25,9 @@ class Teacher::SessionsController < Teacher::Base
   def destroy
     session.delete(:teacher_member_id)
     redirect_to :teacher_root
+  end
+
+  private def login_form_params
+    params.require(:teacher_login_form).permit(:email, :password)
   end
 end
