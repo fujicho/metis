@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get "login" => "sessions#new", as: :login
     resource :session, only: [ :create, :destroy ]
     resources :student_members
+    resource :account, except: [ :new, :create, :destroy ]
   end
 
   namespace :student do
