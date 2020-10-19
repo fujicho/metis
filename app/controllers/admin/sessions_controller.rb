@@ -9,7 +9,7 @@ class Admin::SessionsController < Admin::Base
   end
 
   def create
-    @form = Admin::LoginForm.new(params[:admin_login_form])
+    @form = Admin::LoginForm.new(login_form_params)
     if @form.admin_number.present?
       administrator =
         Administrator.find_by(admin_number: @form.admin_number)
@@ -25,5 +25,9 @@ class Admin::SessionsController < Admin::Base
   def destroy
     session.delete(:administrator_id)
     redirect_to :admin_root
+  end
+
+  private def login_form_params
+    params.require(:admin_login_form).permit(:admin_number,:password)
   end
 end

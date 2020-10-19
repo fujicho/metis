@@ -1,0 +1,34 @@
+<h3>基本情報入力</h3>
+
+<%= f.label :student_number, "学生番号"  %>
+<%= f.text_field :student_number, required: true  %>
+
+<%= f.label :family_name, "名字"  %>
+<%= f.text_field :family_name, required: true  %>
+
+<%= f.label :given_name, "名前"  %>
+<%= f.text_field :given_name, required: true  %>
+
+<%= f.label :family_name_kana, "フリガナ"  %>
+<%= f.text_field :family_name_kana, required: true  %>
+<%= f.text_field :given_name_kana, required: true  %>
+
+<% if f.object.new_record? %>
+  <%= f.label :password, "パスワード"  %>
+  <%= f.password_field :password, required: true  %>
+<% end %>
+
+<%= f.label :emergency_contact, "緊急連絡先" %>
+<%= f.text_field :emergency_contact, required: true %>
+
+<%= f.label :start_date, "入学日"  %>
+<%= f.date_field :start_date, required: true %>
+
+<%= f.label :grade, "学年" %>
+<%= f.text_field :grade, required: true  %>
+
+<%= f.label :a_class, "クラス"  %>
+<%= f.text_field :a_class, required: true  %>
+
+<%= f.check_box :suspended %>
+<%= f.label :suspended, "アカウント停止" %>

@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   namespace :teacher do
     root "top#index"
     get "login" => "sessions#new", as: :login
-    post "session" => "sessions#create", as: :session
-    delete "session" => "sessions#destroy"
+    resource :session, only: [ :create, :destroy ]
+    resources :student_members
   end
 
   namespace :student do
