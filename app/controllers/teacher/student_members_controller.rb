@@ -4,7 +4,7 @@ class Teacher::StudentMembersController < Teacher::Base
   end
 
   def show
-    staff_member = StaffMember.find(params[:id])
+    student_member = StudentMember.find(params[:id])
     redirect_to [ :edit, :teacher, staff_member]
   end
 
@@ -37,7 +37,7 @@ class Teacher::StudentMembersController < Teacher::Base
   end
 
   def destroy
-    student_member = StaffMember.find(params[:id])
+    student_member = StudentMember.find(params[:id])
     staff_member.destroy!
     redirect_to :teacher_student_members
   end
