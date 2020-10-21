@@ -1,4 +1,6 @@
 class Teacher::SessionsController < Teacher::Base
+  skip_before_action :authorize
+  
   def new
     if current_teacher_member
       redirect_to :teacher_root
