@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory:student_member do
+  factory :student_member do
     sequence(:student_number){|n|"0000000#{n}"}
     family_name{"山岡"}
     given_name{"凜"}
