@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory:teacher_member do
+  factory :teacher_member do
     sequence(:email){|n|"member#{n}@example.com"}
     family_name{"山田"}
     given_name{"太郎"}
