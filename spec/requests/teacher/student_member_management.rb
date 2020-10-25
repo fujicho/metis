@@ -1,5 +1,9 @@
 require "rails_helper"
 
+describe "管理者による職員管理","ログイン前" do
+  include_examples "a protected teacher controller","teacher/student_members"
+end
+
 describe "教職員による生徒管理" do
   let(:teacher_member){ create(:teacher_member)}
 
