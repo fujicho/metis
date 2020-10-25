@@ -1,5 +1,9 @@
 require "rails_helper"
 
+describe "教職員による自分のアカウント管理","ログイン前" do
+  include_examples "a protected singular teacher controller","teacher/accounts"
+end
+
 describe "教職員による自身のアカウント管理" do
   before do
     post teacher_session_url,
