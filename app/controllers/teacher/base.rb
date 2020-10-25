@@ -5,7 +5,7 @@ class Teacher::Base < ApplicationController
 
   private def authorize
     unless current_teacher_member
-      redirect_to :teahcer_login
+      redirect_to :teacher_login
     end
   end
 
