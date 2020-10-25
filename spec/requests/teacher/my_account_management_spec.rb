@@ -28,6 +28,12 @@ describe "教職員による自身のアカウント管理" do
       get teacher_account_url
       expect(response).to redirect_to(:teacher_root)
     end
+
+    example "セッションタイムアウト" do
+      travel_to Teacher::Base::TIMEOUT.from_now.advance(seconds: 1)
+      get teacher_account_url
+      expect(response).to redirect_to(:teacher_login)
+    end
   end
 
   describe "更新" do
