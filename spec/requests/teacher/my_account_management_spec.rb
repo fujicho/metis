@@ -1,5 +1,9 @@
 require "rails_helper"
 
+describe "教職員による自分のアカウント管理","ログイン前" do
+  include_examples "a protected singular teacher controller","teacher/accounts"
+end
+
 describe "教職員による自身のアカウント管理" do
   before do
     post teacher_session_url,
@@ -9,6 +13,27 @@ describe "教職員による自身のアカウント管理" do
           password: "pw"
         }
       }
+  end
+
+  describe "情報表示" do
+    let(:teacher_member){create(:teacher_member)}
+
+    example "成功" do
+      get teacher_account_url
+      expect(response.status).to eq(200)
+    end
+
+    example "停止フラグがセットされたら強制的にログアウト" do
+      teacher_member.update_column(:suspended, true)
+      get teacher_account_url
+      expect(response).to redirect_to(:teacher_root)
+    end
+
+    example "セッションタイムアウト" do
+      travel_to Teacher::Base::TIMEOUT.from_now.advance(seconds: 1)
+      get teacher_account_url
+      expect(response).to redirect_to(:teacher_login)
+    end
   end
 
   describe "更新" do

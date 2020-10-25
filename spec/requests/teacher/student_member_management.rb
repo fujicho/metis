@@ -1,7 +1,21 @@
 require "rails_helper"
 
+describe "管理者による職員管理","ログイン前" do
+  include_examples "a protected teacher controller","teacher/student_members"
+end
+
 describe "教職員による生徒管理" do
   let(:teacher_member){ create(:teacher_member)}
+
+  before do
+    post teacher_session_url
+      params: {
+        teacher_login_form: {
+          email: member0@example.com,
+          password: "pw"
+        }
+      }
+  end
 
   describe "新規登録" do
     let(:params_hash){ attributes_for(:student_member)}

@@ -1,4 +1,6 @@
 class Teacher::SessionsController < Teacher::Base
+  skip_before_action :authorize
+  
   def new
     if current_teacher_member
       redirect_to :teacher_root
@@ -16,6 +18,7 @@ class Teacher::SessionsController < Teacher::Base
     end
     if Teacher::Authenticator.new(teacher_member).authenticate(@form.password)
       session[:teacher_member_id] = teacher_member.id
+      session[:last_access_time] = Time.current
       redirect_to :teacher_root
     else
       render action: "new"
