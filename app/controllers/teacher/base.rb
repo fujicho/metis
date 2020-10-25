@@ -31,7 +31,7 @@ class Teacher::Base < ApplicationController
         session[:last_access_time] = Time.current
       else
         session.delete(:teacher_member_id)
-        redirect_to :teahcer_login
+        redirect_to :teacher_login
       end
     end
   end
