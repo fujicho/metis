@@ -7,4 +7,10 @@ class StudentMember < ApplicationRecord
       self.hashed_password = nil
     end
   end
+
+  def active?
+    !suspended? && start_date <= Date.today &&
+    ( graduation_date.nil? || end_date > Date.today)
+  end
+
 end
