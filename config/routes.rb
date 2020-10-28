@@ -13,7 +13,10 @@ Rails.application.routes.draw do
       root "top#index"
       get "login" => "sessions#new", as: :login
       resource :session, only: [ :create, :destroy ]
-      resources :student_members
+      resources :student_members do
+        resources :student_events, only: [:index]
+      end
+      resources :student_events, only: [:index]
       resource :account, except: [ :new, :create, :destroy ]
     end
   end
