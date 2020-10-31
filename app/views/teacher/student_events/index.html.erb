@@ -1,0 +1,10 @@
+<% 
+  if @student_member
+    full_name = @student_member.family_name + @student_member.given_name 
+  else
+    @title = "生徒のログインログアウト記録"
+  end
+%>
+<%= link_to "生徒一覧", :teacher_student_members %>
+
+<%= render: partial: "event", collection: @events %>
