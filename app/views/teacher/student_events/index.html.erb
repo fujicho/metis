@@ -7,4 +7,8 @@
 %>
 <%= link_to "生徒一覧", :teacher_student_members %>
 
-<%= render: partial: "event", collection: @events %>
+<%= render partial: "event", collection: @events %>
+<% if @events.empty? %>
+  記録がありません。
+<% end %>
+<%= link_to "生徒一覧", :teacher_student_members %>
