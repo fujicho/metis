@@ -11,4 +11,5 @@
 <% if @events.empty? %>
   記録がありません。
 <% end %>
+<%= paginate @events %>
 <%= link_to "生徒一覧", :teacher_student_members %>
