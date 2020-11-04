@@ -6,6 +6,7 @@ class Teacher::StudentEventsController < Teacher::Base
     else
       @events = StudentEvent.order(occurred_at: :desc)
     end
+    @events = @events.includes(:member)
     @events = @events.page(params[:page])
   end
 end
