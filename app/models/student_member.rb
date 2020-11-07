@@ -8,6 +8,7 @@ class StudentMember < ApplicationRecord
     self.given_name = normalize_as_name(given_name)
     self.family_name_kana = normalize_as_furigana(family_name_kana)
     self.given_name_kana = normalize_as_furigana(given_name_kana)
+    self.student_number = normalize_as_id_number(student_number)
   end
 
 
