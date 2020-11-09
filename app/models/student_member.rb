@@ -13,7 +13,7 @@ class StudentMember < ApplicationRecord
   end
 
 
-  KATAKANA_REXAP = /\A[\p{katakana}\i{30fc}]+\z/
+  KATAKANA_REXAP = /\A[\p{katakana}\u{30fc}]+\z/
 
   validates :family_name, :given_name, presence: true
   validates :family_name_kana, :given_name_kana, presence: true,
