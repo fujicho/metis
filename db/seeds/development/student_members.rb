@@ -41,7 +41,7 @@ given_names = %w{
     family_name_kana: fn[1],
     given_name_kana: gn[1],
     password: "password",
-    emergency_contact: "03xxxxxxxx",
+    emergency_contact: "0300000000",
     start_date: (100 - n).days.ago.to_date,
     suspended: n == 1,
     grade: rand(1..3),
