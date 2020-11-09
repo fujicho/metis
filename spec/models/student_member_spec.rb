@@ -32,9 +32,9 @@ RSpec.describe StudentMember, type: :model do
       expect(student.family_name_kana).to eq("フジタ")
     end
 
-    # example "stundent_numberの全角数字を半角文字に変換" do
-    #   student = create(:student_member, student_number: "００００００００")
-    #   expect(student.student_number).to eq("00000000")
+    example "family_name_kanaに含まれる半角カナを全角カナに変換" do
+      student = create(:student_member, family_name_kana: "ﾌｼﾞﾀ")
+      expect(student.family_name_kana).to eq("フジタ")
     end
   end
 end
