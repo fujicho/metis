@@ -36,5 +36,27 @@ RSpec.describe StudentMember, type: :model do
       student = create(:student_member, family_name_kana: "ﾌｼﾞﾀ")
       expect(student.family_name_kana).to eq("フジタ")
     end
+
+    example "emergency_contactの前後の空白を除去" do
+      student = create(:student_member, emergency_contact: " 0300000000 ")
+      expect(student.emergency_contact).to eq("0300000000")
+    end
+
+    example "emergency_contactの全角数字を半角文字に変換" do
+      student = create(:student_member, emergency_contact: "０３００００００００")
+      expect(student.emergency_contact).to eq("0300000000")
+    end
+  end
+
+  describe "バリデーション" do
+    example "family_name_kanaに漢字が含まれていた場合無効" do
+      student = build(:student_member, family_name_kana: "ふじ田")
+      expect(student).not_to be_valid
+    end
+
+    example "family_name_kanaに長音符が含まれていても有効" do
+      student = build(:student_member, family_name_kana: "トミー")
+      expect(student).to be_valid
+    end
   end
 end
