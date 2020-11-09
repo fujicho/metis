@@ -9,7 +9,7 @@ class StudentMember < ApplicationRecord
     self.family_name_kana = normalize_as_furigana(family_name_kana)
     self.given_name_kana = normalize_as_furigana(given_name_kana)
     self.student_number = normalize_as_id_number(student_number)
-    self.emergency_number = normalize_as_id_number(emergency_number)
+    self.emergency_contact = normalize_as_id_number(emergency_contact)
   end
 
 
@@ -19,7 +19,7 @@ class StudentMember < ApplicationRecord
   validates :family_name_kana, :given_name_kana, presence: true,
     format: { with: KATAKANA_REXAP, allow_blank: true }
   validates :student_number, presence: true
-  validates :emergency_number, presence: true
+  validates :emergency_contact, presence: true
 
   def password=(raw_password)
     if raw_password.kind_of?(String)
