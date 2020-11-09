@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_26_111508) do
+ActiveRecord::Schema.define(version: 2020_11_09_033116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 2020_10_26_111508) do
     t.string "family_name_kana", null: false
     t.string "given_name_kana", null: false
     t.integer "birth_day"
-    t.integer "telephone_number"
-    t.integer "emergency_contact", null: false
+    t.string "telephone_number"
+    t.string "emergency_contact", null: false
     t.string "hashed_password"
     t.integer "grade"
     t.integer "a_class"
