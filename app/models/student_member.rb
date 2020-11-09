@@ -1,4 +1,26 @@
 class StudentMember < ApplicationRecord
+  include StringNormalizer
+
+  has_many :events, class_name: "StudentEvent", dependent: :destroy
+
+  before_validation do
+    self.family_name = normalize_as_name(family_name)
+    self.given_name = normalize_as_name(given_name)
+    self.family_name_kana = normalize_as_furigana(family_name_kana)
+    self.given_name_kana = normalize_as_furigana(given_name_kana)
+    self.student_number = normalize_as_id_number(student_number)
+    self.emergency_contact = normalize_as_id_number(emergency_contact)
+  end
+
+
+  KATAKANA_REXAP = /\A[\p{katakana}\u{30fc}]+\z/
+
+  validates :family_name, :given_name, presence: true
+  validates :family_name_kana, :given_name_kana, presence: true,
+    format: { with: KATAKANA_REXAP, allow_blank: true }
+  validates :student_number, presence: true
+  validates :emergency_contact, presence: true
+
   def password=(raw_password)
     if raw_password.kind_of?(String)
       self.hashed_password = BCrypt::Password.create(raw_password)
@@ -6,4 +28,10 @@ class StudentMember < ApplicationRecord
       self.hashed_password = nil
     end
   end
+
+  def active?
+    !suspended? && start_date <= Date.today &&
+    ( graduation_date.nil? || end_date > Date.today)
+  end
+
 end

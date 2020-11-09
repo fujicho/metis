@@ -1,0 +1,7 @@
+<% unless @student_member  %>
+
+<%= link_to(event.member.family_name + event.member.given_name, [ :teacher, event.member, :student_events]) %>
+
+<% end %>
+<%= event.description %>
+<%= event.occurred_at.strftime("%Y/%m/%d%H:%M:%S") %>

@@ -3,4 +3,5 @@
 
 <ul>
   <li><%= link_to "学生管理", :teacher_student_members %></li>
+  <li><%= link_to "生徒のログイン、ログアウト記録", :teacher_student_events if current_teacher_member %></li>
 </ul>
