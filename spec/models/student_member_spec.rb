@@ -58,5 +58,15 @@ RSpec.describe StudentMember, type: :model do
       student = build(:student_member, family_name_kana: "トミー")
       expect(student).to be_valid
     end
+
+    example "family_nameに英字が含まれていても有効" do
+      student = build(:student_member, family_name: "tomy")
+      expect(student).to be_valid
+    end
+
+    example "family_name_kanaに長音符が含まれていても有効" do
+      student = build(:student_member, family_name: "@藤田")
+      expect(student).not_to be_valid
+    end
   end
 end
