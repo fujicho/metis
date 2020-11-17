@@ -14,8 +14,10 @@ class StudentMember < ApplicationRecord
 
 
   KATAKANA_REXAP = /\A[\p{katakana}\u{30fc}]+\z/
+  HUMAN_NAME_REXAP = /\A[\p{han}\p{hiragana}\p{katakana}\u{30fc}A-Za-z]+\z/
 
-  validates :family_name, :given_name, presence: true
+  validates :family_name, :given_name, presence: true,
+    format: { with: HUMAN_NAME_REXAP, allow_blank: true}
   validates :family_name_kana, :given_name_kana, presence: true,
     format: { with: KATAKANA_REXAP, allow_blank: true }
   validates :student_number, presence: true
