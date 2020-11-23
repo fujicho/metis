@@ -1,6 +1,7 @@
 class Teacher::AccountsController < Teacher::Base
   def show
     @teacher_member = current_teacher_member
+    @teacher_address = @teacher_member.address
   end
 
   def edit
