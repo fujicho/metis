@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_09_033116) do
+ActiveRecord::Schema.define(version: 2020_11_17_113122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.bigint "teacher_member_id", null: false
+    t.string "postal_code", null: false
+    t.string "prefecture", null: false
+    t.string "city", null: false
+    t.string "address1", null: false
+    t.string "address2"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["teacher_member_id"], name: "index_addresses_on_teacher_member_id"
+  end
 
   create_table "administrators", force: :cascade do |t|
     t.string "admin_number", null: false
@@ -60,7 +72,10 @@ ActiveRecord::Schema.define(version: 2020_11_09_033116) do
     t.string "given_name_kana", null: false
     t.string "hashed_password"
     t.string "subject"
-    t.integer "homeroom"
+    t.string "gender"
+    t.string "homeroom_1"
+    t.string "homeroom_2"
+    t.date "birthday"
     t.date "start_date", null: false
     t.date "end_date"
     t.boolean "suspended", default: false, null: false
@@ -70,5 +85,6 @@ ActiveRecord::Schema.define(version: 2020_11_09_033116) do
     t.index ["family_name_kana", "given_name_kana"], name: "index_teacher_members_on_family_name_kana_and_given_name_kana"
   end
 
+  add_foreign_key "addresses", "teacher_members"
   add_foreign_key "student_events", "student_members"
 end
