@@ -72,7 +72,10 @@ ActiveRecord::Schema.define(version: 2020_11_17_113122) do
     t.string "given_name_kana", null: false
     t.string "hashed_password"
     t.string "subject"
-    t.integer "homeroom"
+    t.string "gender"
+    t.string "homeroom_1"
+    t.string "homeroom_2"
+    t.date "birthday"
     t.date "start_date", null: false
     t.date "end_date"
     t.boolean "suspended", default: false, null: false
