@@ -1,5 +1,6 @@
 class Address < ApplicationRecord
   belongs_to :teacher_member
+  belongs_to :student_member
 
   PREFECTURE_NAMES = %w(
     北海道
