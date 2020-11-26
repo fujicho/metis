@@ -1,0 +1,2 @@
+class StudentMemberAddress < ApplicationRecord
+end
