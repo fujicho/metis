@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_17_113122) do
+ActiveRecord::Schema.define(version: 2020_11_24_141735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,20 @@ ActiveRecord::Schema.define(version: 2020_11_17_113122) do
     t.datetime "created_at", null: false
     t.index ["created_at"], name: "index_student_events_on_created_at"
     t.index ["student_member_id", "created_at"], name: "index_student_events_on_student_member_id_and_created_at"
+  end
+
+  create_table "student_member_addresses", force: :cascade do |t|
+    t.bigint "student_member_id", null: false
+    t.string "type", null: false
+    t.string "postal_code", null: false
+    t.string "prefecture", null: false
+    t.string "city", null: false
+    t.string "address1", null: false
+    t.string "address2"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["student_member_id"], name: "index_student_member_addresses_on_student_member_id"
+    t.index ["type", "student_member_id"], name: "index_student_member_addresses_on_type_and_student_member_id", unique: true
   end
 
   create_table "student_members", force: :cascade do |t|
@@ -87,4 +101,5 @@ ActiveRecord::Schema.define(version: 2020_11_17_113122) do
 
   add_foreign_key "addresses", "teacher_members"
   add_foreign_key "student_events", "student_members"
+  add_foreign_key "student_member_addresses", "student_members"
 end
