@@ -1,0 +1,3 @@
+class ParentsAddress < StudentAddress
+  
+end
