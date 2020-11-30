@@ -7,9 +7,10 @@ class CreateStudentMembers < ActiveRecord::Migration[6.0]
       t.string :given_name, null: false # 名
       t.string :family_name_kana, null: false # 姓(カナ)
       t.string :given_name_kana, null: false # 名(カナ)
+      t.string :gender #性別
       t.integer :birth_day #6桁の数字での生年月日
-      t.integer :telephone_number #電話番号
-      t.integer :emergency_contact, null: false #緊急連絡先
+      t.string :telephone_number #電話番号
+      t.string :emergency_contact, null: false #緊急連絡先
       t.string :hashed_password # パスワード
       t.integer :grade #学年
       t.integer :a_class #クラス
