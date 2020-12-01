@@ -1,3 +1,3 @@
-class ParentsAddress < StudentAddress
+class ParentsAddress < StudentMemberAddress
   
 end
