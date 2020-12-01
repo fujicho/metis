@@ -64,7 +64,8 @@ ActiveRecord::Schema.define(version: 2020_11_24_141735) do
     t.string "given_name", null: false
     t.string "family_name_kana", null: false
     t.string "given_name_kana", null: false
-    t.integer "birth_day"
+    t.string "gender"
+    t.string "birth_day"
     t.string "telephone_number"
     t.string "emergency_contact", null: false
     t.string "hashed_password"
