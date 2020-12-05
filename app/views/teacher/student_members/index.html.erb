@@ -6,6 +6,7 @@
   <%= m.given_name %>
   <%= m.grade %>
   <%= m.a_class %>
+  <%= link_to "詳細", [ :teacher, m ] %> |
   <%= link_to "編集", [ :edit, :teacher , m ] %> |
   <%= link_to "ログイン、ログアウト記録",[ :teacher, m, :student_events] %> | 
   <%= link_to "削除", [ :teacher , m ], method: :delete, 
