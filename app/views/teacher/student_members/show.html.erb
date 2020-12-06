@@ -1,0 +1,33 @@
+<% @title = "生徒詳細情報"  %>
+<h1><%= @title %></h1>
+
+<%= @student_member.student_number %>
+<%= @student_member.email %>
+<%= @student_member.family_name %>
+<%= @student_member.given_name %>
+<%= @student_member.family_name_kana %>
+<%= @student_member.given_name_kana %>
+<%= @student_member.gender %>
+<%= @student_member.telephone_number %>
+<%= @student_member.emergency_contact %>
+<%= @student_member.grade %>
+<%= @student_member.a_class %>
+<%= @student_member.homeroom_teacher %>
+<%= @student_member.birth_day %>
+<%= @student_member.suspended %>
+<%= @student_member.start_date %>
+<%= @student_member.home_address.postal_code %>
+<%= @student_member.home_address.prefecture %>
+<%= @student_member.home_address.city %>
+<%= @student_member.home_address.address1 %>
+<%= @student_member.home_address.address2 %>
+
+<% if @student_member.parents_address %>
+  <%= @student_member.parents_address.postal_code %>
+  <%= @student_member.parents_address.prefecture %>
+  <%= @student_member.parents_address.city %>
+  <%= @student_member.parents_address.address1 %>
+  <%= @student_member.parents_address.address2 %>
+<% end %>
+
+<%= link_to "編集", [ :edit, :teacher, :student_member ] %>
