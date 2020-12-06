@@ -4,8 +4,7 @@ class Teacher::StudentMembersController < Teacher::Base
   end
 
   def show
-    student_member = StudentMember.find(params[:id])
-    redirect_to [ :edit, :teacher, staff_member]
+    @student_member = StudentMember.find(params[:id])
   end
 
   def new
