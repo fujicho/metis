@@ -3,5 +3,5 @@
 <%= form_with model: @student_member, url: [ :teacher, @student_member] do |f| %>
   <%= render "form", f: f %>
   <%= f.submit "更新" %>
-  <%= link_to "キャンセル", :teacher_student_members %>
+  <%= link_to "生徒一覧に戻る", [ :teacher, :student_members ] %>
 <% end %>
