@@ -8,6 +8,8 @@
 #   start_date: Date.today,
 #   password: "password"
 # )
+require "date"
+
 city_names = %w(札幌市 川崎市 高崎市)
 
 family_names = %w{
@@ -35,32 +37,27 @@ given_names = %w{
   奈々美:ナナミ:nanami
   友香:ユカ:yuka
 }
-bd1_1 = Date.parse("2003/04/02")
-bd1_1 = Date.parse("2004/04/01")
-bd2_1 = Date.parse("2004/04/02")
-bd2_2 = Date.parse("2005/04/01")
-bd3_1 = Date.parse("2005/04/02")
-bd3_2 = Date.parse("2006/04/01")
 
 
-birth_day = Random.rand(bd1_1..bd3_2)
 
-def grade
-  if Date.parse("2003/04/02")..Date.parse("2004/04/01")
-    3
-  elsif Date.parse("2004/04/02").. Date.parse("2005/04/01")
-    2
-  else
-    1
-  end
-end
 
 10.times do |n|
   10.times do |m|
-
-    studentnum = sprintf("%010d", n+m)
+    
+    birth_day = Random.rand(Date.parse("2003/04/02") .. Date.parse("2006/04/01"))
+    studentnum = sprintf("%010d", n*10+m)
     fn = family_names[n].split(":")
     gn = given_names[m].split(":")
+    
+    def grade(birth_day)
+      if birth_day.between?( Date.parse("2003/04/02") , Date.parse("2004/04/01") ) 
+        3
+      elsif birth_day.between?( Date.parse("2004/04/02") , Date.parse("2005/04/01") )
+        2
+      else
+        1
+      end
+    end
 
     c = StudentMember.create!(
       student_number: studentnum,
@@ -72,11 +69,11 @@ end
       gender: m < 5 ? "male" : "female",
       telephone_number: "0#{rand(0..9)}0#{rand(1_000_000..99_999_999)}",
       emergency_contact: "0#{rand(0..9)}0#{rand(1_000_000..99_999_999)}",
-      grade: grade,
       a_class: rand(1..3),
       homeroom_teacher: "藤田",
       password: "password",
       birth_day: birth_day,
+      grade: grade(birth_day),
       suspended: n == 1,
       start_date: Date.today
     )
@@ -99,22 +96,3 @@ end
     end
   end
 end
-
-# 56.times do |n|
-#   fn = family_names[n % 8].split(":")
-#   gn = given_names[n % 7].split(":")
-
-#   StudentMember.create!(
-#     student_number: "0000000#{n}",
-#     family_name: fn[0],
-#     given_name: gn[0],
-#     family_name_kana: fn[1],
-#     given_name_kana: gn[1],
-#     password: "password",
-#     emergency_contact: "0300000000",
-#     start_date: (100 - n).days.ago.to_date,
-#     suspended: n == 1,
-#     grade: rand(1..3),
-#     a_class: rand(1..3)
-#   )
-# end
