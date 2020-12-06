@@ -14,13 +14,19 @@
 <%= @student_member.a_class %>
 <%= @student_member.homeroom_teacher %>
 <%= @student_member.birth_day %>
-<%= @student_member.suspended %>
 <%= @student_member.start_date %>
 <%= @student_member.home_address.postal_code %>
 <%= @student_member.home_address.prefecture %>
 <%= @student_member.home_address.city %>
 <%= @student_member.home_address.address1 %>
 <%= @student_member.home_address.address2 %>
+<% unless @student_member.suspended %>
+  <p>このアカウントは有効です。</p>
+<% else %>
+  <p>このアカウントは停止されています。</p>
+<% end %>
+
+<%= @student_member.suspended %>
 
 <% if @student_member.parents_address %>
   <%= @student_member.parents_address.postal_code %>
