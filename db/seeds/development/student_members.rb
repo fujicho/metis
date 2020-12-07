@@ -1,13 +1,3 @@
-# StudentMember.create!(
-#   student_number: "00000000",
-#   family_name: "藤田",
-#   given_name: "太郎",
-#   family_name_kana: "フジタ",
-#   given_name_kana: "タロウ",
-#   emergency_contact: "00000000000",
-#   start_date: Date.today,
-#   password: "password"
-# )
 require "date"
 
 city_names = %w(札幌市 川崎市 高崎市)
