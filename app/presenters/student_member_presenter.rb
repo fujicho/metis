@@ -1,0 +1,3 @@
+class StudentMemberPresenter < ModelPresenter
+
+end
