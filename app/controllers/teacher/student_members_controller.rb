@@ -1,6 +1,6 @@
 class Teacher::StudentMembersController < Teacher::Base
   def index
-    @student_members = StudentMember.order(:grade, :a_class)
+    @student_members = StudentMember.order(:grade, :a_class).page(params[:page])
   end
 
   def show
@@ -8,10 +8,12 @@ class Teacher::StudentMembersController < Teacher::Base
   end
 
   def new
+    # @student_form = Teacher::StudentForm.new
     @student_member = StudentMember.new
   end
   
   def edit
+    # @student_form = Teacher::StudentForm.new(StudentMember.find(params[:id]))
     @student_member = StudentMember.find(params[:id])
   end
 
