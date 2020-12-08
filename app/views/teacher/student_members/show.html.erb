@@ -1,6 +1,7 @@
 <% @title = "生徒詳細情報"  %>
 <h1><%= @title %></h1>
 
+
 <%= @student_member.student_number %>
 <%= @student_member.email %>
 <%= @student_member.family_name %>
@@ -20,6 +21,7 @@
 <%= @student_member.home_address.city %>
 <%= @student_member.home_address.address1 %>
 <%= @student_member.home_address.address2 %>
+<%=  @student_member.suspended? ? raw("&#x2611;") : raw("&#x2610;")%>
 <% unless @student_member.suspended %>
   <p>このアカウントは有効です。</p>
 <% else %>
@@ -34,5 +36,4 @@
   <%= @student_member.parents_address.address1 %>
   <%= @student_member.parents_address.address2 %>
 <% end %>
-
 <%= link_to "編集", [ :edit, :teacher, :student_member ] %>
