@@ -1,27 +1,31 @@
 <% @title = "生徒詳細情報"  %>
 <h1><%= @title %></h1>
 
+<% p1 = StudentMemberPresenter.new(@student_member,self)  %>
+<%= p1.student_number %>
+<%= p1.email %>
+<%= p1.full_name %>
+<%= p1.full_name_kana %>
+<%= p1.gender %>
+<%= p1.telephone_number %>
+<%= p1.emergency_contact %>
+<%= p1.home_room %>
+<%= p1.homeroom_teacher %>
+<%= p1.birth_day %>
+<%= p1.start_date %>
+<%= p1.graduation_date %>
 
-<%= @student_member.student_number %>
-<%= @student_member.email %>
-<%= @student_member.family_name %>
-<%= @student_member.given_name %>
-<%= @student_member.family_name_kana %>
-<%= @student_member.given_name_kana %>
-<%= @student_member.gender %>
-<%= @student_member.telephone_number %>
-<%= @student_member.emergency_contact %>
-<%= @student_member.grade %>
-<%= @student_member.a_class %>
-<%= @student_member.homeroom_teacher %>
-<%= @student_member.birth_day %>
-<%= @student_member.start_date %>
-<%= @student_member.home_address.postal_code %>
-<%= @student_member.home_address.prefecture %>
-<%= @student_member.home_address.city %>
-<%= @student_member.home_address.address1 %>
-<%= @student_member.home_address.address2 %>
-<%=  @student_member.suspended? ? raw("&#x2611;") : raw("&#x2610;")%>
+<% if @student_member.home_address %>
+  <% p2 = AdressPresenter.new(@student_member.home_address, self)  %>
+  <%= p2.home_address.postal_code %>
+  <%= p2.home_address.prefecture %>
+  <%= p2.home_address.city %>
+  <%= p2.home_address.address1 %>
+  <%= p2.home_address.address2 %>
+<% end %>
+
+
+<%= p1.suspended_mark %>
 <% unless @student_member.suspended %>
   <p>このアカウントは有効です。</p>
 <% else %>
