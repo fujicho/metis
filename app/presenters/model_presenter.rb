@@ -27,7 +27,6 @@ class ModelPresenter
   end
 
   def birth_day
-    object.birth_day.strftime("%Y/%m/%d")
+    object.birth_day.gsub("-", "/")
   end
-
 end
