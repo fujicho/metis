@@ -16,12 +16,12 @@
 <%= p1.graduation_date %>
 
 <% if @student_member.home_address %>
-  <% p2 = AdressPresenter.new(@student_member.home_address, self)  %>
-  <%= p2.home_address.postal_code %>
-  <%= p2.home_address.prefecture %>
-  <%= p2.home_address.city %>
-  <%= p2.home_address.address1 %>
-  <%= p2.home_address.address2 %>
+  <% p2 = AddressPresenter.new(@student_member.home_address, self)  %>
+  <%= p2.postal_code %>
+  <%= p2.prefecture %>
+  <%= p2.city %>
+  <%= p2.address1 %>
+  <%= p2.address2 %>
 <% end %>
 
 
@@ -32,12 +32,13 @@
   <p>このアカウントは停止されています。</p>
 <% end %>
 
-
-<% if @student_member.parents_address %>
-  <%= @student_member.parents_address.postal_code %>
-  <%= @student_member.parents_address.prefecture %>
-  <%= @student_member.parents_address.city %>
-  <%= @student_member.parents_address.address1 %>
-  <%= @student_member.parents_address.address2 %>
+<% if @student_member.home_address %>
+  <p>保護者住所</p>
+  <% p3 = AddressPresenter.new(@student_member.parents_address, self)  %>
+  <%= p3.postal_code %>
+  <%= p3.prefecture %>
+  <%= p3.city %>
+  <%= p3.address1 %>
+  <%= p3.address2 %>
 <% end %>
 <%= link_to "編集", [ :edit, :teacher, :student_member ] %>
