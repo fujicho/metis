@@ -32,7 +32,7 @@
   <p>このアカウントは停止されています。</p>
 <% end %>
 
-<% if @student_member.home_address %>
+<% if @student_member.parents_address %>
   <p>保護者住所</p>
   <% p3 = AddressPresenter.new(@student_member.parents_address, self)  %>
   <%= p3.postal_code %>
