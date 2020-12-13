@@ -9,4 +9,11 @@ class FormPresenter
     @form_builder = form_builder
     @view_context = view_context
   end
+
+  def text_field_block(name, label_text, options= {})
+    markup(:div) do |m|
+    m << label(name, label_text, class: options[:required] ? "required" : nil)
+    m << text_field(name,options)
+    end
+  end
 end
