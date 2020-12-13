@@ -49,6 +49,16 @@ given_names = %w{
       end
     end
 
+    def start_year(birth_day)
+      if birth_day.between?( Date.parse("2003/04/02") , Date.parse("2004/04/01") ) 
+        Date.parse("2018/04/01")
+      elsif birth_day.between?( Date.parse("2004/04/02") , Date.parse("2005/04/01") )
+        Date.parse("2019/04/01")
+      else
+        Date.parse("2020/04/01")
+      end
+    end
+
     c = StudentMember.create!(
       student_number: studentnum,
       email: "#{fn[2]}.#{gn[2]}@example.jp",
@@ -65,7 +75,7 @@ given_names = %w{
       birth_day: birth_day,
       grade: grade(birth_day),
       suspended: n == 1,
-      start_date: Date.today
+      start_date: start_year(birth_day)
     )
 
     c.create_home_address!(
