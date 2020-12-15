@@ -4,6 +4,7 @@ class StudentMemberFormPresenter < FormPresenter
     markup(:div) do |m|
       m << label(name, label_text, class: options[:required] ? "required" : nil)
       m << text_field(name,options)
+      m << error_messages_for(name)
     end
   end
   
@@ -12,6 +13,8 @@ class StudentMemberFormPresenter < FormPresenter
       m << label(name1, label_text, class: options[:required] ? "required" : nil)
       m << text_field( name1, options)
       m << text_field( name2, options)
+      m << error_messages_for(name1)
+      m << error_messages_for(name2)
     end
   end
 
@@ -26,6 +29,7 @@ class StudentMemberFormPresenter < FormPresenter
     markup(:div) do |m|
       m << label(name, label_text, class: options[:required] ? "required" : nil)
       m << date_field(name,options)
+      m << error_messages_for(name)
     end
   end
   
@@ -33,6 +37,7 @@ class StudentMemberFormPresenter < FormPresenter
     markup(:div) do |m|
       m << label(name, label_text, class: options[:required] ? "required" : nil)
       m << password_field(name,options)
+      m << error_messages_for(name)
     end
   end
 end
