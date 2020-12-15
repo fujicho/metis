@@ -37,7 +37,7 @@ class StudentMember < ApplicationRecord
 
   def active?
     !suspended? && start_date <= Date.today &&
-    ( graduation_date.nil? || end_date > Date.today)
+    ( graduation_date.nil? || graduation_date > Date.today)
   end
 
 end
