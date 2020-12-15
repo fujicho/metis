@@ -3,17 +3,18 @@
 
 <% p1 = StudentMemberPresenter.new(@student_member,self)  %>
 <%= p1.student_number %>
-<%= p1.email %>
 <%= p1.full_name %>
 <%= p1.full_name_kana %>
-<%= p1.gender %>
+<%= p1.home_room %>
+<%= p1.email %>
 <%= p1.telephone_number %>
 <%= p1.emergency_contact %>
-<%= p1.home_room %>
 <%= p1.homeroom_teacher %>
+<%= p1.gender %>
 <%= p1.birth_day %>
 <%= p1.start_date %>
-<%= p1.graduation_date %>
+卒業予定
+<%= p1.graduation_date%>
 
 <% if @student_member.home_address %>
   <% p2 = AddressPresenter.new(@student_member.home_address, self)  %>
