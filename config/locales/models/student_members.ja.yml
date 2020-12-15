@@ -1,0 +1,24 @@
+ja:
+  activerecord:
+    attributes:
+      student_member:
+        student_number: 学生番号
+        email: メールアドレス
+        family_name: 氏名（姓）
+        given_name: 氏名（名）
+        family_name_kana: フリガナ（姓）
+        given_name_kana: フリガナ（名）
+        grade: 学年
+        a_class: クラス
+        telephone_number: 電話番号
+        emergency_contact: 緊急連絡先
+        homeroom_teacher: 担任名
+        start_date: 入学日
+        graduation_date: 卒業予定日
+      errors:
+        models:
+          student_member:
+            attributes:
+              email:
+                taken: が他の学生と重複しています。
+                
