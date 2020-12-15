@@ -23,8 +23,9 @@ class StudentMember < ApplicationRecord
     format: { with: HUMAN_NAME_REXAP, allow_blank: true}
   validates :family_name_kana, :given_name_kana, presence: true,
     format: { with: KATAKANA_REXAP, allow_blank: true }
-  validates :student_number, :emergency_contact, :grade, :a_class , :email,
+  validates :emergency_contact, :grade, :a_class , :email,
     :gender, :birth_day , :telephone_number, :homeroom_teacher, :start_date, presence: true
+  validates :student_number, uniqueness: true, presence: true
 
   def password=(raw_password)
     if raw_password.kind_of?(String)
