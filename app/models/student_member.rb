@@ -1,10 +1,9 @@
 class StudentMember < ApplicationRecord
+  has_many :events, class_name: "StudentEvent", dependent: :destroy
   has_one :parents_address, dependent: :destroy
   has_one :home_address, dependent: :destroy
 
   include StringNormalizer
-
-  has_many :events, class_name: "StudentEvent", dependent: :destroy
 
   before_validation do
     self.family_name = normalize_as_name(family_name)
@@ -23,9 +22,9 @@ class StudentMember < ApplicationRecord
     format: { with: HUMAN_NAME_REXAP, allow_blank: true}
   validates :family_name_kana, :given_name_kana, presence: true,
     format: { with: KATAKANA_REXAP, allow_blank: true }
-  validates :emergency_contact, :grade, :a_class , :email,
-    :gender, :birth_day , :telephone_number, :homeroom_teacher, :start_date, presence: true
-  validates :student_number, uniqueness: true, presence: true
+  validates :emergency_contact, :grade, :a_class ,
+    :gender, :birth_day, :telephone_number, :homeroom_teacher, :start_date, presence: true
+  validates :student_number, :email, uniqueness: true, presence: true
 
   def password=(raw_password)
     if raw_password.kind_of?(String)
