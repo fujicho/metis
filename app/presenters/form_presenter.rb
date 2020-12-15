@@ -27,4 +27,12 @@ class FormPresenter
       end
     end
   end
+
+  def password_field_block(name,label_text, options = {})
+    markup(:div, class: "input-block") do |m|
+      m << label(name, label_text,
+        class: options[:required] ? "required" : nil)
+      m << password_field(name, options)
+    end
+  end
 end
