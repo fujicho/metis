@@ -8,12 +8,20 @@
 
 <%= p.full_name_block( :family_name_kana, :given_name_kana, "フリガナ") %>
 
-<%= p.text_field_block(:emergency_contact, "緊急連絡先", required: true) %>
-
-<%= p.date_field_block(:start_date, "入学日", required: true) %>
-
 <%= p.text_field_block(:grade, "学年", required: true) %>
 
 <%= p.text_field_block(:a_class, "クラス", required: true) %>
+
+<%= p.text_field_block(:email, "メールアドレス", size: 25, required: true) %>
+
+<%= p.text_field_block(:telephone_number , "電話番号", required: true) %>
+
+<%= p.text_field_block(:emergency_contact , "緊急連絡先", required: true) %>
+
+<%= p.text_field_block(:homeroom_teacher , "担任名", required: true) %>
+
+<%= p.date_field_block(:start_date, "入学日", required: true) %>
+
+<%= p.date_field_block(:graduation_date, "卒業予定日", required: true) %>
 
 <%= p.suspended_check_box %>
