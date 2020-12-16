@@ -33,6 +33,7 @@ class FormPresenter
       m << label(name, label_text,
         class: options[:required] ? "required" : nil)
       m << password_field(name, options)
+      m << error_messages_for(name)
     end
   end
 end
