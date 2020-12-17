@@ -46,7 +46,7 @@ class Teacher::StudentMembersController < Teacher::Base
   private def teacher_student_params
     params.require(:student_member)
       .permit(:student_number,:family_name,:given_name,
-        :family_name_kana,:given_name_kana,:email,:grade,:a_class,:password,:emergency_contact,
+        :family_name_kana,:given_name_kana,:gender,:email,:grade,:a_class,:password,:emergency_contact,
         :telephone_number,:homeroom_teacher,:start_date,:graduation_date,:suspended)
   end
 end
