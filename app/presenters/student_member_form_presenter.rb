@@ -40,4 +40,14 @@ class StudentMemberFormPresenter < FormPresenter
       m << error_messages_for(name)
     end
   end
+
+  def gender_field_block
+    markup(:div) do |m|
+      m << label(:gender,"性別")
+      m << radio_button(:gender, "male")
+      m << label(:gender, "男性")
+      m << radio_button(:gender, "female")
+      m << label(:gender, "女性")
+    end
+  end
 end
