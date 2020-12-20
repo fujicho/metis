@@ -1,29 +1,14 @@
+<fieldset>
 <h3>基本情報入力</h3>
+<%= render "student_fields", f: f %>
+</fieldset>
 
-<% p = StudentMemberFormPresenter.new(f,self)  %>
+<fieldset>
+<h3>生徒住所入力</h3>
+<%= render "home_address_fields", f: f %>
+</fieldset>
 
-<%= p.text_field_block(:student_number, "学生番号", required: true) %>
-
-<%= p.full_name_block( :family_name, :given_name, "氏名", required: true) %>
-
-<%= p.full_name_block( :family_name_kana, :given_name_kana, "フリガナ") %>
-
-<%= p.gender_field_block %>
-
-<%= p.text_field_block(:grade, "学年", required: true) %>
-
-<%= p.text_field_block(:a_class, "クラス", required: true) %>
-
-<%= p.text_field_block(:email, "メールアドレス", size: 25, required: true) %>
-
-<%= p.text_field_block(:telephone_number , "電話番号", required: true) %>
-
-<%= p.text_field_block(:emergency_contact , "緊急連絡先", required: true) %>
-
-<%= p.text_field_block(:homeroom_teacher , "担任名", required: true) %>
-
-<%= p.date_field_block(:start_date, "入学日", required: true) %>
-
-<%= p.date_field_block(:graduation_date, "卒業予定日", required: true) %>
-
-<%= p.suspended_check_box %>
+<fieldset>
+<h3>実家住所入力</h3>
+<%= render "parents_address_fields", f: f %>
+</fieldset>
