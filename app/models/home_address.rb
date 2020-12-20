@@ -1,0 +1,3 @@
+class HomeAddress < StudentMemberAddress
+  
+end

@@ -1,19 +1,18 @@
 class Teacher::StudentMembersController < Teacher::Base
   def index
-    @student_members = StudentMember.order(:grade, :a_class)
+    @student_members = StudentMember.order(:grade, :a_class).page(params[:page])
   end
 
   def show
-    student_member = StudentMember.find(params[:id])
-    redirect_to [ :edit, :teacher, staff_member]
+    @student_member = StudentMember.find(params[:id])
   end
 
   def new
-    @student_member = StudentMember.new
+    @student_form = Teacher::StudentForm.new
   end
   
   def edit
-    @student_member = StudentMember.find(params[:id])
+    @student_form = Teacher::StudentForm.new(StudentMember.find(params[:id]))
   end
 
   def create
@@ -45,7 +44,7 @@ class Teacher::StudentMembersController < Teacher::Base
   private def teacher_student_params
     params.require(:student_member)
       .permit(:student_number,:family_name,:given_name,
-        :family_name_kana,:given_name_kana,:password,:emergency_contact,
-        :start_date,:grade,:a_class,:suspended)
+        :family_name_kana,:given_name_kana,:gender,:email,:grade,:a_class,:password,:emergency_contact,
+        :telephone_number,:homeroom_teacher,:start_date,:graduation_date,:suspended,:prefecture)
   end
 end

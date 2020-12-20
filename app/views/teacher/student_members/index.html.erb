@@ -1,15 +1,21 @@
 <% @title = "生徒一覧"  %>
 <h1><%= @title %></h1>
 
+<%= paginate @student_members %>
+
 <% @student_members.each do |m|  %>
-  <%= m.family_name %>
-  <%= m.given_name %>
-  <%= m.grade %>
-  <%= m.a_class %>
+  <% p = StudentMemberPresenter.new(m,self)  %>
+  <%= p.full_name %>
+  <%= p.gender %>
+  <%= p.home_room %>
+  <%= p.suspended_mark %>
+  <%= link_to "詳細", [ :teacher, m ] %> |
   <%= link_to "編集", [ :edit, :teacher , m ] %> |
   <%= link_to "ログイン、ログアウト記録",[ :teacher, m, :student_events] %> | 
   <%= link_to "削除", [ :teacher , m ], method: :delete, 
     data: { confirm: "本当に削除しますか？" }%>
 <% end %>
+
+<%= paginate @student_members %>
 
 <%= link_to "新規登録", :new_teacher_student_member %>

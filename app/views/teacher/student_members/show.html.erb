@@ -1,0 +1,45 @@
+<% @title = "生徒詳細情報"  %>
+<h1><%= @title %></h1>
+
+<% p1 = StudentMemberPresenter.new(@student_member,self)  %>
+<%= p1.student_number %>
+<%= p1.full_name %>
+<%= p1.full_name_kana %>
+<%= p1.home_room %>
+<%= p1.email %>
+<%= p1.telephone_number %>
+<%= p1.emergency_contact %>
+<%= p1.homeroom_teacher %>
+<%= p1.gender %>
+<%= p1.birth_day %>
+<%= p1.start_date %>
+卒業予定
+<%= p1.graduation_date%>
+
+<% if @student_member.home_address %>
+  <% p2 = AddressPresenter.new(@student_member.home_address, self)  %>
+  <%= p2.postal_code %>
+  <%= p2.prefecture %>
+  <%= p2.city %>
+  <%= p2.address1 %>
+  <%= p2.address2 %>
+<% end %>
+
+
+<%= p1.suspended_mark %>
+<% unless @student_member.suspended %>
+  <p>このアカウントは有効です。</p>
+<% else %>
+  <p>このアカウントは停止されています。</p>
+<% end %>
+
+<% if @student_member.parents_address %>
+  <p>保護者住所</p>
+  <% p3 = AddressPresenter.new(@student_member.parents_address, self)  %>
+  <%= p3.postal_code %>
+  <%= p3.prefecture %>
+  <%= p3.city %>
+  <%= p3.address1 %>
+  <%= p3.address2 %>
+<% end %>
+<%= link_to "編集", [ :edit, :teacher, :student_member ] %>

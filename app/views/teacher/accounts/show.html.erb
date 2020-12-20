@@ -1,12 +1,12 @@
 <% @title = "アカウント情報" %>
 <h1><%= @title %></h1>
 
-<%= @teacher_member.email %>
-<%= @teacher_member.family_name %>
-<%= @teacher_member.given_name %>
-<%= @teacher_member.family_name_kana %>
-<%= @teacher_member.given_name_kana %>
-<%= @teacher_address.prefecture %>
+<% p = TeacherMemberPresenter.new(@teacher_member,self)  %>
+
+<%= p.email %>
+<%= p.full_name %>
+<%= p.full_name_kana %>
+<%= @teacher_member.address.prefecture %>
 パスワード *********
 <%= link_to "アカウント情報編集", :edit_teacher_account %>
 <%= link_to "パスワード変更", :edit_teacher_password %>
