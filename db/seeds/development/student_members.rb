@@ -91,7 +91,7 @@ given_names = %w{
 
     c.create_home_address!(
       postal_code: sprintf("%07d",rand(1000000)),
-      prefecture: Address::PREFECTURE_NAMES.sample,
+      prefecture: StudentMemberAddress::PREFECTURE_NAMES.sample,
       city: city_names.sample,
       address1: "中央区中央町1-2-3",
       address2: "コーポボステリ102",
@@ -99,10 +99,10 @@ given_names = %w{
     if m % 3 == 0
       c.create_parents_address!(
         postal_code: sprintf("%07d",rand(1000000)),
-        prefecture: Address::PREFECTURE_NAMES.sample,
+        prefecture: StudentMemberAddress::PREFECTURE_NAMES.sample,
         city: city_names.sample,
         address1: "南区南町3-13",
-        address2: "パークたられば407",
+        address2: "パーク実家407",
       )
     end
   end
