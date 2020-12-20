@@ -8,13 +8,11 @@ class Teacher::StudentMembersController < Teacher::Base
   end
 
   def new
-    # @student_form = Teacher::StudentForm.new
-    @student_member = StudentMember.new
+    @student_form = Teacher::StudentForm.new
   end
   
   def edit
-    # @student_form = Teacher::StudentForm.new(StudentMember.find(params[:id]))
-    @student_member = StudentMember.find(params[:id])
+    @student_form = Teacher::StudentForm.new(StudentMember.find(params[:id]))
   end
 
   def create
@@ -47,6 +45,6 @@ class Teacher::StudentMembersController < Teacher::Base
     params.require(:student_member)
       .permit(:student_number,:family_name,:given_name,
         :family_name_kana,:given_name_kana,:gender,:email,:grade,:a_class,:password,:emergency_contact,
-        :telephone_number,:homeroom_teacher,:start_date,:graduation_date,:suspended)
+        :telephone_number,:homeroom_teacher,:start_date,:graduation_date,:suspended,:prefecture)
   end
 end
