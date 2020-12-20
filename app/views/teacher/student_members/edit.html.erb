@@ -1,6 +1,7 @@
 <h1>学生アカウントの編集</h1>
 
-<%= form_with model: @student_member, url: [ :teacher, @student_member] do |f| %>
+<%= form_with model: @student_form, scope: "form",
+  url: [ :teacher, @student_form.student_member ] do |f| %>
   <%= render "form", f: f %>
   <%= f.submit "更新" %>
   <%= link_to "生徒一覧に戻る", [ :teacher, :student_members ] %>
