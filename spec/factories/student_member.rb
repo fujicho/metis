@@ -10,7 +10,7 @@ FactoryBot.define do
     emergency_contact {"1234567890"}
     telephone_number {"1234567890"}
     password {"pw"}
-    birthday {Date.new(2003, 7, 1)}
+    birth_day {Date.new(2003, 7, 1)}
     grade {"2"}
     a_class {"3"}
     homeroom_teacher {"藤田"}
@@ -18,6 +18,6 @@ FactoryBot.define do
     start_date {Date.yesterday}
     suspended {false}
     association :home_address, strategy: :build
-    association :work_address, strategy: :build
+    association :parents_address, strategy: :build
   end
 end
