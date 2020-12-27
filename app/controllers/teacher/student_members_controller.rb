@@ -1,6 +1,6 @@
 class Teacher::StudentMembersController < Teacher::Base
   def index
-    @student_members = StudentMember.order(:id).page(params[:page])
+    @student_members = StudentMember.order(id: "DESC").page(params[:page])
   end
 
   def show
