@@ -27,8 +27,4 @@ class ModelPresenter
       ""
     end
   end
-
-  def birth_day
-    object.birth_day.gsub("-", "/")
-  end
 end
