@@ -21,7 +21,6 @@ feature "教職員による生徒管理" do
       fill_in "form_student_member_family_name_kana", with: "フジタ"
       fill_in "form_student_member_given_name_kana", with: "ヒロシゲ"
       choose "form_student_member_gender_male"
-      # find("input[value="男性"]").set(true)
       fill_in "生年月日", with: "2003-4-23"
       fill_in "学年", with: "1"
       fill_in "クラス", with: "1"
