@@ -76,6 +76,4 @@ feature "教職員による生徒管理" do
     expect(student_member.email).to eq("test@example.com")
     expect(student_member.home_address.postal_code).to eq("1111111")
   end
-
-
 end
