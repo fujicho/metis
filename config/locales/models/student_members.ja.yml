@@ -9,6 +9,7 @@ ja:
         family_name_kana: フリガナ（姓）
         given_name_kana: フリガナ（名）
         grade: 学年
+        birth_day: 生年月日
         a_class: クラス
         telephone_number: 電話番号
         emergency_contact: 緊急連絡先
