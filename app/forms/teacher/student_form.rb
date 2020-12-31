@@ -42,10 +42,12 @@ class Teacher::StudentForm
   end
 
   def save
-    ActiveRecord::Base.transaction do
-      student_member.save!
-      student_member.home_address.save!
-      student_member.parents_address.save!
+    if student_member.valid?
+      ActiveRecord::Base.transaction do
+        student_member.save!
+        student_member.home_address.save!
+        student_member.parents_address.save!
+      end
     end
   end
 end
