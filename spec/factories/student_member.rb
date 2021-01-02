@@ -7,8 +7,8 @@ FactoryBot.define do
     family_name_kana {"ヤマオカ"}
     given_name_kana {"リン"}
     gender {"female" }
-    emergency_contact {"1234567890"}
-    telephone_number {"1234567890"}
+    emergency_contact {"12345678900"}
+    telephone_number {"12345678900"}
     password {"pw"}
     birth_day {Date.new(2003, 7, 1)}
     grade {"2"}
