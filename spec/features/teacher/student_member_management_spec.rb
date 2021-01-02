@@ -62,9 +62,7 @@ feature "教職員による生徒管理" do
     click_link "学生管理"
     first("#container").click_link "編集"
 
-    # within("fieldset#student-fields") do
-      fill_in "form_student_member_email", with: "testtest@example.com"
-    # end
+    fill_in "form_student_member_email", with: "test2@example.com"
 
     within("fieldset#home-address-fields")do
       fill_in "郵便番号", with: "1000000"
@@ -75,7 +73,7 @@ feature "教職員による生徒管理" do
     student_member.reload
 
     # student = StudentMember.order(:id).last
-    expect(student_member.email).to eq("testtest@example.com")
+    expect(student_member.email).to eq("test2@example.com")
     expect(student_member.home_address.postal_code).to eq("1000000")
   end
 end
