@@ -73,5 +73,10 @@ RSpec.describe StudentMember, type: :model do
       student = build(:student_member, birth_day: Date.today + 1)
       expect(student).not_to be_valid
     end
+
+    example "郵便番号に無効な値は設定できない" do
+      student = build(:student_member.home_address, postal_code: "abc")
+      expect(student).not_to be_valid
+    end
   end
 end
