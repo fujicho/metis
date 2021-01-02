@@ -41,8 +41,13 @@ class Teacher::StudentForm
     )
   end
 
+  def valid?
+    [ student_member, student_member.home_address,
+      student_member.parents_address].map(&:valid?).all?
+  end
+
   def save
-    if student_member.valid?
+    if valid?
       ActiveRecord::Base.transaction do
         student_member.save!
         student_member.home_address.save!
