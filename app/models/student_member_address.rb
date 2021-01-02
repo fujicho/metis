@@ -22,6 +22,6 @@ class StudentMemberAddress < ApplicationRecord
     日本国外
   )
 
-  validates :postal_code, format: { with: /\A\dd{7}\z/}
+  validates :postal_code, format: { with: /\A\d{7}\z/}
   validates :prefecture, inclusion:{ in: PREFECTURE_NAMES }
 end
