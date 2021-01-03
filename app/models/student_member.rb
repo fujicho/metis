@@ -1,7 +1,7 @@
 class StudentMember < ApplicationRecord
   has_many :events, class_name: "StudentEvent", dependent: :destroy
-  has_one :parents_address, dependent: :destroy
-  has_one :home_address, dependent: :destroy
+  has_one :parents_address, dependent: :destroy, autosave: true
+  has_one :home_address, dependent: :destroy, autosave: true
 
   include StringNormalizer
 
