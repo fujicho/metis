@@ -2,7 +2,7 @@ class Teacher::StudentForm
   include ActiveModel::Model
 
   attr_accessor :student_member
-  delegate :persisted?, to: :student_member
+  delegate :persisted?, :save, to: :student_member
 
   def initialize(student_member = nil)
     @student_member = student_member
@@ -41,18 +41,7 @@ class Teacher::StudentForm
     )
   end
 
-  def valid?
-    [ student_member, student_member.home_address,
-      student_member.parents_address].map(&:valid?).all?
-  end
-
   def save
-    if valid?
-      ActiveRecord::Base.transaction do
-        student_member.save!
-        student_member.home_address.save!
-        student_member.parents_address.save!
-      end
-    end
+    student_member.save
   end
 end
