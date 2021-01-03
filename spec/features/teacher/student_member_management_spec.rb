@@ -72,8 +72,27 @@ feature "教職員による生徒管理" do
 
     student_member.reload
 
-    # student = StudentMember.order(:id).last
     expect(student_member.email).to eq("test2@example.com")
     expect(student_member.home_address.postal_code).to eq("1000000")
+  end
+
+  scenario "教職員が生徒情報、住所を更新する際、student_memberに適切、
+    student_member.home_addressに不適切な値を入れた場合、両方とも更新されない" do
+    
+    click_link "学生管理"
+    first("#container").click_link "編集"
+
+    fill_in "form_student_member_email", with: "test@example.com"
+
+    within("fieldset#home-address-fields")do
+      fill_in "郵便番号", with: "abc"
+    end
+
+    click_button "更新"
+
+    student_member.reload
+
+    expect(student_member.email).not_to eq("test@example.com")
+    expect(student_member.home_address.postal_code).not_to eq("abc")
   end
 end
