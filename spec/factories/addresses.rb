@@ -8,7 +8,7 @@ FactoryBot.define do
   end
 
   factory :parents_address do
-    postal_code { "22222222"}
+    postal_code { "2222222"}
     prefecture { "北海道" }
     city { "豊平区" }
     address1 { "おすし1-1" }
