@@ -5,6 +5,7 @@ class StudentMember < ApplicationRecord
 
   include StringNormalizer
   include PersonalNameHolder
+  include EmailHolder
 
   before_validation do
     self.student_number = normalize_as_id_number(student_number)
