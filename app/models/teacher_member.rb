@@ -1,7 +1,8 @@
 class TeacherMember < ApplicationRecord
   include StringNormalizer
   include PersonalNameHolder
-  
+  include EmailHolder
+
   has_one :address, dependent: :destroy
   
   def password=(raw_password)
