@@ -1,8 +1,16 @@
 class StudentMemberAddress < ApplicationRecord
+  include StringNormalizer
+  
   belongs_to :student_member
 
+  before_validation do
+    self.postal_code = normalize_as_postal_code(postal_code)
+    self.city = normalize_as_name(city) 
+    self.address1 = normalize_as_name(address1)
+    self.address2 = normalize_as_name(address2)
+  end
+
   PREFECTURE_NAMES = %w(
-    北海道
     北海道
     青森県 岩手県 宮城県 秋田県 山形県 福島県
     茨城県 栃木県 群馬県 埼玉県 千葉県 東京都 神奈川県
@@ -13,4 +21,7 @@ class StudentMemberAddress < ApplicationRecord
     沖縄県
     日本国外
   )
+
+  validates :postal_code, format: { with: /\A\d{7}\z/, allow_blank: true}
+  validates :prefecture, inclusion:{ in: PREFECTURE_NAMES, allow_blank: true}
 end

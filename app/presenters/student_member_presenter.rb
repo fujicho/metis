@@ -1,6 +1,6 @@
 class StudentMemberPresenter < ModelPresenter
   delegate :suspended?,:email ,:student_number, :homeroom_teacher,
-    :emergency_contact, :telephone_number, to: :object
+    :emergency_contact, :telephone_number, :birth_day,to: :object
 
   def suspended_mark
     suspended? ? raw("&#x2611;") : raw("&#x2610;")
@@ -16,5 +16,9 @@ class StudentMemberPresenter < ModelPresenter
 
   def graduation_date
     object.graduation_date.try(:strftime,"%Y/%m/%d")
+  end
+
+  def birth_day
+    object.birth_day.strftime("%Y/%m/%d")
   end
 end

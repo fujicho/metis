@@ -2,7 +2,7 @@ class Teacher::StudentForm
   include ActiveModel::Model
 
   attr_accessor :student_member
-  delegate :persisted?, to: :student_member
+  delegate :persisted?, :save, to: :student_member
 
   def initialize(student_member = nil)
     @student_member = student_member
@@ -21,7 +21,7 @@ class Teacher::StudentForm
   private def student_member_params
     @params.require(:student_member).permit(
       :student_number,:family_name,:given_name,
-      :family_name_kana,:given_name_kana,:gender,:email,:grade,
+      :family_name_kana,:given_name_kana,:gender,:birth_day,:email,:grade,
       :a_class,:password,:emergency_contact,
       :telephone_number,:homeroom_teacher,
       :start_date,:graduation_date,:suspended)
@@ -42,10 +42,6 @@ class Teacher::StudentForm
   end
 
   def save
-    ActiveRecord::Base.transaction do
-      student_member.save!
-      student_member.home_address.save!
-      student_member.parents_address.save!
-    end
+    student_member.save
   end
 end

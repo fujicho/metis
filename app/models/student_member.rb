@@ -1,7 +1,7 @@
 class StudentMember < ApplicationRecord
   has_many :events, class_name: "StudentEvent", dependent: :destroy
-  has_one :parents_address, dependent: :destroy
-  has_one :home_address, dependent: :destroy
+  has_one :parents_address, dependent: :destroy, autosave: true
+  has_one :home_address, dependent: :destroy, autosave: true
 
   include StringNormalizer
 
@@ -20,10 +20,12 @@ class StudentMember < ApplicationRecord
 
   validates :family_name, :given_name, presence: true,
     format: { with: HUMAN_NAME_REXAP, allow_blank: true}
+  validates :birth_day, date: {before: ->(obj) { Date.today }, presence: true}
+  validates :gender, inclusion: { in: %w(male female), presence: true}
   validates :family_name_kana, :given_name_kana, presence: true,
     format: { with: KATAKANA_REXAP, allow_blank: true }
   validates :emergency_contact, :grade, :a_class ,
-    :gender, :birth_day, :telephone_number, :homeroom_teacher, :start_date, presence: true
+    :gender,:telephone_number, :homeroom_teacher, :start_date, presence: true
   validates :student_number, :email, uniqueness: true, presence: true
 
   def password=(raw_password)
