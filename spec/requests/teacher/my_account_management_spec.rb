@@ -10,7 +10,7 @@ describe "教職員による自身のアカウント管理" do
       params: {
         teacher_login_form: {
           email: teacher_member.email,
-          password: "pw"
+          password: "password"
         }
       }
   end
