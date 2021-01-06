@@ -9,8 +9,8 @@ class Teacher::StudentForm
     @student_member ||= StudentMember.new(gender: "male")
     @student_member.build_home_address unless @student_member.home_address
     @student_member.build_parents_address unless @student_member.parents_address
-    self.home_address = @student_member.home_address.present?
-    self.parents_address = @student_member.parents_address.present?
+    self.inputs_home_address = @student_member.home_address.present?
+    self.inputs_parents_address = @student_member.parents_address.present?
   end
 
   def assign_attributes(params = {})
