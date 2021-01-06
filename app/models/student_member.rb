@@ -6,6 +6,8 @@ class StudentMember < ApplicationRecord
   include StringNormalizer
   include PersonalNameHolder
   include EmailHolder
+  include PasswordHolder
+
 
   before_validation do
     self.student_number = normalize_as_id_number(student_number)
@@ -21,15 +23,7 @@ class StudentMember < ApplicationRecord
   validates :emergency_contact, :grade, :a_class ,
     :gender,:telephone_number, :homeroom_teacher, :start_date, presence: true
   validates :student_number, :email, uniqueness: true, presence: true
-
-  def password=(raw_password)
-    if raw_password.kind_of?(String)
-      self.hashed_password = BCrypt::Password.create(raw_password)
-    elsif raw_password.nil?
-      self.hashed_password = nil
-    end
-  end
-
+  
   def active?
     !suspended? && start_date <= Date.today &&
     ( graduation_date.nil? || graduation_date > Date.today)
