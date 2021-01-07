@@ -15,9 +15,22 @@ class Teacher::StudentForm
 
   def assign_attributes(params = {})
     @params = params
+    self.inputs_home_address = params[:inputs_home_address] == "1"
+    self.inputs_parents_address = params[:inputs_parents_address] == "1"
     student_member.assign_attributes(student_member_params)
-    student_member.home_address.assign_attributes(home_address_params)
-    student_member.parents_address.assign_attributes(parents_address_params)
+
+    if inputs_home_address
+      student_member.home_address.assign_attributes(home_address_params)
+    else
+      student_member.home_address.mark_for_destruction
+    end
+
+    if inputs_parents_address
+      student_member.parents_address.assign_attributes(parents_address_params)
+    else
+      student_member.parents_address.mark_for_destruction
+    end
+
   end
 
   private def student_member_params
