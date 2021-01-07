@@ -1,7 +1,7 @@
 class Teacher::StudentForm
   include ActiveModel::Model
 
-  attr_accessor :student_member
+  attr_accessor :student_member, :inputs_home_address, :inputs_parents_address
   delegate :persisted?, :save, to: :student_member
 
   def initialize(student_member = nil)
@@ -9,13 +9,28 @@ class Teacher::StudentForm
     @student_member ||= StudentMember.new(gender: "male")
     @student_member.build_home_address unless @student_member.home_address
     @student_member.build_parents_address unless @student_member.parents_address
+    self.inputs_home_address = @student_member.home_address.present?
+    self.inputs_parents_address = @student_member.parents_address.present?
   end
 
   def assign_attributes(params = {})
     @params = params
+    self.inputs_home_address = params[:inputs_home_address] == "1"
+    self.inputs_parents_address = params[:inputs_parents_address] == "1"
     student_member.assign_attributes(student_member_params)
-    student_member.home_address.assign_attributes(home_address_params)
-    student_member.parents_address.assign_attributes(parents_address_params)
+
+    if inputs_home_address
+      student_member.home_address.assign_attributes(home_address_params)
+    else
+      student_member.home_address.mark_for_destruction
+    end
+
+    if inputs_parents_address
+      student_member.parents_address.assign_attributes(parents_address_params)
+    else
+      student_member.parents_address.mark_for_destruction
+    end
+
   end
 
   private def student_member_params

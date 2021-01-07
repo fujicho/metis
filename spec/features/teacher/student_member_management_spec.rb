@@ -31,6 +31,7 @@ feature "教職員による生徒管理" do
       fill_in "入学日", with: "2018-4-23"
       fill_in "卒業予定日", with: "2021-3-31"
     end
+    check "form[inputs_home_address]"
 
     within("fieldset#home-address-fields") do
       fill_in "郵便番号", with: "1111111"
@@ -39,7 +40,7 @@ feature "教職員による生徒管理" do
       fill_in "町域、番地等", with: "てすと町"
       fill_in "建物名、部屋番号等", with: "なんちゃらハイツ101"
     end
-    
+    check "form[inputs_parents_address]"
     within("fieldset#parents-address-fields") do
       fill_in "郵便番号", with: "2222222"
       select "北海道", from: "都道府県"

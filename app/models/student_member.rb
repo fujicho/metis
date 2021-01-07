@@ -20,9 +20,11 @@ class StudentMember < ApplicationRecord
 
   validates :birth_day, date: {before: ->(obj) { Date.today }, presence: true}
   validates :gender, inclusion: { in: %w(male female), presence: true}
-  validates :emergency_contact, :grade, :a_class ,
-    :gender,:telephone_number, :homeroom_teacher, :start_date, presence: true
+  validates :grade, :a_class ,
+    :gender, :homeroom_teacher, :start_date, presence: true
   validates :student_number, :email, uniqueness: true, presence: true
+  validates :telephone_number, presence: true,
+    format: { with: /\A\+?\d+(-\d+)*\z/, allow_blank: true}
   
   def active?
     !suspended? && start_date <= Date.today &&
