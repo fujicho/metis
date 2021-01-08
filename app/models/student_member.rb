@@ -25,6 +25,14 @@ class StudentMember < ApplicationRecord
   validates :student_number, :email, uniqueness: true, presence: true
   validates :telephone_number, presence: true,
     format: { with: /\A\+?\d+(-\d+)*\z/, allow_blank: true}
+
+  before_save do
+    if birth_day
+      self.birth_year = birth_day.year
+      self.birth_month = birth_day.month
+      self.birth_mday = birth_day.mday
+    end
+  end
   
   def active?
     !suspended? && start_date <= Date.today &&
