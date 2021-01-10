@@ -22,5 +22,26 @@ class Teacher::StudentSearchForm
     rel = rel.where(a_class: a_class) if a_class.present?
 
     rel.order(:grade, :a_class, :family_name_kana, :given_name_kana, :a_class)
+
+    if prefecture.present? || city.present?
+      case address_type
+      when "home" 
+        rel = rel.joins(:home_address)
+      when "parents"
+        rel = rel.joins(:parents_address)
+      when ""
+        rel = rel.joins(:addresses)
+      else
+        raise
+      end
+      
+      if prefecture.present?
+        rel = rel.where("addresses.prefecture" => prefecture)
+      end
+
+      if city.present?
+        rel = rel.where("addresses.city" => prefecture)
+      end
+    end
   end
 end
