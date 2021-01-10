@@ -1,7 +1,7 @@
 class Teacher::StudentMembersController < Teacher::Base
   def index
-    @student_members = StudentMember.order(id: "DESC").page(params[:page])
     @search_form = Teacher::StudentSearchForm.new(search_params)
+    @student_members = @search_form.search.page(params[:page])
   end
 
   def show
