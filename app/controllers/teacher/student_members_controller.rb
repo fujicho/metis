@@ -1,7 +1,7 @@
 class Teacher::StudentMembersController < Teacher::Base
   def index
     @student_members = StudentMember.order(id: "DESC").page(params[:page])
-    @search_form = Teacher::StudentSearchForm.new
+    @search_form = Teacher::StudentSearchForm.new(search_params)
   end
 
   def show
@@ -40,5 +40,13 @@ class Teacher::StudentMembersController < Teacher::Base
     student_member = StudentMember.find(params[:id])
     student_member.destroy!
     redirect_to :teacher_student_members
+  end
+
+  private def search_params
+    params[:search]&.permit([
+      :family_name_kana, :given_name_kana,
+      :birth_year, :birth_month,
+      :grade, :a_class, :address_type, :prefecture, :city
+    ])
   end
 end
