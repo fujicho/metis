@@ -44,7 +44,7 @@ class Teacher::StudentMembersController < Teacher::Base
 
   private def search_params
     params[:search]&.permit([
-      :family_name_kana, :given_name_kana,
+      :student_number, :family_name_kana, :given_name_kana,
       :birth_year, :birth_month,
       :grade, :a_class, :address_type, :prefecture, :city
     ])
