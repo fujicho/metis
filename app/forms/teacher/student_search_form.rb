@@ -3,6 +3,7 @@ class Teacher::StudentSearchForm
   include StringNormalizer
 
   attr_accessor :student_number, :family_name_kana, :given_name_kana,
+    :telephone_number, :emergency_contact,
     :birth_year, :birth_month, :gender, :grade, :a_class,
     :address_type, :prefecture, :city
 
@@ -27,6 +28,9 @@ class Teacher::StudentSearchForm
     rel = rel.where(birth_year: birth_month) if birth_month.present?
     rel = rel.where(grade: grade) if grade.present?
     rel = rel.where(a_class: a_class) if a_class.present?
+    rel = rel.where(telephone_number: telephone_number) if telephone_number.present?
+    rel = rel.where(emergency_contact: emergency_contact) if emergency_contact.present?
+
 
     
     if prefecture.present? || city.present?
@@ -58,5 +62,7 @@ class Teacher::StudentSearchForm
     self.given_name_kana = normalize_as_furigana(given_name_kana)
     self.city = normalize_as_name(city)
     self.student_number = normalize_as_id_number(student_number)
+    self.telephone_number = normalize_as_phone_number(telephone_number)
+    self.emergency_contact = normalize_as_phone_number(emergency_contact)
   end
 end
