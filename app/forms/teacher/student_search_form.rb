@@ -66,7 +66,6 @@ class Teacher::StudentSearchForm
     self.given_name_kana = normalize_as_furigana(given_name_kana)
     self.city = normalize_as_name(city)
     self.student_number = normalize_as_id_number(student_number)
-    self.telephone_number = normalize_as_phone_number(telephone_number)
-    self.emergency_contact = normalize_as_phone_number(emergency_contact)
+    self.phone_number = normalize_as_phone_number(phone_number)
   end
 end
