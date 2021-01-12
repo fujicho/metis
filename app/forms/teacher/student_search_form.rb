@@ -3,7 +3,7 @@ class Teacher::StudentSearchForm
   include StringNormalizer
 
   attr_accessor :student_number, :family_name_kana, :given_name_kana,
-    :telephone_number, :emergency_contact,
+    :telephone_number, :emergency_contact,:phone_number,
     :birth_year, :birth_month, :gender, :grade, :a_class,
     :address_type, :prefecture, :city
 
@@ -24,14 +24,18 @@ class Teacher::StudentSearchForm
       rel = rel.where(given_name_kana: given_name_kana)
     end
 
+    if phone_number.present?
+      if rel.exists?(telephone_number: phone_number)
+        rel = rel.where(telephone_number: phone_number)
+      else
+        rel = rel.where(emergency_contact: phone_number)
+      end
+    end
+
     rel = rel.where(birth_year: birth_year) if birth_year.present?
     rel = rel.where(birth_year: birth_month) if birth_month.present?
     rel = rel.where(grade: grade) if grade.present?
     rel = rel.where(a_class: a_class) if a_class.present?
-    rel = rel.where(telephone_number: telephone_number) if telephone_number.present?
-    rel = rel.where(emergency_contact: emergency_contact) if emergency_contact.present?
-
-
     
     if prefecture.present? || city.present?
       case address_type
