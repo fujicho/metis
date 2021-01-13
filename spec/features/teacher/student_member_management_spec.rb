@@ -77,7 +77,7 @@ feature "教職員による生徒管理" do
     expect(student_member.home_address.postal_code).to eq("1000000")
   end
 
-  scenario "教職員が生徒情報、住所を更新する際、student_memberに適切、
+  scenario "教職員が生徒情報、住所を更新する際、student_memberに適切な値、
     student_member.home_addressに不適切な値を入れた場合、両方とも更新されない" do
     
     click_link "学生管理"
@@ -96,4 +96,18 @@ feature "教職員による生徒管理" do
     expect(student_member.email).not_to eq("test@example.com")
     expect(student_member.home_address.postal_code).not_to eq("abc")
   end
+
+  scenario "教職員がfamily_name_kanaを用いて生徒情報を検索する。" do
+    click_link "学生管理"
+
+    fill_in "search_family_name_kana", with: "ヤマオカ"
+    
+    click_button "検索"
+
+    expect(page).to have_content "山岡"
+  end
+
+  scenario "教職員が電話番号を用いて生徒情報を検索する。電話番号フォームからtelephone_number,emergency_contactどちらのカラムも検索することができる。()"
+  click_link "学生管理"
+  
 end
