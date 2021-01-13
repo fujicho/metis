@@ -36,7 +36,8 @@ class Teacher::StudentSearchForm
     rel = rel.where(birth_year: birth_month) if birth_month.present?
     rel = rel.where(grade: grade) if grade.present?
     rel = rel.where(a_class: a_class) if a_class.present?
-    
+    rel = rel.where(gender: gender) if gender.present?
+
     if prefecture.present? || city.present?
       case address_type
 
