@@ -8,7 +8,7 @@ FactoryBot.define do
     given_name_kana {"リン"}
     gender {"female" }
     emergency_contact {"12345678900"}
-    telephone_number {"12345678900"}
+    telephone_number {"98765432100"}
     password {"pw"}
     birth_day {Date.new(2003, 7, 1)}
     grade {"2"}
