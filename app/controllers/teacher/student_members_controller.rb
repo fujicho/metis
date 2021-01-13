@@ -46,7 +46,7 @@ class Teacher::StudentMembersController < Teacher::Base
     params[:search]&.permit([
       :student_number, :family_name_kana, :given_name_kana,
       :birth_year, :birth_month, :telephone_number, :emergency_contact,:phone_number,
-      :grade, :a_class, :address_type, :prefecture, :city
+      :grade, :a_class, :address_type, :prefecture, :city, :gender
     ])
   end
 end
