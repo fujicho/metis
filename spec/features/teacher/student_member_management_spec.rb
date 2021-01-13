@@ -107,7 +107,35 @@ feature "教職員による生徒管理" do
     expect(page).to have_content "山岡"
   end
 
-  scenario "教職員が電話番号を用いて生徒情報を検索する。電話番号フォームからtelephone_number,emergency_contactどちらのカラムも検索することができる。()"
-  click_link "学生管理"
-  
+  scenario "教職員が電話番号を用いて生徒情報を検索する。電話番号フォームからtelephone_number,emergency_contactどちらのカラムも検索することができる。
+              本テストはtelephone_numberから" do
+    click_link "学生管理"
+
+    fill_in "search_phone_number", with: "98765432100"
+      
+    click_button "検索"
+
+    expect(page).to have_content "山岡"
+  end
+
+  scenario "教職員が電話番号を用いて生徒情報を検索する。電話番号フォームからtelephone_number,emergency_contactどちらのカラムも検索することができる。
+              本テストはemergency_contactから" do
+    click_link "学生管理"
+
+    fill_in "search_phone_number", with: "12345678900"
+      
+    click_button "検索"
+
+    expect(page).to have_content "山岡"
+  end
+
+  scenario "教職員がハイフン入りの電話番号を用いて生徒情報を検索する。(正規化のテスト)" do
+    click_link "学生管理"
+
+    fill_in "search_phone_number", with: "123-4567-8900"
+      
+    click_button "検索"
+
+    expect(page).to have_content "山岡"
+  end
 end
