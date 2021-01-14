@@ -22,10 +22,12 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :student do
-    root "top#index"
-    get "login" => "sessions#new", as: :login
-    post "session" => "sessions#create", as: :session
-    delete "session" => "sessions#destroy"
+  constraints  host: config[:student][:host]do
+    namespace :student, path: config[:student][:path] do
+      root "top#index"
+      get "login" => "sessions#new", as: :login
+      resource :session, only: [ :create, :destroy ]
+      delete "session" => "sessions#destroy"
+    end
   end
 end
