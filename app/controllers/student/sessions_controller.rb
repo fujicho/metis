@@ -40,6 +40,6 @@ class Student::SessionsController < Student::Base
   end
 
   private def login_form_params
-    params.require(:student_login_form).permit(:student_number, :password)
+    params.require(:student_login_form).permit(:student_number, :password, :remember_me)
   end
 end
