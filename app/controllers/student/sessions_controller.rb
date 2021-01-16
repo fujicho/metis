@@ -17,7 +17,12 @@ class Student::SessionsController < Student::Base
         StudentMember.find_by(student_number: @form.student_number)
     end
     if Student::Authenticator.new(student_member).authenticate(@form.password)
-      session[:student_member_id] = student_member.id
+      if @form.remember_me?
+        cookies.permanent.signed[:student_member_id] = student_member.id
+      else
+        cookies.delete(:student_member_id)
+        session[:student_member_id] = student_member.id
+      end
       session[:last_access_time] = Time.current
       student_member.events.create!(type: "logged_in")
       redirect_to :student_root
