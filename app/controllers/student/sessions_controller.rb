@@ -32,9 +32,6 @@ class Student::SessionsController < Student::Base
   end
   
   def destroy
-    if current_student_member
-      current_student_member.events.create!(type: "logged_out")
-    end
     cookies.delete(:student_member_id)
     session.delete(:student_member_id)
     redirect_to :student_root
