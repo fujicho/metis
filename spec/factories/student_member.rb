@@ -9,7 +9,7 @@ FactoryBot.define do
     gender {"female" }
     emergency_contact {"12345678900"}
     telephone_number {"12345678900"}
-    password {"pw"}
+    password {"password"}
     birth_day {Date.new(2003, 7, 1)}
     grade {"2"}
     a_class {"3"}
