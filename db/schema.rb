@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_141735) do
+ActiveRecord::Schema.define(version: 2021_01_07_234656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,7 +53,10 @@ ActiveRecord::Schema.define(version: 2020_11_24_141735) do
     t.string "address2"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["city"], name: "index_student_member_addresses_on_city"
     t.index ["student_member_id"], name: "index_student_member_addresses_on_student_member_id"
+    t.index ["type", "city"], name: "index_student_member_addresses_on_type_and_city"
+    t.index ["type", "prefecture", "city"], name: "index_student_member_addresses_on_type_and_prefecture_and_city"
     t.index ["type", "student_member_id"], name: "index_student_member_addresses_on_type_and_student_member_id", unique: true
   end
 
@@ -77,6 +80,16 @@ ActiveRecord::Schema.define(version: 2020_11_24_141735) do
     t.boolean "suspended", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "birth_year"
+    t.integer "birth_month"
+    t.integer "birth_mday"
+    t.index ["birth_year", "birth_month", "birth_mday"], name: "index_student_on_birth_year_month_and_mday"
+    t.index ["birth_year", "birth_month"], name: "index_student_members_on_birth_year_and_birth_month"
+    t.index ["birth_year", "family_name_kana", "given_name_kana"], name: "index_student_on_birth_year_and_furigana"
+    t.index ["family_name_kana"], name: "index_student_members_on_family_name_kana"
+    t.index ["given_name_kana"], name: "index_student_members_on_given_name_kana"
+    t.index ["grade", "a_class"], name: "index_student_members_on_grade_and_a_class"
+    t.index ["grade", "family_name_kana"], name: "index_student_members_on_grade_and_family_name_kana"
   end
 
   create_table "teacher_members", force: :cascade do |t|
