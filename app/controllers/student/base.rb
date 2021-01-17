@@ -10,9 +10,8 @@ class Student::Base < ApplicationController
   end
 
   private def current_student_member
-    if session[:student_member_id]
-      @current_student_member ||=
-        StudentMember.find_by(id: session[:student_member_id])
+    if student_member_id = cookies.signed[:student_member_id] || session[:student_member_id]
+      @student_member ||= StudentMember.find_by(id: student_member_id)
     end
   end
 
