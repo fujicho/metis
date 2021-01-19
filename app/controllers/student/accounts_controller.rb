@@ -4,6 +4,16 @@ class Student::AccountsController < Student::Base
   end
 
   def edit
-    @student_form = Student::AccountForm(current_student_member)
+    @student_form = Student::AccountForm.new(current_student_member)
+  end
+
+  def update
+    @student_form = Student::AccountForm.new(current_student_member)
+    @student_form.assign_attributes(params[:form])
+    if @student_form.save
+      redirect_to :student_root
+    else
+      render action: "edit"
+    end
   end
 end
