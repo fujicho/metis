@@ -1,4 +1,4 @@
-class Teacher::StudentForm
+class Student::AccountForm
   include ActiveModel::Model
 
   attr_accessor :student_member, :inputs_home_address, :inputs_parents_address
