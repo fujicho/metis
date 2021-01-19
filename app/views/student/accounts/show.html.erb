@@ -1,6 +1,7 @@
 <% @title = "生徒詳細情報"  %>
 <h1><%= @title %></h1>
 
+
 <% p1 = StudentMemberPresenter.new(@student_member,self)  %>
 <%= p1.student_number %>
 <%= p1.full_name %>
@@ -42,3 +43,5 @@
   <%= p3.address1 %>
   <%= p3.address2 %>
 <% end %>
+
+<%= link_to "編集", :edit_student_account %>
