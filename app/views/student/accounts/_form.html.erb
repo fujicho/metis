@@ -1,0 +1,18 @@
+<fieldset id="student-fields">
+<h3>基本情報入力</h3>
+<%= render "student_fields", f: f %>
+</fieldset>
+
+<%= f.check_box :inputs_home_address %>
+<%= f.label :inputs_home_address, "自宅住所を入力する" %>
+<fieldset id="home-address-fields">
+<h3>生徒住所入力</h3>
+<%= render "home_address_fields", f: f %>
+</fieldset>
+
+<%= f.check_box :inputs_parents_address %>
+<%= f.label :inputs_parents_address, "保護者住所を入力する(別住所の場合のみ入力してください)" %>
+<fieldset id="parents-address-fields">
+<h3>保護者住所入力</h3>
+<%= render "parents_address_fields", f: f %>
+</fieldset>
