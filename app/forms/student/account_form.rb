@@ -2,7 +2,7 @@ class Student::AccountForm
   include ActiveModel::Model
 
   attr_accessor :student_member, :inputs_home_address, :inputs_parents_address
-  delegate :persisted?, :save, to: :student_member
+  delegate :persisted?, :valid?, :save, to: :student_member
 
   def initialize(student_member = nil)
     @student_member = student_member
