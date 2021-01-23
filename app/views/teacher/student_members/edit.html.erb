@@ -1,4 +1,5 @@
-<h1>学生アカウントの編集</h1>
+<%= @title = "学生アカウントの編集" %>
+<h1><%= @title %></h1>
 
 <%= form_with model: @student_form, scope: "form",
   url: [ :teacher, @student_form.student_member ] do |f| %>
