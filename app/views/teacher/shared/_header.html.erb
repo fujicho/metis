@@ -8,4 +8,5 @@
     end
   %>
   <%= link_to "アカウント", :teacher_account if current_teacher_member %>
+  <%= link_to "掲示板投稿", :new_teacher_board_message if current_teacher_member %>
 </header>
