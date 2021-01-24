@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_07_234656) do
+ActiveRecord::Schema.define(version: 2021_01_24_031007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 2021_01_07_234656) do
     t.boolean "suspended", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "board_messages", force: :cascade do |t|
+    t.bigint "teacher_member_id", null: false
+    t.string "tag", null: false
+    t.string "subject", null: false
+    t.text "body", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tag"], name: "index_board_messages_on_tag"
+    t.index ["teacher_member_id"], name: "index_board_messages_on_teacher_member_id"
   end
 
   create_table "student_events", force: :cascade do |t|
@@ -114,6 +125,7 @@ ActiveRecord::Schema.define(version: 2021_01_07_234656) do
   end
 
   add_foreign_key "addresses", "teacher_members"
+  add_foreign_key "board_messages", "teacher_members"
   add_foreign_key "student_events", "student_members"
   add_foreign_key "student_member_addresses", "student_members"
 end
