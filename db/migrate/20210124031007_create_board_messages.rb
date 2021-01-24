@@ -9,7 +9,7 @@ class CreateBoardMessages < ActiveRecord::Migration[6.0]
       t.timestamps
     end
 
-    add_index :board_messages [ :tag ]
-    add_foreign_key :board_messages, :teacher_member
+    add_index :board_messages ,:tag
+    add_foreign_key :board_messages, :teacher_members
   end
 end
