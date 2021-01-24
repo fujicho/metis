@@ -1,0 +1,7 @@
+<% p = FormPresenter.new(f,self) %>
+
+<%= p.text_field_block(:title, "題名", required: true) %>
+
+<%= p.text_area_block(:body, "本文", required: true) %>
+
+<%= p.drop_down_list_block(:subject, "文理", BoardMessage::BOARD_TAGS) %>
