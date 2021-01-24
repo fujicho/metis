@@ -11,9 +11,17 @@ class FormPresenter
   end
 
   def text_field_block(name, label_text, options= {})
-    markup(:div) do |m|
+  markup(:div) do |m|
       m << label(name, label_text, class: options[:required] ? "required" : nil)
       m << text_field(name,options)
+      m << error_messages_for(name)
+    end
+  end
+
+  def text_area_block(name, label_text, options= {})
+    markup(:div) do |m|
+      m << label(name, label_text, class: options[:required] ? "required" : nil)
+      m << text_area(name,options)
       m << error_messages_for(name)
     end
   end
