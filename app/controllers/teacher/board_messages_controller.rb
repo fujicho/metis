@@ -6,4 +6,8 @@ class Teacher::BoardMessagesController < Teacher::Base
   def new
     @board_message = BoardMessage.new
   end
+
+  private def board_message_params
+    params.require(:board_message).permit(:subject, :body, :tag)
+  end
 end
