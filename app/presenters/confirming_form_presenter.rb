@@ -14,6 +14,30 @@ class ConfirmingFormPresenter
   end
 
   def text_field_block(name, label_text, options = {})
-    
+    markup(:div) do |m|
+      if options[:disabled]
+        m.div(object.send(name))
+      else
+        m.div(object.send(name))
+        m << hidden_field(name, options)
+      end
+    end
   end
+
+  def date_field_block(name, label_text, options= {})
+    markup(:div) do |m|
+        m.div(object.send(name))
+        m << hidden_field(name, options)
+      end
+    end
+  end
+
+  def drop_down_list_block(name, label_text, choices, options = {})
+    markup(:div) do |m|
+      m.div(object.send(name))
+      m << hidden_field(name, options)
+    end
+  end
+
+  
 end
