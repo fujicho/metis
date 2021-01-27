@@ -26,9 +26,8 @@ class ConfirmingFormPresenter
 
   def date_field_block(name, label_text, options= {})
     markup(:div) do |m|
-        m.div(object.send(name))
-        m << hidden_field(name, options)
-      end
+      m.div(object.send(name))
+      m << hidden_field(name, options)
     end
   end
 
@@ -39,5 +38,13 @@ class ConfirmingFormPresenter
     end
   end
 
-  
+  def text_area_block(name, label_text, options = {})
+    markup(:div) do |m|
+      value = object.send(name)
+      m.div do
+        m << ERB::Util.html_escape(value).gsub(/\n/, "<br>")
+      end
+      m << hidden_field(name, options)
+    end
+  end
 end
