@@ -6,7 +6,7 @@ class Teacher::BoardMessagesController < Teacher::Base
   def new
     @board_message = BoardMessage.new
   end
-  
+
   def confirm
     @board_message = BoardMessage.new(board_message_params)
     @board_message.teacher_member = current_teacher_member
@@ -17,8 +17,21 @@ class Teacher::BoardMessagesController < Teacher::Base
     end
   end
 
+  def create
+    @board_message = BoardMessage.new(board_message_params)
+    if params[:commit]
+      @board_message.teacher_member = current_teacher_member
+      if @board_message.save
+        redirect_to :teacher_root
+      else
+        render action: "new"
+      end
+    else
+      render action: "new"
+    end
+  end
+
   private def board_message_params
     params.require(:board_message).permit(:subject, :body, :tag)
   end
-
 end
