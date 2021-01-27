@@ -1,0 +1,7 @@
+<% @title = "掲示板投稿(確認)"  %>
+<%= form_with model: @board_message, url: :teacher_board_messages do |f| %>
+  <%= render "confirming_form", f: f %>
+  <%= f.submit "送信" %>
+  <%= f.submit "訂正", name: "correct" %>
+  <%= link_to "キャンセル", :teacher_root %>
+<% end %>
