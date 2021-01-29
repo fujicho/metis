@@ -31,6 +31,12 @@ class Teacher::BoardMessagesController < Teacher::Base
     end
   end
 
+  def destroy
+    board_message = BoardMessage.find(params[:id])
+    board_message.destroy!
+    redirect_to :teacher_root
+  end
+
   private def board_message_params
     params.require(:board_message).permit(:subject, :body, :tag)
   end
