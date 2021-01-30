@@ -1,5 +1,5 @@
 <%= @title = "掲示板編集" %>
-<%= form_with model: @board_message, url: :teacher_board_messages do |f| %>
+<%= form_with model: @board_message, url: :teacher_board_message do |f| %>
   <%= render "form", f: f %>
   <%= f.submit "更新" %>
   <%= f.submit "訂正", name: "correct" %>
