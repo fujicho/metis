@@ -12,5 +12,5 @@
   <%= m.tag %>
   <%= m.teacher_member.family_name %>
   <%= link_to "編集", [ :edit_teacher , m] if m.teacher_member == current_teacher_member %>
-  <%= link_to "削除", [ :teacher , m ], method: :delete %>
+  <%= link_to "削除", [ :teacher , m ], method: :delete if m.teacher_member == current_teacher_member %>
 <% end %>
