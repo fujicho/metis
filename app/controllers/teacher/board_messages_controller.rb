@@ -31,6 +31,20 @@ class Teacher::BoardMessagesController < Teacher::Base
     end
   end
 
+  def edit
+    @board_message = BoardMessage.find(params[:id])
+  end
+
+  def update
+    @board_message = BoardMessage.find(params[:id])
+    @board_message.assign_attributes(board_message_params)
+    if @board_message.save
+      redirect_to :teacher_root
+    else
+      render action: "edit"
+    end
+  end
+
   def destroy
     board_message = BoardMessage.find(params[:id])
     board_message.destroy!
