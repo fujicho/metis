@@ -7,13 +7,14 @@
 </ul>
 
 
-
+お知らせ新着一覧(最新5件)
 <% @board_messages.each do |m|  %>
   <% p = BoardMessagePresenter.new(m,self) %>
   <%= p.subject %>
   <%= safe_join(p.body.split("\n"), tag(:br)) %>
   <%= p.contributor %>
   <%= p.tag %>
-  <%= link_to "編集", [ :edit_teacher , m] if m.teacher_member == current_teacher_member %>
-  <%= link_to "削除", [ :teacher , m ], method: :delete if m.teacher_member == current_teacher_member %>
+  <%= link_to "編集", [ :edit_teacher , m] if m.teacher_member.family_name == current_teacher_member.family_name %>
+  <%= link_to "削除", [ :teacher , m ], method: :delete if m.teacher_member.family_name == current_teacher_member.family_name %>
 <% end %>
+<%= link_to "過去のお知らせ一覧" , :teacher_board_messages %>
