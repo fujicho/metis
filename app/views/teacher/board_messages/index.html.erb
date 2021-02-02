@@ -1,0 +1,16 @@
+<% @title = "新着お知らせ一覧"  %>
+<h1><%= @title %></h1>
+
+<%= paginate @board_messages %>
+
+<% @board_messages.each do |m| %>
+  <% p = BoardMessagePresenter.new(m,self) %>
+  <%= p.subject %>
+  <%= safe_join(p.body.split("\n"), tag(:br)) %>
+  <%= p.contributor %>
+  <%= p.tag %>
+  <%= link_to "編集", [ :edit_teacher , m] if m.teacher_member.family_name == current_teacher_member.family_name %>
+  <%= link_to "削除", [ :teacher , m ], method: :delete if m.teacher_member.family_name == current_teacher_member.family_name %>
+<% end %>
+
+<%= paginate @board_messages %>
