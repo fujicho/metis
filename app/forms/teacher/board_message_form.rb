@@ -4,8 +4,8 @@ class Teacher::BoardMessageForm
 
   BOARD_TAGS = %w(全体 文系 理系)
 
-  attr_accessor :teacher_member, :board_message
-  delegate :persisted?, :valid?, to: :board_message
+  attr_accessor :board_message
+  delegate :valid?, :save, to: :board_message
 
   attribute :subject, :string
   attribute :body, :string
