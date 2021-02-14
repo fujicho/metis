@@ -6,12 +6,14 @@ class Teacher::BoardMessagesController < Teacher::Base
 
   def new
     @board_message = BoardMessage.new
+    @board_form = Teacher::BoardMessageForm.new(current_teacher_member ,@board_message)
   end
 
   def confirm
     @board_message = BoardMessage.new(board_message_params)
+    @board_form = Teacher::BoardMessageForm.new(current_teacher_member ,@board_message, board_message_params)
     @board_message.teacher_member = current_teacher_member
-    if @board_message.valid?
+    if @board_form.valid?
       render action: "confirm"
     else
       render action: "new"
@@ -20,9 +22,11 @@ class Teacher::BoardMessagesController < Teacher::Base
 
   def create
     @board_message = BoardMessage.new(board_message_params)
+    @board_form = Teacher::BoardMessageForm.new(current_teacher_member ,@board_message, board_message_params)
     if params[:commit]
       @board_message.teacher_member = current_teacher_member
-      if @board_message.save
+      if @board_form.save
+        binding.pry
         redirect_to :teacher_root
       else
         render action: "new"
@@ -31,11 +35,11 @@ class Teacher::BoardMessagesController < Teacher::Base
       render action: "new"
     end
   end
-
+  
   def edit
     @board_message = BoardMessage.find(params[:id])
   end
-
+  
   def update
     @board_message = BoardMessage.find(params[:id])
     @board_message.assign_attributes(board_message_params)
@@ -53,6 +57,6 @@ class Teacher::BoardMessagesController < Teacher::Base
   end
 
   private def board_message_params
-    params.require(:board_message).permit(:subject, :body, :tag)
+    params.require(:form).permit(:subject, :body, :tag,:teacher_member)
   end
 end
