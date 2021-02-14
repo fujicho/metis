@@ -14,4 +14,8 @@ class Teacher::BoardMessageForm
     @board_message = board_message
     super(params)
   end
+
+  def save
+    board_message.save
+  end
 end
