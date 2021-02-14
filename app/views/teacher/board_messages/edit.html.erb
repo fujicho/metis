@@ -1,7 +1,9 @@
 <%= @title = "掲示板編集" %>
-<%= form_with model: @board_message, url: :teacher_board_message do |f| %>
+<h1><%= @title %></h1>
+
+<%= form_with model: @board_message, scope: "form", url: :teacher_board_message do |f| %>
   <%= render "form", f: f %>
   <%= f.submit "更新" %>
-  <%= f.submit "訂正", name: "correct" %>
+  <%# <%= f.submit "訂正", name: "correct" %> %>
   <%= link_to "キャンセル", :teacher_root %>
 <% end %>
