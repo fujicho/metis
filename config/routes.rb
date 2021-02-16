@@ -20,7 +20,8 @@ Rails.application.routes.draw do
       resource :account, except: [ :new, :create, :destroy ]
       resource :password, only: [ :show, :edit, :update]
       resources :board_messages do
-        post :confirm, on: :collection
+        post :confirm, :edit_confirm, on: :collection
+        patch :edit_confirm, on: :collection
       end
     end
   end
