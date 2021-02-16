@@ -39,6 +39,16 @@ class Teacher::BoardMessagesController < Teacher::Base
   def edit
     @board_message = BoardMessage.find(params[:id])
   end
+
+  def edit_confirm
+    @board_message = BoardMessage.new(board_message_params)
+    @board_message.teacher_member = current_teacher_member
+    if @board_message.valid?
+      render action: "edit_confirm"
+    else
+      render action: "new"
+    end
+  end
   
   def update
     @board_message = BoardMessage.find(params[:id])
