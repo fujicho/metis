@@ -26,7 +26,6 @@ class Teacher::BoardMessagesController < Teacher::Base
     if params[:commit]
       @board_message.teacher_member = current_teacher_member
       if @board_form.save
-        binding.pry
         redirect_to :teacher_root
       else
         render action: "new"
@@ -35,14 +34,14 @@ class Teacher::BoardMessagesController < Teacher::Base
       render action: "new"
     end
   end
-  
+
   def edit
     @board_message = BoardMessage.find(params[:id])
   end
 
   def edit_confirm
-    @board_message = BoardMessage.new(board_message_params)
-    @board_message.teacher_member = current_teacher_member
+    @board_message = BoardMessage.find(params[:board_message_id])
+    @board_message.update_attributes(board_message_params)
     if @board_message.valid?
       render action: "edit_confirm"
     else
@@ -52,8 +51,9 @@ class Teacher::BoardMessagesController < Teacher::Base
   
   def update
     @board_message = BoardMessage.find(params[:id])
-    @board_message.assign_attributes(board_message_params)
-    if @board_message.save
+    @board_message.update_attributes(board_message_params)
+    if params[:commit]
+      @board_message.save
       redirect_to :teacher_root
     else
       render action: "edit"
