@@ -1,5 +1,5 @@
 <% @title = "掲示板編集(確認)"  %>
-<%= form_with model: @board_message, scope: "form", url: [ :teacher, @board_message ]  do |f| %>
+<%= form_with model: @board_form, scope: "form", url: [ :teacher, @board_message ]  do |f| %>
   <%= render "confirming_form", f: f %>
   <%= f.submit "送信" %>
   <%= f.submit "訂正", name: "correct" %>
