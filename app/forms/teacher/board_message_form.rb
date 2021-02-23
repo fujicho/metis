@@ -22,8 +22,4 @@ class Teacher::BoardMessageForm
   def update(params)
     @board_message.update(params)
   end
-
-  # def assign_attributes(params = {})
-  #   board_message.assign_attributes(params)
-  # end
 end
