@@ -5,8 +5,7 @@ class Teacher::BoardMessageForm
   attribute :subject, :string
   attribute :body, :string
   attribute :tag, :string
-  attr_accessor :board_message, :subject, :body, :tag
-
+  attr_accessor :board_message
   delegate :persisted?, :valid?, :save, :update, to: :board_message
 
   def initialize(teacher_member,message, params = {})
