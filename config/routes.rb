@@ -19,6 +19,10 @@ Rails.application.routes.draw do
       resources :student_events, only: [:index]
       resource :account, except: [ :new, :create, :destroy ]
       resource :password, only: [ :show, :edit, :update]
+      resources :board_messages do
+        post :confirm, on: :collection
+        patch :edit_confirm
+      end
     end
   end
 

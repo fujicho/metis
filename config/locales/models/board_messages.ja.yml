@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    attributes:
+      board_message:
+        subject: 題名
+        body: 本文
+        tag: タグ
