@@ -13,7 +13,7 @@ class Teacher::BoardMessagesController < Teacher::Base
     @board_message = BoardMessage.new(board_message_params)
     @board_form = Teacher::BoardMessageForm.new(current_teacher_member ,@board_message, board_message_params)
     @board_message.teacher_member = current_teacher_member
-    if @board_form.valid?
+    if @board_message.valid?
       render action: "confirm"
     else
       render action: "new"
@@ -45,7 +45,7 @@ class Teacher::BoardMessagesController < Teacher::Base
   def edit_confirm
     @board_message = BoardMessage.find(params[:board_message_id])
     @board_form = Teacher::BoardMessageForm.new(current_teacher_member, @board_message, board_message_params)
-    if @board_form.valid?
+    if @board_form.update(board_message_params)
       render action: "edit_confirm"
     else
       render action: "edit"
