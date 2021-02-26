@@ -1,2 +1,10 @@
 <% @title = "学生トップページ"  %>
 <h1><%= @title %></h1>
+
+<% @board_messages.each do |m|  %>
+  <% p = BoardMessagePresenter.new(m,self) %>
+  <%= p.subject %>
+  <%= safe_join(p.body.split("\n"), tag(:br)) %>
+  <%= p.contributor %>
+  <%= p.tag %>
+<% end %>
