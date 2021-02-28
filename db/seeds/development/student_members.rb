@@ -28,6 +28,8 @@ given_names = %w{
   友香:ユカ:yuka
 }
 
+bunri = %w{文系 理系 未選択}
+
 
 
 
@@ -86,7 +88,8 @@ given_names = %w{
       grade: grade(birth_day),
       suspended: n == 1,
       start_date: start_year(birth_day),
-      graduation_date: graduation_date(birth_day)
+      graduation_date: graduation_date(birth_day),
+      bunri: bunri.sample
     )
 
     c.create_home_address!(
