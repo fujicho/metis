@@ -17,6 +17,7 @@ class CreateStudentMembers < ActiveRecord::Migration[6.0]
       t.string :homeroom_teacher, null: false #担任名
       t.date :start_date, null: false # 入学日
       t.date :graduation_date #卒業予定日
+      t.string :bunri #文系理系
       t.boolean :suspended, null: false, default: false #アカウント停止フラグ
       
       t.timestamps

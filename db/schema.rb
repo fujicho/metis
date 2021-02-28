@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2021_01_24_031007) do
     t.string "homeroom_teacher", null: false
     t.date "start_date", null: false
     t.date "graduation_date"
+    t.string "bunri"
     t.boolean "suspended", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
