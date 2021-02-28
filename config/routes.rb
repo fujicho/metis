@@ -34,6 +34,7 @@ Rails.application.routes.draw do
       resource :account, except: [ :new, :create, :destroy ] do
         patch :confirm
       end
+      resources :board_messages, only: [:index]
       delete "session" => "sessions#destroy"
     end
   end
