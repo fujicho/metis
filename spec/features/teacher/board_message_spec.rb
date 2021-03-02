@@ -3,6 +3,7 @@ require "rails_helper"
 feature "教職員による掲示板投稿、編集機能" do
   include FeaturesSpecHelper
   let(:teacher_member) { create(:teacher_member) }
+  let!(:board_message) { create(:board_message) }
 
   before do
     switch_namespace(:teacher)
@@ -40,9 +41,6 @@ feature "教職員による掲示板投稿、編集機能" do
     click_button "確認画面へ進む"
 
     expect(page).to have_content "題名が入力されていません。"
-
-    new_board_message = BoardMessage.order(:id).last
-    expect(new_board_message).to be nil
   end
 
   scenario "複数の項目を空欄にすると、複数のバリデーションエラーメッセージが表示される" do
@@ -58,5 +56,26 @@ feature "教職員による掲示板投稿、編集機能" do
     expect(page).to have_content "タグは一覧にありません"
   end
 
+  scenario "教職員が投稿済みの内容を編集する" do
+    click_link "編集"
 
+    within("#container") do
+      fill_in "題名", with: "講習会中止のお知らせ"
+      fill_in "本文", with: "教師都合により中止になりました。調整後再度募集致します。"
+      select "理系", from: "文理"
+    end
+
+    click_button "確認画面へ進む"
+
+    click_button "送信"
+
+    board_message.reload
+
+    expect(board_message.subject).to eq("講習会中止のお知らせ")
+    expect(board_message.body).to eq("教師都合により中止になりました。調整後再度募集致します。")
+  end
+
+  scenario "教職員が投稿済みの内容を空白にすると編集投稿できない。" do
+    
+  end
 end
