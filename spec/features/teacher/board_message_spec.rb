@@ -75,7 +75,17 @@ feature "教職員による掲示板投稿、編集機能" do
     expect(board_message.body).to eq("教師都合により中止になりました。調整後再度募集致します。")
   end
 
-  scenario "教職員が投稿済みの内容を空白にすると編集投稿できない。" do
+  scenario "教職員が投稿済みの内容を空白にすると編集投稿できない" do
+    click_link "編集"
+
+    within("#container") do
+      fill_in "題名", with: ""
+      fill_in "本文", with: "教師都合により中止になりました。調整後再度募集致します。"
+      select "理系", from: "文理"
+    end
+
+    click_button "確認画面へ進む"
     
+    expect(page).to have_content "題名が入力されていません。"
   end
 end
