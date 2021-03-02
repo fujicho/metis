@@ -44,4 +44,19 @@ feature "教職員による掲示板投稿" do
     new_board_message = BoardMessage.order(:id).last
     expect(new_board_message).to be nil
   end
+
+  scenario "複数の項目を空欄にすると、複数のバリデーションエラーメッセージが表示される" do
+    click_link "掲示板投稿"
+
+    within("#container") do
+      fill_in "題名", with: "テスト"
+    end
+
+    click_button "確認画面へ進む"
+
+    expect(page).to have_content "本文が入力されていません"
+    expect(page).to have_content "タグは一覧にありません"
+  end
+
+  
 end
