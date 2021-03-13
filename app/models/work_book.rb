@@ -1,0 +1,2 @@
+class WorkBook < Book
+end
