@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_13_030646) do
+ActiveRecord::Schema.define(version: 2021_03_16_081822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,18 @@ ActiveRecord::Schema.define(version: 2021_03_13_030646) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "answers", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.bigint "teacher_member_id"
+    t.bigint "student_memner_id"
+    t.string "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["student_memner_id"], name: "index_answers_on_student_memner_id"
+    t.index ["teacher_member_id"], name: "index_answers_on_teacher_member_id"
+  end
+
   create_table "board_messages", force: :cascade do |t|
     t.bigint "teacher_member_id", null: false
     t.string "tag", null: false
@@ -55,6 +67,18 @@ ActiveRecord::Schema.define(version: 2021_03_13_030646) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["book_name"], name: "index_books_on_book_name"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.bigint "student_member_id", null: false
+    t.bigint "book_id", null: false
+    t.string "title", null: false
+    t.string "body", null: false
+    t.string "subject"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_questions_on_book_id"
+    t.index ["student_member_id"], name: "index_questions_on_student_member_id"
   end
 
   create_table "student_events", force: :cascade do |t|
