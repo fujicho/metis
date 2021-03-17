@@ -38,12 +38,12 @@ ActiveRecord::Schema.define(version: 2021_03_16_081822) do
   create_table "answers", force: :cascade do |t|
     t.bigint "question_id", null: false
     t.bigint "teacher_member_id"
-    t.bigint "student_memner_id"
+    t.bigint "student_member_id"
     t.string "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
-    t.index ["student_memner_id"], name: "index_answers_on_student_memner_id"
+    t.index ["student_member_id"], name: "index_answers_on_student_member_id"
     t.index ["teacher_member_id"], name: "index_answers_on_teacher_member_id"
   end
 
@@ -161,6 +161,9 @@ ActiveRecord::Schema.define(version: 2021_03_16_081822) do
   end
 
   add_foreign_key "addresses", "teacher_members"
+  add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "student_members"
+  add_foreign_key "answers", "teacher_members"
   add_foreign_key "board_messages", "teacher_members"
   add_foreign_key "student_events", "student_members"
   add_foreign_key "student_member_addresses", "student_members"
