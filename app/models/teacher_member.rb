@@ -5,6 +5,7 @@ class TeacherMember < ApplicationRecord
   include PasswordHolder
 
   has_one :address, dependent: :destroy
+  has_many :answers, dependent: :destroy
   
   
 
