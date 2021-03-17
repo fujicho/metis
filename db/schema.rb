@@ -165,6 +165,8 @@ ActiveRecord::Schema.define(version: 2021_03_16_081822) do
   add_foreign_key "answers", "student_members"
   add_foreign_key "answers", "teacher_members"
   add_foreign_key "board_messages", "teacher_members"
+  add_foreign_key "questions", "books"
+  add_foreign_key "questions", "student_members"
   add_foreign_key "student_events", "student_members"
   add_foreign_key "student_member_addresses", "student_members"
 end
