@@ -8,7 +8,7 @@ class Teacher::BookSearchForm
     rel = Book
 
     if book_name.present?
-      rel = rel.where(book_name: book_name)
+      rel = rel.where('book_name LIKE ?', "%#{book_name}%")
     end
 
     if book_subject.present?
