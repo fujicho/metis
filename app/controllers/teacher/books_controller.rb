@@ -7,7 +7,7 @@ class Teacher::BooksController < Teacher::Base
   private def search_params
     params[:search]&.permit([
       :book_name, :book_subject, :type,
-      :book_year, :faculty_name
+      :book_year
     ])
   end
 end

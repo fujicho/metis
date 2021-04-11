@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(version: 2021_03_16_081822) do
     t.string "book_name", null: false
     t.string "book_subject", null: false
     t.integer "book_year"
-    t.integer "faculty_name"
     t.string "type", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

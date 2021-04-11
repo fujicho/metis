@@ -1,8 +1,7 @@
 class Teacher::BookSearchForm
   include ActiveModel::Model
 
-  attr_accessor :book_name, :book_subject, :book_year,
-    :faculty_name, :type
+  attr_accessor :book_name, :book_subject, :book_year, :type
 
   def search
     rel = Book
@@ -19,9 +18,9 @@ class Teacher::BookSearchForm
       rel = rel.where(book_year: book_year)
     end
 
-    if faculty_name.present?
-      rel = rel.where(faculty_name: faculty_name)
-    end
+    # if faculty_name.present?
+    #   rel = rel.where(faculty_name: faculty_name)
+    # end
 
     rel.order(:book_name, :book_year)
   end
