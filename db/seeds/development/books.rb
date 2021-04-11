@@ -38,7 +38,7 @@ univ = %w(
 )
 
 subject = %w(
-  数学 英語 国語 物理 化学 生物 
+  数学 英語 国語 物理 化学 生物 世界史 日本史 地理 古典  
 )
 
 13.times do |n|
@@ -98,7 +98,7 @@ WorkBook.create!(
 
 19.times do |n|
   21.times do |m|
-    6.times do |l|
+    10.times do |l|
       PastBook.create!(
         book_name: univ[n],
         book_year: 1990+m,
