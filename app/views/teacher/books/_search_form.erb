@@ -5,6 +5,5 @@
   <%= p.drop_down_list_block(:book_subject, "教科:" , Book::SUBJECT_NAMES) %>
   <%= p.drop_down_list_block(:type, "参考書or過去問:" , [["参考書", "work"],["過去問", "past"]] )%>
   <%= p.drop_down_list_block(:book_year, "年度(過去問):", Book::BOOK_YEAR.to_a.reverse) %>
-  <%= p.text_field_block(:faculty_name, "学部名(過去問):") %>
   <%= f.submit("検索") %>
 <% end %>
