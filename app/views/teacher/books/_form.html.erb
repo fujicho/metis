@@ -1,10 +1,9 @@
 <% p = FormPresenter.new(f,self) %>
 
-
 <%= p.text_field_block(:book_name, "題名") %>
 
-<%= p.text_field_block(:book_year, "発行年度")%>
-
-<%= p.text_field_block(:book_subject, "科目") %>
+<%= p.drop_down_list_block(:book_subject, "科目:" , Book::SUBJECT_NAMES) %>
 
 <%= p.drop_down_list_block(:type, "過去問or問題集", [["参考書", "WorkBook"],["過去問", "PastBook"]] ) %>
+
+<%= p.drop_down_list_block(:book_year, "年度(過去問):", Book::BOOK_YEAR.reverse) %>
