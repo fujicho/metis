@@ -11,11 +11,6 @@ class Teacher::BookForm
 
   def assign_attributes(params = {})
     @params = params
-    # if @book.type == "past"
-    #   @book = PastBook.new
-    # else
-    #   @book = WorkBook.new
-    # end
     @book.assign_attributes(book_params)
   end
 
