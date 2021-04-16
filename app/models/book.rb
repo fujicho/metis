@@ -1,7 +1,9 @@
 class Book < ApplicationRecord
   require "date"
   this_year = Date.today.year
-  BOOK_YEAR = (1950..this_year).to_a
+  years = (1950..this_year).to_a
+  BOOK_YEAR = years << "不明"
+
 
   validates :book_name, :book_subject, presence: true
 
