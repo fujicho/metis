@@ -23,7 +23,7 @@ Rails.application.routes.draw do
         post :confirm, on: :collection
         patch :edit_confirm
       end
-      resources :books, except: [:show]
+      resources :books
       #主に参考書、大学別過去問カテゴリの登録編集削除を行う
       resources :question do
         resources :answers, only: [:index, :new, :create, :edit,:update]
