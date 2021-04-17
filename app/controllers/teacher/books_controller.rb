@@ -8,6 +8,10 @@ class Teacher::BooksController < Teacher::Base
     @book_form = Teacher::BookForm.new
   end
 
+  def show
+    @book = Book.find(params[:id])
+  end
+
   def create
     @book_form = Teacher::BookForm.new
     @book_form.assign_attributes(params[:form])
@@ -16,6 +20,12 @@ class Teacher::BooksController < Teacher::Base
     else
       redirect_to action: "new"
     end
+  end
+
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy!
+    redirect_to :teacher_books
   end
 
 
