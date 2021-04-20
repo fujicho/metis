@@ -39,9 +39,6 @@ class Teacher::BoardMessagesController < Teacher::Base
     @board_message = BoardMessage.find(params[:id])
   end
 
-  # def edit
-  #   @board_message = BoardMessage.find(params[:id])
-  # end
   def edit_confirm
     @board_message = BoardMessage.find(params[:board_message_id])
     @board_form = Teacher::BoardMessageForm.new(current_teacher_member, @board_message, board_message_params)
@@ -65,26 +62,6 @@ class Teacher::BoardMessagesController < Teacher::Base
       render action: "edit"
     end
   end
-  # def edit_confirm
-  #   @board_message = BoardMessage.find(params[:board_message_id])
-  #   @board_message.update_attributes(board_message_params)
-  #   if @board_message.valid?
-  #     render action: "edit_confirm"
-  #   else
-  #     render action: "new"
-  #   end
-  # end
-  
-  # def update
-  #   @board_message = BoardMessage.find(params[:id])
-  #   @board_message.update_attributes(board_message_params)
-  #   if params[:commit]
-  #     @board_message.save
-  #     redirect_to :teacher_root
-  #   else
-  #     render action: "edit"
-  #   end
-  # end
 
   def destroy
     board_message = BoardMessage.find(params[:id])
