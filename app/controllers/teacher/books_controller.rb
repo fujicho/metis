@@ -18,7 +18,7 @@ class Teacher::BooksController < Teacher::Base
     if @book_form.save
       redirect_to action: "index"
     else
-      redirect_to action: "new"
+      render action: "new"
     end
   end
 
@@ -27,8 +27,6 @@ class Teacher::BooksController < Teacher::Base
     book.destroy!
     redirect_to :teacher_books
   end
-
-
 
   private def search_params
     params[:search]&.permit([
