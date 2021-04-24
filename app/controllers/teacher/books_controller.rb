@@ -5,7 +5,7 @@ class Teacher::BooksController < Teacher::Base
   end
 
   def new
-    @book_form = Teacher::BookForm.new
+    @book = Book.new
   end
 
   def show
@@ -13,10 +13,9 @@ class Teacher::BooksController < Teacher::Base
   end
 
   def create
-    @book_form = Teacher::BookForm.new
-    @book_form.assign_attributes(params[:form])
-    if @book_form.save
-      redirect_to action: "index"
+    @book = Book.new(book_params)
+    if @book.save
+      redirect_to :teacher_books
     else
       render action: "new"
     end
@@ -30,8 +29,13 @@ class Teacher::BooksController < Teacher::Base
 
   private def search_params
     params[:search]&.permit([
-      :book_name, :book_subject, :type,
+      :book_name, :book_subject, :book_type,
       :book_year
     ])
+  end
+
+  private def book_params
+    params.require(:form).permit(:book_name, :book_subject,
+    :book_year, :book_type)
   end
 end
