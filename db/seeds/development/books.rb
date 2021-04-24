@@ -42,67 +42,81 @@ subject = %w(
 )
 
 13.times do |n|
-  WorkBook.create!(
+  Book.create!(
     book_name: math[n],
     book_subject: "数学",
+    book_type: "work"
   )
 end
 
 4.times do |n|
-  WorkBook.create!(
+  Book.create!(
     book_name: eng[n],
     book_subject: "英語",
+    book_type: "work"
   )
 end
 
 5.times do |n|
-  WorkBook.create!(
+  Book.create!(
     book_name: phy[n],
     book_subject: "物理",
+    book_type: "work"
   )
 end
 
 4.times do |n|
-  WorkBook.create!(
+  Book.create!(
     book_name: che[n],
     book_subject: "化学",
+    book_type: "work"
   )
 end
 
-WorkBook.create!(
+Book.create!(
   book_name: gendai[0],
-  book_subject: "現代文"
+  book_subject: "現代文",
+  book_type: "work"
 )
 
 6.times do |n|
-  WorkBook.create!(
+  Book.create!(
     book_name: koten[n],
     book_subject: "古典",
+    book_type: "work"
+
   )
 end
 
-WorkBook.create!(
+Book.create!(
   book_name: wh[0],
-  book_subject: "世界史"
+  book_subject: "世界史",
+  book_type: "work"
+
 )
 
-WorkBook.create!(
+Book.create!(
   book_name: jh[0],
-  book_subject: "日本史"
+  book_subject: "日本史",
+  book_type: "work"
+
 )
 
-WorkBook.create!(
+Book.create!(
   book_name: geo[0],
-  book_subject: "地理"
+  book_subject: "地理",
+  book_type: "work"
+
 )
 
 19.times do |n|
   21.times do |m|
     10.times do |l|
-      PastBook.create!(
+        Book.create!(
         book_name: univ[n],
         book_year: 1990+m,
-        book_subject: subject[l]
+        book_subject: subject[l],
+        book_type: "past"
       )
     end
   end
