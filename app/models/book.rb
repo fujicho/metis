@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  validates :book_name, :book_subject, presence: true
+  validates :book_name, :book_subject, :book_type,presence: true
 
   require "date"
   this_year = Date.today.year

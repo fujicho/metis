@@ -1,20 +1,14 @@
 class Teacher::BookSearchForm
   include ActiveModel::Model
   
-  attr_accessor :book_name, :book_subject, :book_year, :type
+  attr_accessor :book_name, :book_subject, :book_year, :book_type
 
   def search
-    if type.present?
-      case type
-      when "work"
-        rel = WorkBook
-      when "past"
-        rel = PastBook
-      else
-        rel = Book
-      end
-    else
-      rel = Book
+
+    rel = Book
+
+    if book_type.present?
+      rel = rel.where(book_type: book_type)
     end
 
     if book_name.present?
