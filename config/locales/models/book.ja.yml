@@ -1,0 +1,7 @@
+ja:
+  activerecord:
+    attributes:
+      book:
+        book_name: 書籍の名前
+        book_subject: 科目名
+        book_type: 参考書か問題集か

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_24_031007) do
+ActiveRecord::Schema.define(version: 2021_03_16_081822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,18 @@ ActiveRecord::Schema.define(version: 2021_01_24_031007) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "answers", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.bigint "teacher_member_id"
+    t.bigint "student_member_id"
+    t.string "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["student_member_id"], name: "index_answers_on_student_member_id"
+    t.index ["teacher_member_id"], name: "index_answers_on_teacher_member_id"
+  end
+
   create_table "board_messages", force: :cascade do |t|
     t.bigint "teacher_member_id", null: false
     t.string "tag", null: false
@@ -44,6 +56,28 @@ ActiveRecord::Schema.define(version: 2021_01_24_031007) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["tag"], name: "index_board_messages_on_tag"
     t.index ["teacher_member_id"], name: "index_board_messages_on_teacher_member_id"
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string "book_name", null: false
+    t.string "book_subject", null: false
+    t.string "book_year"
+    t.string "book_type", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_name"], name: "index_books_on_book_name"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.bigint "student_member_id", null: false
+    t.bigint "book_id", null: false
+    t.string "title", null: false
+    t.string "body", null: false
+    t.string "subject"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_questions_on_book_id"
+    t.index ["student_member_id"], name: "index_questions_on_student_member_id"
   end
 
   create_table "student_events", force: :cascade do |t|
@@ -126,7 +160,12 @@ ActiveRecord::Schema.define(version: 2021_01_24_031007) do
   end
 
   add_foreign_key "addresses", "teacher_members"
+  add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "student_members"
+  add_foreign_key "answers", "teacher_members"
   add_foreign_key "board_messages", "teacher_members"
+  add_foreign_key "questions", "books"
+  add_foreign_key "questions", "student_members"
   add_foreign_key "student_events", "student_members"
   add_foreign_key "student_member_addresses", "student_members"
 end

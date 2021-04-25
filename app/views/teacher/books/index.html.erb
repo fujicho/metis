@@ -1,0 +1,12 @@
+<% @title = "Q&A 書籍管理"  %>
+<h1><%= @title %></h1>
+
+<%= render "search_form" %>
+
+<% @books.each do |m| %>
+  <% p = BookPresenter.new(m,self)  %>
+  <%= p.book_name %>
+  <%= link_to "詳細", teacher_book_path(m) %>
+<% end %>
+
+<%= link_to "書籍の新規登録", :new_teacher_book %>

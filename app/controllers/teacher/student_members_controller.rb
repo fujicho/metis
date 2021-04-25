@@ -11,7 +11,7 @@ class Teacher::StudentMembersController < Teacher::Base
   def new
     @student_form = Teacher::StudentForm.new
   end
-  
+
   def edit
     @student_form = Teacher::StudentForm.new(StudentMember.find(params[:id]))
   end
@@ -22,7 +22,7 @@ class Teacher::StudentMembersController < Teacher::Base
     if @student_form.save
       redirect_to action: "index"
     else
-      redirect_to action: "new"
+      render action: "new"
     end
   end
 

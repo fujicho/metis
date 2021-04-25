@@ -1,8 +1,11 @@
 class StudentMember < ApplicationRecord
   has_many :events, class_name: "StudentEvent", dependent: :destroy
   has_many :student_member_addresses, dependent: :destroy
+  has_many :questions, dependent: :destroy
+  has_many :answers, dependent: :destroy
   has_one :parents_address, dependent: :destroy, autosave: true
   has_one :home_address, dependent: :destroy, autosave: true
+
 
   include StringNormalizer
   include PersonalNameHolder
