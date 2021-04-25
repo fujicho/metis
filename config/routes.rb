@@ -40,7 +40,10 @@ Rails.application.routes.draw do
       resource :account, except: [ :new, :create, :destroy ] do
         patch :confirm
       end
-      resources :board_messages, only: [:index]
+      resources :board_messages, only: [ :index]
+      resources :questions, only: [ :new, :create ] do
+        post :confirm, on: :collection
+      end
       delete "session" => "sessions#destroy"
     end
   end
