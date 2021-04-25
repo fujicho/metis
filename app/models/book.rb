@@ -1,4 +1,6 @@
 class Book < ApplicationRecord
+  has_many :question, dependent: :restrict_with_exception
+
   validates :book_name, :book_subject, :book_type,presence: true
 
   require "date"
