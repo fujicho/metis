@@ -1,0 +1,7 @@
+<% p = FormPresenter.new(f,self)  %>
+
+<%= p.text_field_block(:title, "タイトル") %>
+
+<%= p.text_area_block(:body, "質問内容") %>
+
+<%= p.drop_down_list_block(:subject, "科目", Book::SUBJECT_NAMES) %>
