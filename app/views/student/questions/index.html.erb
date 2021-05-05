@@ -1,0 +1,10 @@
+<% @title = "質問する本を選ぶ" %>
+<h1><%= @title %></h1>
+
+<%= render "search_form" %>
+
+<% @books.each do |m| %>
+  <% p = BookPresenter.new(m,self)  %>
+  <%= p.book_name %>
+  <%= link_to "質問する", new_student_question_path(m.id) %>
+<% end %>
