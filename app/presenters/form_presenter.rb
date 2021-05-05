@@ -9,7 +9,7 @@ class FormPresenter
     @form_builder = form_builder
     @view_context = view_context
   end
-  
+
   def error_messages_for(name)
     markup do |m|
       object.errors.full_messages_for(name).each do |message|
@@ -21,8 +21,8 @@ class FormPresenter
   end
 
   def text_field_block(name, label_text, options= {})
-    markup(:div, class: "input-block") do |m|
-      m << decorated_label(name, label_text, options)
+  markup(:div) do |m|
+      m << label(name, label_text, class: options[:required] ? "required" : nil)
       m << text_field(name,options)
       m << error_messages_for(name)
     end
@@ -30,7 +30,7 @@ class FormPresenter
 
   def text_area_block(name, label_text, options= {})
     markup(:div) do |m|
-      m << decorated_label(name, label_text, options)
+      m << label(name, label_text, class: options[:required] ? "required" : nil)
       m << text_area(name,options)
       m << error_messages_for(name)
     end
@@ -39,7 +39,8 @@ class FormPresenter
 
   def password_field_block(name,label_text, options = {})
     markup(:div, class: "input-block") do |m|
-      m << decorated_label(name, label_text, options)
+      m << label(name, label_text,
+        class: options[:required] ? "required" : nil)
       m << password_field(name, options)
       m << error_messages_for(name)
     end
@@ -47,7 +48,7 @@ class FormPresenter
 
   def drop_down_list_block(name, label_text, choices, options = {})
     markup(:div, class: "input-block") do |m|
-      m << decorated_label(name, label_text, options)
+      m << label(name,label_text, class: options[:required] ? "required" : nil)
       m << form_builder.select(name, choices, {include_blank: true}, options)
       m << error_messages_for(name)
     end
@@ -55,13 +56,9 @@ class FormPresenter
   
   def postal_code_block(name,label_text,options)
     markup(:div,class: "input-block") do |m|
-      m << decorated_label(name, label_text, options)
+      m << label(name, label_text, class: options[:required] ? "required" : nil)
       m << text_field(name,options)
       m << error_messages_for(name)
     end
-  end
-  
-  private def decorated_label(name, label_text, options = {})
-    label(name, label_text, class: options[:required] ? "required" : nil)
   end
 end
