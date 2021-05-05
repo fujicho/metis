@@ -1,5 +1,6 @@
 class Book < ApplicationRecord
-  has_many :question, dependent: :restrict_with_exception
+  has_many :questions, dependent: :restrict_with_exception
+  accepts_nested_attributes_for :questions
 
   validates :book_name, :book_subject, :book_type,presence: true
 
