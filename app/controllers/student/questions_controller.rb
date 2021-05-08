@@ -7,6 +7,9 @@ class Student::QuestionsController < Student::Base
 
   def new
     @book = Book.find(params[:format])
+    if params[:book_id]
+      @book =  Book.find(params[:book_id])
+    end
     @question = Question.new
     @question.book = @book
   end
@@ -19,13 +22,23 @@ class Student::QuestionsController < Student::Base
     if @question.valid?
       render action: "confirm"
     else
-      binding.pry
       render action: "new"
     end
   end
 
   def create
-    
+    @question = Question.new(question_params)
+    if params[:commit]
+      @question.student_member = current_student_member
+      @question.book = Book.find(params[:book_id])
+      if @question.save
+        redirect_to :student_questions
+      else
+        render action: "new"
+      end
+    else params[:correct]
+      render action: "new"
+    end
   end
 
   private def search_params
