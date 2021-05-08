@@ -1,0 +1,13 @@
+<h1>質問する</h1>
+confirm
+<%= @question.book.book_name+"について質問する" %>
+
+
+以下の内容で質問を投稿します。よろしいですか？
+<%= form_with model: @question, scope: "form",url: :student_questions do |f| %>
+  <%= render "confirming_form",f: f %>
+  <%= hidden_field_tag :book_id, @question.book.id %>
+  <%= f.submit "訂正" ,name: "correct" %>
+  <%= f.submit "送信"%>
+  <%= link_to "キャンセル", :student_root %>
+<% end %>
