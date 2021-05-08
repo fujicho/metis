@@ -1,0 +1,17 @@
+<h1>質問する</h1>
+new
+<% if params[:book_id] %>
+  <% @book =  Book.find(params[:book_id]) %>
+<% end %>
+
+
+<%= @book.book_name+"について質問する" %>
+
+似たような質問を調べる
+
+<%= form_with model: @question, scope: "form",url: :confirm_student_questions do |f| %>
+  <%= render "form",f: f %>
+  <%= hidden_field_tag :book_id, @book.id %>
+  <%= f.submit "確認画面へ進む" %>
+  <%= link_to "キャンセル", :student_root %>
+<% end %>
