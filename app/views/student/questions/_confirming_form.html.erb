@@ -1,0 +1,9 @@
+<% p = ConfirmingFormPresenter.new(f, self)  %>
+
+
+以下の内容で質問を投稿します。よろしいですか？
+<%= p.text_field_block(:title, "タイトル") %>
+
+<%= p.text_area_block(:body, "質問内容") %>
+
+<%= p.drop_down_list_block(:subject, "科目", Book::SUBJECT_NAMES) %>
