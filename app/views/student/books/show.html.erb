@@ -1,0 +1,7 @@
+このページが任意の本の質問一覧が出てくる。
+<%= @book.book_name %>
+<% @question.each do |m| %>
+  <%= m.title %>
+  <%= m.body %>
+  <%= link_to "詳細", [ :student, m ] %>
+<% end %>
