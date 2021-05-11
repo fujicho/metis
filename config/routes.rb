@@ -41,7 +41,8 @@ Rails.application.routes.draw do
         patch :confirm
       end
       resources :board_messages, only: [ :index]
-      resources :questions, only: [ :index, :new, :create ] do
+      resources :books
+      resources :questions, only: [ :index, :new, :create, :show ] do
         post :confirm, on: :collection
       end
       delete "session" => "sessions#destroy"
