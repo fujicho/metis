@@ -3,6 +3,6 @@ class Question < ApplicationRecord
   belongs_to :student_member, dependent: :destroy
   has_many :answers, dependent: :restrict_with_exception
 
-  validates :title, :body, :subject, presence: :true
+  validates :title, :body, presence: :true
 
 end
