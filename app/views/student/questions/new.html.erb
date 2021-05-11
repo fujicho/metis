@@ -6,7 +6,7 @@ new
 
 
 <%= @book.book_name+"について質問する" %>
-
+<%= @book.book_subject %>
 似たような質問を調べる
 
 <%= form_with model: @question, scope: "form",url: :confirm_student_questions do |f| %>
