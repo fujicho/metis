@@ -5,6 +5,11 @@ class Student::QuestionsController < Student::Base
     @books = @book_search_form.search.page(params[:page])
   end
 
+  def show
+    @question = Question.find(params[:id])
+    binding.pry
+  end
+
   def new
     @book = Book.find(params[:format])
     if params[:book_id]
