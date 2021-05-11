@@ -10,12 +10,13 @@ class Student::Base < ApplicationController
 
   private def current_student_member
     if student_member_id = cookies.signed[:student_member_id] || session[:student_member_id]
-      @student_member ||= StudentMember.find_by(id: student_member_id)
+      @current_student_member ||= StudentMember.find_by(id: student_member_id)
     end
   end
 
   private def check_account
     if current_student_member && !current_student_member.active?
+      session.delete(:student_member_id)
       redirect_to :student_root
     end
   end
