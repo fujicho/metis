@@ -1,0 +1,6 @@
+question index
+<% @question.each do |m| %>
+  <%= m.title  %>
+  <%= m.body %>
+  <%= link_to "詳細", [ :teacher, m ] %>
+<% end %>
