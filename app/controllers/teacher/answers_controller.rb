@@ -12,7 +12,6 @@ class Teacher::AnswersController < Teacher::Base
     if @answer.valid?
       render action: "confirm"
     else
-      binding.pry
       render action: "new"
     end
   end
