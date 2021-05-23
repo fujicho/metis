@@ -28,7 +28,7 @@ Rails.application.routes.draw do
       resources :questions do
         #主に質問掲示板絵の投稿、リプライ、削除などを行う。
         resources :answers, only: [:index, :new, :create, :edit, :update] do
-          post :confirm
+          post :confirm, on: :collection
         end
       end
     end
