@@ -7,7 +7,6 @@ class Student::QuestionsController < Student::Base
 
   def show
     @question = Question.find(params[:id])
-    binding.pry
   end
 
   def new
