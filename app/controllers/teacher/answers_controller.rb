@@ -22,7 +22,7 @@ class Teacher::AnswersController < Teacher::Base
       @answer.teacher_member = current_teacher_member
       @answer.question = @question
       if @answer.save
-        redirect_to :teacher_root
+        redirect_to teacher_question_path(@question)
       else
         render action: "new"
       end
