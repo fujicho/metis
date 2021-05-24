@@ -1,0 +1,7 @@
+<% @title = "回答またはコメント(確認)"  %>
+<%= form_with model: @answer, url: :student_question_answers do |f| %>
+  <%= render "confirming_form", f: f %>
+  <%= f.submit "送信" %>
+  <%= f.submit "訂正", name: "correct" %>
+  <%= link_to "キャンセル", :student_root %>
+<% end %>
