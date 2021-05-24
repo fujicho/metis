@@ -3,5 +3,5 @@
   <%= render "confirming_form", f: f %>
   <%= f.submit "送信" %>
   <%= f.submit "訂正", name: "correct" %>
-  <%= link_to "キャンセル", :teacher_root %>
+  <%= link_to "キャンセル", teacher_question_path(@question) %>
 <% end %>

@@ -4,5 +4,5 @@ teacher/answers new
   url: confirm_teacher_question_answers_path do |f| %>
   <%= render "form", f: f %>
   <%= f.submit "確認画面へ進む" %>
-  <%= link_to "キャンセル", :teacher_questions %>
+  <%= link_to "キャンセル", teacher_question_path(@question) %>
 <% end %>
