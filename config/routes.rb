@@ -46,7 +46,9 @@ Rails.application.routes.draw do
       resources :books
       resources :questions, only: [ :index, :new, :create, :show ] do
         post :confirm, on: :collection
-        resource :answers
+        resource :answers, only: [:index, :new, :create]do
+          post :confirm, on: :collection
+        end
       end
       delete "session" => "sessions#destroy"
     end
