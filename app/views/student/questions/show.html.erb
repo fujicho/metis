@@ -1,6 +1,13 @@
 
-<%# このページに質問と、回答ツリーが表示される %>
+このページに質問と、回答ツリーが表示される
 <%= @question.book.book_name %>
 <%= @question.title %>
 <%= @question.body %>
 <%= @question.student_member.family_name %>
+<% @question.answers.each do |m| %>
+  <%= m.body  %>
+  <%= m.student_member.family_name if m.student_member.present? %>
+  <%= m.teacher_member.family_name if m.teacher_member.present? %>
+  <%= m.created_at.strftime('%Y/%m/%d')  %>
+<% end %>
+<%= link_to "コメント、追記する", new_student_question_answers_path(@question) %>

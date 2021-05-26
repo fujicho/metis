@@ -1,5 +1,6 @@
 question index
-<% @question.each do |m| %>
+<% @questions.each do |m| %>
+  <%= m.book.book_name %>
   <%= m.title  %>
   <%= m.body %>
   <%= link_to "詳細", [ :teacher, m ] %>
