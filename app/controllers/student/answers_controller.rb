@@ -7,7 +7,7 @@ class Student::AnswersController < Student::Base
 
   def confirm
     @answer = Answer.new(answer_params)
-    @answer.teacher_member = current_student_member
+    @answer.student_member = current_student_member
     @answer.question = @question
     if @answer.valid?
       render action: "confirm"
@@ -37,6 +37,6 @@ class Student::AnswersController < Student::Base
 
 
   private def answer_params
-    params.require(:answer).permit(:body)
+    params.require(:answer).permit(:body, :closed)
   end
 end
