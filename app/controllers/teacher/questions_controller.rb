@@ -1,6 +1,6 @@
 class Teacher::QuestionsController < Teacher::Base
   def index
-    @question = Question.all
+    @questions = Question.all
   end
 
   def show
