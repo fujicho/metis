@@ -2,12 +2,10 @@ require "date"
 
 StudentMember.create!(
   student_number: "0123456789",
-  family_name: "藤田",
+  family_name: "本田",
   given_name: "太郎",
-  family_name_kana: "フジタ",
+  family_name_kana: "ホンダ",
   given_name_kana: "タロウ",
-  emergency_contact: "00000000000",
-  start_date: Date.today,
   password: "password",
   email: "fujita@example.com",
   gender: "male",
