@@ -14,8 +14,10 @@ student/answers new
 <%= form_with model: @answer,
   url: confirm_student_question_answers_path do |f| %>
   <%= render "form", f: f %>
-  <%= f.check_box :closed %>
-  <%= f.label :closed, "解決済み" %>
+  <%= f.fields_for @question do |i| %>
+    <%= i.check_box :closed,{},checked_value = "true", unchecked_value = "false" %>
+    <%= i.label :closed, "解決済み" %>
+  <% end %>
   <%= f.submit "確認画面へ進む" %>
   <%= link_to "キャンセル", :student_questions %>
 <% end %>

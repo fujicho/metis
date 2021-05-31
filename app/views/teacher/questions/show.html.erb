@@ -7,7 +7,8 @@ show
   <% @question.answers.each do |m| %>
     <%= m.body %>
     <%= m.created_at.strftime('%Y/%m/%d') %>
-    <%= m.teacher_member.family_name %>
+    <%= m.teacher_member&.family_name %>
+    <%= m.student_member&.family_name %>
   <% end %>
 <% end %>
 <%= link_to "回答する", new_teacher_question_answer_path(@question) %>
