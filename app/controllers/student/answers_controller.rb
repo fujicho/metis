@@ -22,6 +22,9 @@ class Student::AnswersController < Student::Base
       @answer.student_member = current_student_member
       @answer.question = @question
       if @answer.save
+        if closed?
+          @question.update_attributes(closed: "true")
+        end
         redirect_to student_question_path(@question)
       else
         render action: "new"
@@ -29,6 +32,10 @@ class Student::AnswersController < Student::Base
     else
       render action: "new"
     end
+  end
+
+  private def closed?
+    params[:answer][:question][:closed]
   end
 
   private def prepare_question
