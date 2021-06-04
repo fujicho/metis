@@ -41,7 +41,8 @@ given_names = %w{
       password: "password",
       birthday: 60.years.ago.advance(seconds:rand(40.years)).to_date,
       gender: m < 5 ? "male" : "female",
-      start_date: Date.today
+      start_date: Date.today,
+      subject: m < 5 ? "数学" : "英語"
     )
 
     c.create_address!(
