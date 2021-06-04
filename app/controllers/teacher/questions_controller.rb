@@ -1,6 +1,7 @@
 class Teacher::QuestionsController < Teacher::Base
   def index
-    @questions = Question.all
+    @questions = Question.where(subject: current_teacher_member.subject).order(created_at: :desc)
+    @questions = @questions.page(params[:page])
   end
 
   def show
