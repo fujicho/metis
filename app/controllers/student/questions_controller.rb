@@ -35,6 +35,7 @@ class Student::QuestionsController < Student::Base
     if params[:commit]
       @question.student_member = current_student_member
       @question.book = Book.find(params[:book_id])
+      @question.subject = @question.book.book_subject
       if @question.save
         redirect_to :student_questions
       else
