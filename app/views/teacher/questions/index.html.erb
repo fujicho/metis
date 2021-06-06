@@ -1,7 +1,12 @@
 question index
-<% @questions.each do |m| %>
-  <%= m.book.book_name %>
-  <%= m.title  %>
-  <%= m.body %>
-  <%= link_to "詳細", [ :teacher, m ] %>
-<% end %>
+<%= "貴方の担当科目(#{current_teacher_member.subject})かつ、回答受付中の問題のみ表示されます。" %>
+<p>過去の質問を閲覧するには下部の検索フォームでご検索ください。</p>
+
+<%= paginate @open_questions %>
+
+<%= render partial: "open_question", collection: @open_questions %>
+
+回答受付終了
+<%= paginate @closed_questions, param_name: :closed_page %>
+
+<%= render partial: "closed_question", collection: @closed_questions %>
