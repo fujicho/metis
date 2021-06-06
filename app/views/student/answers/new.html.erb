@@ -18,6 +18,8 @@ student/answers new
     <%= i.check_box :closed,{},checked_value = "true", unchecked_value = "false" %>
     <%= i.label :closed, "解決済み" %>
   <% end %>
+  解決した場合は解決済みにチェックを入れて、お礼を言いましょう。
+  解決済みにチェックを入れると今後回答及びコメントができなくなります。
   <%= f.submit "確認画面へ進む" %>
   <%= link_to "キャンセル", :student_questions %>
 <% end %>
