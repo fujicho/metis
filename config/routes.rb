@@ -50,6 +50,7 @@ Rails.application.routes.draw do
           post :confirm, on: :collection
         end
       end
+      resources :my_questions
       delete "session" => "sessions#destroy"
     end
   end
