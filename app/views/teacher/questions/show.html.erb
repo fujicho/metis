@@ -11,4 +11,8 @@ show
     <%= m.student_member&.family_name %>
   <% end %>
 <% end %>
-<%= link_to "回答する", new_teacher_question_answer_path(@question) %>
+<% if @question.closed? %>
+  この質問への回答コメントは締め切られています。
+<% else %>
+  <%= link_to "回答する", new_teacher_question_answer_path(@question) %>
+<% end %>
