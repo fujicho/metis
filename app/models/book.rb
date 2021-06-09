@@ -1,8 +1,12 @@
 class Book < ApplicationRecord
+  include StringNormalizer
   has_many :questions, dependent: :restrict_with_exception
   accepts_nested_attributes_for :questions
-
   validates :book_name, :book_subject, :book_type,presence: true
+
+  before_validation do
+    self.book_name = normalize_as_text(book_name)
+  end
 
   require "date"
   this_year = Date.today.year
