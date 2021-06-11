@@ -5,6 +5,10 @@ class Question < ApplicationRecord
 
   validates :title, :body, presence: :true
 
-  paginates_per 5
+  before_validation do
+    self.title = normalize_as_text(title)
+    self.body = normalize_as_text(body)
+  end
 
+  paginates_per 5
 end
