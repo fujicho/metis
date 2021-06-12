@@ -28,5 +28,10 @@ RSpec.describe Book, type: :model do
       book = build(:book, book_subject: "")
       expect(book).not_to be_valid
     end
+
+    example "book_typeが空欄の場合無効" do
+      book = build(:book, book_type: "")
+      expect(book).not_to be_valid
+    end
   end
 end
