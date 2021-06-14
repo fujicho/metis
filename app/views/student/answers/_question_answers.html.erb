@@ -1,0 +1,6 @@
+<% if @question.answers.present? %>
+  <% @question.answers.each do |m| %>
+    <%= m.body %>
+    <%= m.created_at.strftime('%Y/%m/%d') %>
+  <% end %>
+<% end %>
