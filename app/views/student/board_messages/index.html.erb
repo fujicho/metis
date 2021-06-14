@@ -3,12 +3,6 @@
 
 <%= paginate @board_messages %>
 
-<% @board_messages.each do |m| %>
-  <% p = BoardMessagePresenter.new(m,self) %>
-  <%= p.subject %>
-  <%= safe_join(p.body.split("\n"), tag(:br)) %>
-  <%= p.contributor %>
-  <%= p.tag %>
-<% end %>
+<%= render partial: "board_message", collection: @board_message  %>
 
 <%= paginate @board_messages %>

@@ -1,0 +1,5 @@
+<% p = BoardMessagePresenter.new(board_message, self)  %>
+<%= p.subject %>
+<%= safe_join(p.body.split("\n"), tag(:br)) %>
+<%= p.contributor %>
+<%= p.tag %>
