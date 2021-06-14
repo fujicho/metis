@@ -1,14 +1,7 @@
 student/answers new
-<%= @question.book.book_name %>
-<%= @question.title %>
-<%= @question.body %>
-<%= @question.student_member.family_name %>
-<% if @question.answers.present? %>
-  <% @question.answers.each do |m| %>
-    <%= m.body %>
-    <%= m.created_at.strftime('%Y/%m/%d') %>
-  <% end %>
-<% end %>
+<%= render "question" %>
+
+<%= render "question_answers"%>
 
 <% @title = "回答またはコメント"  %>
 <%= form_with model: @answer,
