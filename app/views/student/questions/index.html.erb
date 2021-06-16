@@ -3,9 +3,4 @@
 
 <%= render "search_form" %>
 
-<% @books.each do |m| %>
-  <% p = BookPresenter.new(m,self)  %>
-  <%= p.book_name %>
-  <%= link_to "質問する", new_student_question_path(m.id) %>
-  <%= link_to "この本の過去の質問を見る", student_book_path(m.id) %>
-<% end %>
+<%= render partial: "book", collection: @books%>
