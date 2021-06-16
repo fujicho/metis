@@ -4,12 +4,7 @@
 <%= @question.title %>
 <%= @question.body %>
 <%= @question.student_member.family_name %>
-<% @question.answers.each do |m| %>
-  <%= m.body  %>
-  <%= m.student_member.family_name if m.student_member.present? %>
-  <%= m.teacher_member.family_name if m.teacher_member.present? %>
-  <%= m.created_at.strftime('%Y/%m/%d')  %>
-<% end %>
+<%= render partial: "answer", collection: @answers %>
 <% if @question.closed? %>
   この質問への回答は締め切られました
 <% else %>
