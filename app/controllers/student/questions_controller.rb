@@ -7,6 +7,7 @@ class Student::QuestionsController < Student::Base
 
   def show
     @question = Question.find(params[:id])
+    @answers = @question.answers
   end
 
   def new
