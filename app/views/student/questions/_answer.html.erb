@@ -1,0 +1,4 @@
+  <%= answer.body  %>
+  <%= answer.student_member.family_name if answer.student_member.present? %>
+  <%= answer.teacher_member.family_name if answer.teacher_member.present? %>
+  <%= answer.created_at.strftime('%Y/%m/%d')  %>
