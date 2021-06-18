@@ -3,13 +3,6 @@
 
 <%= paginate @board_messages %>
 
-<% @board_messages.each do |m| %>
-  <% p = BoardMessagePresenter.new(m,self) %>
-  <%= p.subject %>
-  <%= safe_join(p.body.split("\n"), tag(:br)) %>
-  <%= p.contributor %>
-  <%= p.tag %>
-  <%= link_to "編集", [ :edit_teacher , m] if m.teacher_member.family_name == current_teacher_member.family_name %>
-<% end %>
+<%= render partial: "board_message", collection: @board_messages %>
 
 <%= paginate @board_messages %>
