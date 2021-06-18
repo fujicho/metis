@@ -1,7 +1,7 @@
 class Teacher::BoardMessagesController < Teacher::Base
   def index
-    @board_messages = BoardMessage.order(created_at: :desc)
-    @board_messages = @board_messages.page(params[:page]).includes(:teacher_member)
+    @board_messages = BoardMessage.order(created_at: :desc).includes(:teacher_member)
+    @board_messages = @board_messages.page(params[:page])
   end
 
   def new
