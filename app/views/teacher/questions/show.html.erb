@@ -3,13 +3,8 @@ show
 <%= @question.title %>
 <%= @question.body %>
 <%= @question.student_member.family_name %>
-<% if @question.answers.present? %>
-  <% @question.answers.each do |m| %>
-    <%= m.body %>
-    <%= m.created_at.strftime('%Y/%m/%d') %>
-    <%= m.teacher_member&.family_name %>
-    <%= m.student_member&.family_name %>
-  <% end %>
+<% if @answers.present? %>
+<%= render partial: "answer", collection: @answers %>
 <% end %>
 <% if @question.closed? %>
   この質問への回答コメントは締め切られています。
