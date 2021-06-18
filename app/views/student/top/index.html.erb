@@ -1,13 +1,8 @@
 <% @title = "学生トップページ"  %>
 <h1><%= @title %></h1>
 
-<% @board_messages.each do |m|  %>
-  <% p = BoardMessagePresenter.new(m,self) %>
-  <%= p.subject %>
-  <%= safe_join(p.body.split("\n"), tag(:br)) %>
-  <%= p.contributor %>
-  <%= p.tag %>
-<% end %>
+<%= render partial: "board_message", collection: @board_messages %>
+
 <%= link_to "過去のお知らせ一覧" , :student_board_messages %>
 <%= link_to "質問する", :student_questions %>
 <%= link_to "自分の質問を見る", :student_my_questions %>
