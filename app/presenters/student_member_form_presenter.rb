@@ -1,13 +1,5 @@
 class StudentMemberFormPresenter < FormPresenter
 
-  # def text_field_block(name, label_text, options = {})
-  #   markup(:div) do |m|
-  #     m << decorated_label(name, label_text, options)
-  #     m << text_field(name,options)
-  #     m << error_messages_for(name)
-  #   end
-  # end
-  
   def full_name_block(name1, name2, label_text, options = {})
     markup(:div) do |m|
       m << decorated_label(name1, label_text, options)
