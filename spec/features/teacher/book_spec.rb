@@ -45,7 +45,7 @@ feature "教職員による書籍登録" do
     expect(page).to have_content "書籍の名前が入力されていません"
   end
 
-  scenario "書籍登録の際、複数の項目を空欄にすると、複数のバリデーションエラ〜メッセージが同時に表示される。" do
+  scenario "書籍登録の際、複数の項目を空欄にすると、複数のバリデーションエラーメッセージが同時に表示される。" do
     click_link "Q&A 書籍管理"
     click_link "書籍の新規登録"
 

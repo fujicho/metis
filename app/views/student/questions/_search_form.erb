@@ -1,0 +1,9 @@
+<%= form_with model: @book_search_form, scope: "search", url: :student_questions,
+    html: { method: :get, class: "search"} do |f| %>
+  <% p = FormPresenter.new(f, self) %>
+  <%= p.text_field_block(:book_name, "書籍名:",) %>
+  <%= p.drop_down_list_block(:book_subject, "教科:" , Book::SUBJECT_NAMES) %>
+  <%= p.drop_down_list_block(:book_type, "参考書or過去問:" , [["参考書", "work"], ["過去問", "past"]] )%>
+  <%= p.drop_down_list_block(:book_year, "年度(過去問):", Book::BOOK_YEAR.reverse) %>
+  <%= f.submit("検索") %>
+<% end %>

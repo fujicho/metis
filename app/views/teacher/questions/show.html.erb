@@ -1,0 +1,13 @@
+show
+<%= @question.book.book_name %>
+<%= @question.title %>
+<%= @question.body %>
+<%= @question.student_member.family_name %>
+<% if @answers.present? %>
+<%= render partial: "answer", collection: @answers %>
+<% end %>
+<% if @question.closed? %>
+  この質問への回答コメントは締め切られています。
+<% else %>
+  <%= link_to "回答する", new_teacher_question_answer_path(@question) %>
+<% end %>

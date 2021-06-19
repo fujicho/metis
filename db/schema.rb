@@ -73,7 +73,8 @@ ActiveRecord::Schema.define(version: 2021_03_16_081822) do
     t.bigint "book_id", null: false
     t.string "title", null: false
     t.string "body", null: false
-    t.string "subject"
+    t.string "subject", null: false
+    t.boolean "closed", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["book_id"], name: "index_questions_on_book_id"

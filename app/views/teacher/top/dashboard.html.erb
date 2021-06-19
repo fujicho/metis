@@ -5,17 +5,10 @@
   <li><%= link_to "学生管理", :teacher_student_members %></li>
   <li><%= link_to "生徒のログイン、ログアウト記録", :teacher_student_events if current_teacher_member %></li>
   <li><%= link_to "Q&A 書籍管理", :teacher_books %></li>
+  <li><%= link_to "質問に答える",  :teacher_questions %></li>
 </ul>
 
-
 お知らせ新着一覧(最新5件)
-<% @board_messages.each do |m|  %>
-  <% p = BoardMessagePresenter.new(m,self) %>
-  <%= p.subject %>
-  <%= safe_join(p.body.split("\n"), tag(:br)) %>
-  <%= p.contributor %>
-  <%= p.tag %>
-  <%= link_to "編集", [ :edit_teacher , m] if m.teacher_member.family_name == current_teacher_member.family_name %>
-  <%= link_to "削除", [ :teacher , m ], method: :delete if m.teacher_member.family_name == current_teacher_member.family_name %>
-<% end %>
+<%= render partial: "board_message", collection: @board_messages %>
+
 <%= link_to "過去のお知らせ一覧" , :teacher_board_messages %>

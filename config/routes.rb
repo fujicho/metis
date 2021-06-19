@@ -25,9 +25,11 @@ Rails.application.routes.draw do
       end
       resources :books
       #主に参考書、大学別過去問カテゴリの登録編集削除を行う
-      resources :question do
-        resources :answers, only: [:index, :new, :create, :edit,:update]
+      resources :questions do
         #主に質問掲示板絵の投稿、リプライ、削除などを行う。
+        resources :answers, only: [:index, :new, :create, :edit, :update] do
+          post :confirm, on: :collection
+        end
       end
     end
   end
@@ -40,7 +42,15 @@ Rails.application.routes.draw do
       resource :account, except: [ :new, :create, :destroy ] do
         patch :confirm
       end
-      resources :board_messages, only: [:index]
+      resources :board_messages, only: [ :index]
+      resources :books
+      resources :questions, only: [ :index, :new, :create, :show ] do
+        post :confirm, on: :collection
+        resource :answers, only: [:index, :new, :create]do
+          post :confirm, on: :collection
+        end
+      end
+      resources :my_questions
       delete "session" => "sessions#destroy"
     end
   end

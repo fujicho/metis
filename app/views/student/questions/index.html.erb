@@ -1,0 +1,6 @@
+<% @title = "質問する本を選ぶ" %>
+<h1><%= @title %></h1>
+
+<%= render "search_form" %>
+
+<%= render partial: "book", collection: @books%>

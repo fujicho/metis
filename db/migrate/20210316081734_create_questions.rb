@@ -5,7 +5,9 @@ class CreateQuestions < ActiveRecord::Migration[6.0]
       t.references :book, null: false, foreign_key: true
       t.string :title, null: false
       t.string :body, null: false
-      t.string :subject
+      t.string :subject, null: false
+      t.boolean :closed, null: false, default: false
+
       t.timestamps
     end
   end

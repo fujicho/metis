@@ -1,5 +1,25 @@
 require "date"
 
+StudentMember.create!(
+  student_number: "0123456789",
+  family_name: "本田",
+  given_name: "太郎",
+  family_name_kana: "ホンダ",
+  given_name_kana: "タロウ",
+  password: "password",
+  email: "fujita@example.com",
+  gender: "male",
+  birth_day: Date.parse("2000/04/02"),
+  telephone_number: "09000000000",
+  emergency_contact: "08000000000",
+  grade: 1,
+  a_class: 2,
+  homeroom_teacher: "田宮",
+  start_date: Date.parse("2020/04/01"),
+  graduation_date: Date.parse("2023/03/31"),
+  bunri: "文系"
+) 
+
 city_names = %w(札幌市 川崎市 高崎市)
 
 family_names = %w{

@@ -1,0 +1,7 @@
+  <% p = BoardMessagePresenter.new(board_message,self) %>
+  <%= p.subject %>
+  <%= safe_join(p.body.split("\n"), tag(:br)) %>
+  <%= p.contributor %>
+  <%= p.tag %>
+  <%= link_to "編集", [ :edit_teacher , board_message ] if board_message.teacher_member == current_teacher_member %>
+  <%= link_to "削除", [ :teacher , board_message ], method: :delete if board_message.teacher_member == current_teacher_member %>

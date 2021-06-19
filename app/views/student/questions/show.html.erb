@@ -1,0 +1,12 @@
+
+このページに質問と、回答ツリーが表示される
+<%= @question.book.book_name %>
+<%= @question.title %>
+<%= @question.body %>
+<%= @question.student_member.family_name %>
+<%= render partial: "answer", collection: @answers %>
+<% if @question.closed? %>
+  この質問への回答は締め切られました
+<% else %>
+  <%= link_to "コメント、追記する", new_student_question_answers_path(@question) %>
+<% end %>

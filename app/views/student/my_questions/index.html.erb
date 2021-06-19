@@ -1,0 +1,6 @@
+<%= paginate @my_questions %>
+<% if @my_questions.blank? %>
+  "過去の質問はありません"
+<% else %>
+  <%= render partial: "my_question", collection: @my_questions %>
+<% end %>
