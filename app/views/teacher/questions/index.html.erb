@@ -4,7 +4,7 @@ question index
 
 <%= render partial: "open_question", collection: @open_questions %>
 
-回答受付終了
+回答受付終了↓
 <%= paginate @closed_questions, param_name: :closed_page %>
 
 <%= render partial: "closed_question", collection: @closed_questions %>
