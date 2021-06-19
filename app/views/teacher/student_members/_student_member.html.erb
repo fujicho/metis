@@ -1,0 +1,10 @@
+<% p = StudentMemberPresenter.new(student_member,self)  %>
+  <%= p.full_name %>
+  <%= p.gender %>
+  <%= p.home_room %>
+  <%= p.suspended_mark %>
+  <%= link_to "詳細", [ :teacher, student_member ] %> |
+  <%= link_to "編集", [ :edit, :teacher , student_member ] %> |
+  <%= link_to "ログイン、ログアウト記録",[ :teacher, student_member , :student_events] %> | 
+  <%= link_to "削除", [ :teacher , student_member ], method: :delete, 
+    data: { confirm: "本当に削除しますか？" } %>
