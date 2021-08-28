@@ -19,14 +19,17 @@ class Teacher::SessionsController < Teacher::Base
     if Teacher::Authenticator.new(teacher_member).authenticate(@form.password)
       session[:teacher_member_id] = teacher_member.id
       session[:last_access_time] = Time.current
+      flash.notice = "ログインしました。"
       redirect_to :teacher_root
     else
+      flash.now.alert = "メールアドレスまたはパスワードが正しくありません。"
       render action: "new"
     end
   end
   
   def destroy
     session.delete(:teacher_member_id)
+    flash.notice = "ログアウトしました。"
     redirect_to :teacher_root
   end
 
