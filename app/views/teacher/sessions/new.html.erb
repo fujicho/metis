@@ -4,16 +4,13 @@
   <h1><%= @title %></h1>
 
   <%= form_with model: @form, url: :teacher_session do |f| %>
-    <div>
-      <%= f.label :email, "メールアドレス" %>
-      <%= f.text_field :email %>
-    </div>
-    <div>
-      <%= f.label :password, "パスワード" %>
-      <%= f.password_field :password %>
-    </div>
-    <div>
-      <%= f.submit "ログイン" %>
-    </div>
+    <% p = FormPresenter.new(f,self)  %>
+
+    <%= p.text_field_block(:email, "メールアドレス") %>
+
+    <%= p.password_field_block(:password, "パスワード") %>
+
+    <%= f.submit "ログイン" %>
   <% end %>
+
 </div>
