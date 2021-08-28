@@ -1,0 +1,6 @@
+ja:
+  activerecord:
+    attributes:
+      teacher_member:
+        email: メールアドレス
+        password: パスワード
