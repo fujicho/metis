@@ -1,12 +1,14 @@
-<header>
-  <span class="logo-mark">metista</span>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#4E7199">
+
+  <%= link_to "Metista", :teacher_root, class: "nav-link navbar-brand" %>
+  
+  <%= link_to "アカウント", :teacher_account ,class: "nav-link navbar-text text-light " if current_teacher_member %>
+
   <%= 
     if current_teacher_member
-      link_to "ログアウト", :teacher_session, method: :delete
+      link_to "ログアウト", :teacher_session, method: :delete, class: "nav-link text-light ms-auto"
     else
-      link_to "ログイン", :teacher_login
+      link_to "ログイン", :teacher_login , class: "nav-link text-light ms-auto"
     end
   %>
-  <%= link_to "アカウント", :teacher_account if current_teacher_member %>
-  <%= link_to "掲示板投稿", :new_teacher_board_message if current_teacher_member %>
-</header>
+</nav>
