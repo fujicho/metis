@@ -1,16 +1,37 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#4E7199">
+<nav class="header navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#4E7199">
+    <%  if current_teacher_member %>
+        <div class="dropdown d-lg-none ms-2">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="#">アカウント</a></li>
+            <li><a class="dropdown-item" href="#">ログイン</a></li>
+            <li><a class="dropdown-item" href="#">ヘルプ</a></li>
+          </ul>
+        </div>
+    <% end %>
 
   <%= link_to "Metista", :teacher_root, class: "logo nav-link navbar-brand" %>
 
-  <%= content_tag(:span, flash.notice) if flash.notice %>
-  
-  <%= link_to "アカウント", :teacher_account ,class: "nav-link navbar-text text-light " if current_teacher_member %>
+  <%= content_tag(:span, flash.notice,class: "header-flash") if flash.notice %>
 
-  <%= 
-    if current_teacher_member
-      link_to "ログアウト", :teacher_session, method: :delete, class: "nav-link text-light ms-auto"
-    else
-      link_to "ログイン", :teacher_login , class: "nav-link text-light ms-auto"
-    end
-  %>
+  <%= link_to "ログイン", :teacher_login , class: "nav-link text-light ms-auto" unless current_teacher_member %>
+
+  <% if current_teacher_member %>
+    <div class="dropdown ms-auto">
+      <a class="dropdown-toggle" type="button" href="#" id="accountLink" role="button"  data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="far fa-user-circle account_icon"></i>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountLink">
+        <li><%= link_to "マイアカウント", :teacher_account, class: "dropdown-item" %></li>
+        <li><%= link_to "アカウント情報変更", :edit_teacher_account, class: "dropdown-item" %></li>
+        <li><%= link_to "パスワード変更", :edit_teacher_password, class: "dropdown-item" %></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">ヘルプ</a></li>
+        <li><%= link_to "ログアウト", :teacher_session , method: :delete, class: "dropdown-item"%></li>
+      </ul>
+    </div>
+  <% end %>
+
 </nav>
