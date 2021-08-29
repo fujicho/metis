@@ -20,6 +20,7 @@ gem "valid_email2"
 gem "nokogiri"
 gem "faker"
 gem "bootstrap"
+gem "font-awesome-sass"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
