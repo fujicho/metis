@@ -3,7 +3,6 @@
 
 * {
   font-family: 'Noto Sans JP', sans-serif;
-  color: #333333;
 }
 
 html, body {
@@ -11,12 +10,34 @@ html, body {
   padding: 0;
   height: 100%;
   background-color: #F4F5F7;
+  color: #333333;
+}
+.header {
+  a,
+  a:visited,
+  a:hover,
+  a:active {
+    color: #F4F5F7;
+  }
+  .dropdown-item {
+    color: #333333 !important;
+  }
 }
 
 .logo {
   font-family: 'Orbitron', sans-serif;
 }
-
+.account_icon {
+  color: #F4F5F7 !important;
+  font-size: 2rem;
+}
+.header-flash {
+  color: #F4F5F7 !important;
+}
+.dropdown-toggle{
+  color: #F4F5F7;
+  padding-right: 0.5rem;
+}
 #container {
   padding-top: 50px;
   .login-form {
