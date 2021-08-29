@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color:#4E7199">
 
-  <%= link_to "Metista", :teacher_root, class: "nav-link navbar-brand" %>
+  <%= link_to "Metista", :teacher_root, class: "logo nav-link navbar-brand" %>
+
+  <%= content_tag(:span, flash.notice) if flash.notice %>
   
   <%= link_to "アカウント", :teacher_account ,class: "nav-link navbar-text text-light " if current_teacher_member %>
 
