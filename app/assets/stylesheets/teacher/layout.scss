@@ -1,12 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Orbitron:wght@800&display=swap');
+
+* {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #333333;
+}
+
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  background-color: #F4F5F7;
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+}
+
+#container {
+  padding-top: 50px;
+  .login-form {
+    padding-top: 0.5rem;
+    margin-top: 8rem;
+    // .btn {
+    //   margin-top: 1rem;
+    // }
+  }
 }
 div#wrapper {
-  position: relative;
-  box-sizing: border-box;
-  min-height: 100%;
-  padding-bottom: 48px;
-  background-color: #cccccc;
+  padding-top: 20px;
+}
+
+input {
+  margin-bottom: 1rem;
 }
