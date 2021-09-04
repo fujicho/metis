@@ -2,8 +2,8 @@
   <%#  中サイズで以下表示されるサイドオフキャンバスナビゲーションバー%>
   <%  if current_teacher_member %>
     <div class="d-lg-none ms-2">
-      <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-expanded="false" aria-controls="offcanvasExample">
-        <span class="navbar-toggler-icon"data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"></span>
+      <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-expanded="false" aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"></span>
       </button>
     </div>
   <% end %>
@@ -30,38 +30,4 @@
     </div>
   <% end %>
 </nav>
-  <%# 中サイズ以下の時に出現するトグルバーの中身 %>
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="閉じる"></button>  
-      <%# <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">オフキャンバス</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="閉じる"></button>
-      </div>
-      <div class="offcanvas-body"> %>
-        <%# <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">ホーム</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">リンク</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              ドロップダウン
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-              <li><a class="dropdown-item" href="#">メニュー1</a></li>
-              <li><a class="dropdown-item" href="#">メニュー2</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">その他</a></li>
-            </ul>
-          </li>
-        </ul> %>
-        <%# <form class="d-flex">
-          <input type="search" class="form-control me-2" placeholder="検索" aria-label="検索">
-          <button class="btn btn-outline-success flex-shrink-0" type="submit">検索</button>
-        </form> %>
-      <%# </div> %>
-    </div>
+<%= render "teacher/shared/side_toggle_navbar" %>
