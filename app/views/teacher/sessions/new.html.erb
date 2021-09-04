@@ -1,16 +1,16 @@
 <% @title = "ログイン" %>
 
-<div id="login-form">
-  <h1><%= @title %></h1>
+<div class="row justify-content-center ">
+  <div class="login-form col-3 border rounded ">
+    <h1 class="logo">Metista</h1>
+    <%= form_with model: @form, url: :teacher_session do |f| %>
+      <% p = FormPresenter.new(f,self)  %>
+        <%= p.text_field_block(:email, "メールアドレス", placeholder: "Email", class: "form-control") %>
 
-  <%= form_with model: @form, url: :teacher_session do |f| %>
-    <% p = FormPresenter.new(f,self)  %>
-
-    <%= p.text_field_block(:email, "メールアドレス") %>
-
-    <%= p.password_field_block(:password, "パスワード") %>
-
-    <%= f.submit "ログイン" %>
-  <% end %>
-
+        <%= p.password_field_block(:password, "パスワード", placeholder: "Password", class: "form-control") %>
+        <p class="form-text">パスワードは8文字以上で文字と数字を含みます。</p>
+        <%= content_tag(:p, flash.alert, class: "alert alert-danger") if flash.alert %>
+        <%= f.submit "ログイン", class: "btn btn-outline-secondary col-12" %>
+    <% end %>
+  </div>
 </div>
