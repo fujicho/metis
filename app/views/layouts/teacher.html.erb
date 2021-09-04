@@ -7,14 +7,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': true %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "teacher", media: "all", "data-turbolinks-track": "reload" %>
-    <%= javascript_pack_tag 'teacher', 'data-turbolinks-track': true %>
+    <%# <%= javascript_pack_tag 'teacher', 'data-turbolinks-track': true %>
   </head>
 
   <body>
     <div id="wrapper">
       <div id="container">
         <%= render "teacher/shared/header" %>
-        <%= yield %>
+        <div class="main-content row d-lg-flex justify-content-center">
+          <%= render "teacher/shared/side_navbar" if current_teacher_member %>
+          <div class="content col-10 overflow-auto"><%= yield %></div>
+        </div>
       </div>
     </div>
   </body>
