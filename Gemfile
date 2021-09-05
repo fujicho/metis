@@ -11,10 +11,10 @@ gem "webpacker", "~> 4.0"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.7"
 gem "bootsnap", ">= 1.4.2", require: false
-
+gem "kaminari"
+gem "bootstrap4-kaminari-views"
 gem "bcrypt"
 gem "rails-i18n"
-gem "kaminari"
 gem "date_validator"
 gem "valid_email2"
 gem "nokogiri"
