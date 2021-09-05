@@ -1,10 +1,11 @@
 <h4 class="text-center">お知らせ一覧</h4>
 
 <div class="row justify-content-center mt-3">
+
   <%= paginate @board_messages , theme: "twitter-bootstrap-4" %>
 
-    <%= render partial: "board_message", collection: @board_messages %>
-    <h5 class="text-center"><%= link_to "過去のお知らせ一覧" , :teacher_board_messages %></h5>
+  <%= render partial: "teacher/shared/board_message", collection: @board_messages %>
 
   <%= paginate @board_messages, theme: "twitter-bootstrap-4" %>
+  <h5 class="text-center"><%= link_to "過去のお知らせ一覧" , :teacher_board_messages %></h5>
 </div>
