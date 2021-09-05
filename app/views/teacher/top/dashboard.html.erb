@@ -1,14 +1,8 @@
-<% @title = "コンソール" %>
-<h1><%= @title %></h1>
+<h4 class="text-center">お知らせ新着一覧(最新5件)</h4>
 
-<ul>
-  <li><%= link_to "学生管理", :teacher_student_members %></li>
-  <li><%= link_to "生徒のログイン、ログアウト記録", :teacher_student_events if current_teacher_member %></li>
-  <li><%= link_to "Q&A 書籍管理", :teacher_books %></li>
-  <li><%= link_to "質問に答える",  :teacher_questions %></li>
-</ul>
+<div class="row justify-content-center">
 
-お知らせ新着一覧(最新5件)
-<%= render partial: "board_message", collection: @board_messages %>
+  <%= render partial: "board_message", collection: @board_messages %>
 
-<%= link_to "過去のお知らせ一覧" , :teacher_board_messages %>
+  <h5 class="text-center"><%= link_to "過去のお知らせ一覧" , :teacher_board_messages %></h5>
+</div>
