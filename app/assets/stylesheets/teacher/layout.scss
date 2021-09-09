@@ -47,9 +47,9 @@ html, body {
   .login-form {
     padding-top: 0.5rem;
     margin-top: 8rem;
-    // .btn {
-    //   margin-top: 1rem;
-    // }
+    input {
+      margin-bottom: 1rem;
+    }
   }
 }
 div#wrapper {
@@ -60,9 +60,6 @@ div#wrapper {
 }
 .content{
   height: 100vh;
-}
-input {
-  margin-bottom: 1rem;
 }
 .fa:before{
   display: inline-block;
@@ -90,4 +87,12 @@ a {
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {        
   border-radius: 15px;    /*角を丸くする*/
+}
+.btn-block {
+  display: block;
+}
+.new_board_message {
+  .btn {
+    margin-bottom: 1rem;
+  }
 }
