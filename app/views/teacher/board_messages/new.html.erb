@@ -1,8 +1,20 @@
 <% @title = "掲示板投稿" %>
-<h1><%= @title %></h1>
 
-<%= form_with model: @board_message, scope: "form", url: :confirm_teacher_board_messages do |f| %>
-  <%= render "form", f:f %>
-  <%= f.submit "確認画面へ進む" %>
-  <%= link_to "キャンセル", :teacher_root %>
-<% end %>
+<div class="new_board_message row justify-content-center my-5">
+  <div class="col-8">
+  <div class="card">
+    <h4 class="card-header">
+      お知らせ掲示板に投稿する
+    </h4>
+    <div class="card-body">
+    <%= form_with model: @board_message, scope: "form", url: :confirm_teacher_board_messages do |f| %>
+      <%= render "form", f:f %>
+      <div class="mt-4">
+        <%= f.submit "確認画面へ進む", class: "btn btn-outline-secondary btn-block mx-auto"  %>
+        <%= link_to "キャンセル", :teacher_root, class: "btn btn-outline-secondary btn-block col-4 mb-3 mx-auto" %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+  </div>
+</div>
