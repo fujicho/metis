@@ -5,12 +5,12 @@
     <h1 class="logo">Metista</h1>
     <%= form_with model: @form, url: :teacher_session do |f| %>
       <% p = FormPresenter.new(f,self)  %>
-        <%= p.text_field_block(:email, "メールアドレス", placeholder: "Email", class: "form-control") %>
+      <%= p.text_field_block(:email, "メールアドレス", placeholder: "Email", class: "form-control") %>
 
-        <%= p.password_field_block(:password, "パスワード", placeholder: "Password", class: "form-control") %>
-        <p class="form-text">パスワードは8文字以上で文字と数字を含みます。</p>
-        <%= content_tag(:p, flash.alert, class: "alert alert-danger") if flash.alert %>
-        <%= f.submit "ログイン", class: "btn btn-outline-secondary col-12" %>
+      <%= p.password_field_block(:password, "パスワード", placeholder: "Password", class: "form-control") %>
+      <p class="form-text">パスワードは8文字以上で文字と数字を含みます。</p>
+      <%= content_tag(:p, flash.alert, class: "alert alert-danger") if flash.alert %>
+      <%= f.submit "ログイン", class: "btn btn-outline-secondary col-12" %>
     <% end %>
   </div>
 </div>
