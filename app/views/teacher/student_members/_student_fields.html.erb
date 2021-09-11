@@ -2,31 +2,31 @@
 
 <% p = StudentMemberFormPresenter.new(ff,self)  %>
 
-<%= p.text_field_block(:student_number, "学生番号") %>
+<%= p.text_field_block(:student_number, "学生番号", class: "form-control") %>
 
-<%= p.full_name_block( :family_name, :given_name, "氏名") %>
+<%= p.full_name_block( :family_name, :given_name, "氏名", class: "form-control") %>
 
-<%= p.full_name_block( :family_name_kana, :given_name_kana, "フリガナ") %>
+<%= p.full_name_block( :family_name_kana, :given_name_kana, "フリガナ", class: "form-control") %>
 
 <%= p.gender_field_block %>
 
-<%= p.date_field_block(:birth_day , "生年月日") %>
+<%= p.date_field_block(:birth_day , "生年月日", class: "form-control") %>
 
-<%= p.text_field_block(:grade, "学年") %>
+<%= p.text_field_block(:grade, "学年", class: "form-control") %>
 
-<%= p.text_field_block(:a_class, "クラス") %>
+<%= p.text_field_block(:a_class, "クラス", class: "form-control") %>
 
-<%= p.text_field_block(:email, "メールアドレス", size: 25) %>
+<%= p.text_field_block(:email, "メールアドレス", class: "form-control", size: 25) %>
 
-<%= p.text_field_block(:telephone_number , "電話番号") %>
+<%= p.text_field_block(:telephone_number , "電話番号", class: "form-control") %>
 
-<%= p.text_field_block(:emergency_contact , "緊急連絡先") %>
+<%= p.text_field_block(:emergency_contact , "緊急連絡先", class: "form-control") %>
 
-<%= p.text_field_block(:homeroom_teacher , "担任名") %>
+<%= p.text_field_block(:homeroom_teacher , "担任名", class: "form-control") %>
 
-<%= p.date_field_block(:start_date, "入学日") %>
+<%= p.date_field_block(:start_date, "入学日", class: "form-control") %>
 
-<%= p.date_field_block(:graduation_date, "卒業予定日") %>
+<%= p.date_field_block(:graduation_date, "卒業予定日", class: "form-control") %>
 
 <%= p.suspended_check_box %>
 
