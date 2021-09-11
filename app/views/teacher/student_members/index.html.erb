@@ -1,5 +1,4 @@
 <% @title = "生徒一覧"  %>
-<h1><%= @title %></h1>
 
 <%= render "search_form" %>
 
@@ -25,5 +24,3 @@
 </table>
 
 <%= paginate @student_members, theme: "twitter-bootstrap-4" %>
-
-<%= link_to "新規登録", :new_teacher_student_member %>
