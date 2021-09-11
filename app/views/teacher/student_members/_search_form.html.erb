@@ -20,7 +20,9 @@
   <%= p.drop_down_list_block(:address_type, "住所の検索範囲", [[ "自宅住所のみ", "home"],[ "保護者住所のみ", "parents"]]) %>
   <%= p.drop_down_list_block(:prefecture, "都道府県", Address::PREFECTURE_NAMES) %>
   <%= p.text_field_block(:city, "市区町村", class: "form-control") %>
-  <%= f.submit("検索") %>
+  <div class="text-center">
+    <%= f.submit "検索", class: "btn btn-outline-secondary col-6 mt-4" %>
+  </div>
 <% end %>
     </div>
   </div>
