@@ -34,7 +34,7 @@ class StudentMemberFormPresenter < FormPresenter
   end
 
   def gender_field_block
-    markup(:div) do |m|
+    markup(:div, class: "radio-buttons") do |m|
       m << label(:gender,"性別")
       m << radio_button(:gender, "male")
       m << label(:gender, "男性")
