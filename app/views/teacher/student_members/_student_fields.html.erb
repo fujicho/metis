@@ -2,11 +2,11 @@
 
 <% p = StudentMemberFormPresenter.new(ff,self)  %>
 
-<%= p.text_field_block(:student_number, "学生番号", class: "form-control") %>
+<%= p.text_field_block(:student_number, "学生番号", class: "form-control", placeholder: "10桁の数字を入力してください") %>
 
-<%= p.full_name_block( :family_name, :given_name, "氏名", class: "form-control") %>
+<%= p.full_name_block( :family_name, :given_name, "氏名", class: "form-control my-2") %>
 
-<%= p.full_name_block( :family_name_kana, :given_name_kana, "フリガナ", class: "form-control") %>
+<%= p.full_name_block( :family_name_kana, :given_name_kana, "フリガナ", class: "form-control my-2") %>
 
 <%= p.gender_field_block %>
 
