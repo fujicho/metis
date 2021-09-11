@@ -3,6 +3,7 @@
   <div class="card">
     <h4 class="card-header">
       生徒を検索する
+      <%= link_to "新規登録はこちら", :new_teacher_student_member, class: "fw-light fs-6" %>
     </h4>
     <div class="card-body">
 <%= form_with model: @search_form, scope: "search", url: :teacher_student_members,
