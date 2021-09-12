@@ -1,3 +1,4 @@
+<%= link_to "生徒一覧", :teacher_student_members %>
 <% 
   if @student_member
     full_name = @student_member.family_name + @student_member.given_name 
@@ -5,9 +6,18 @@
     @title = "生徒のログインログアウト記録"
   end
 %>
-<%= link_to "生徒一覧", :teacher_student_members %>
-
-<%= render partial: "event", collection: @events %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">氏名</th>
+      <th scope="col">ログインorログアウト</th>
+      <th scope="col">時間</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "event", collection: @events %>
+  </tbody>
+</table>
 <% if @events.empty? %>
   記録がありません。
 <% end %>
