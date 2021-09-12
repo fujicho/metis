@@ -21,7 +21,7 @@ class FormPresenter
   end
 
   def text_field_block(name, label_text, options= {})
-  markup(:div) do |m|
+  markup(:div, class: "col-5") do |m|
       m << label(name, label_text, class: options[:required] ? "required" : nil ,class: "form-label mt-2")
       m << text_field(name,options)
       m << error_messages_for(name)
@@ -47,7 +47,7 @@ class FormPresenter
   end
 
   def drop_down_list_block(name, label_text, choices, options = {})
-    markup(:div, class: "input-block") do |m|
+    markup(:div, class: "input-block col-4") do |m|
       m << label(name,label_text, class: options[:required] ? "required" : nil, class: "form-label mt-2")
       m << form_builder.select(name, choices, {include_blank: true}, class: "form-select")
       m << error_messages_for(name)
