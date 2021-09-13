@@ -1,3 +1,8 @@
-  <% p = BookPresenter.new(book,self)  %>
-  <%= p.book_name %>
-  <%= link_to "詳細", teacher_book_path(book) %>
+  <% p = BookPresenter.new(book,self) %>
+  <tr>
+    <td scope="col"><%= p.type %></td>
+    <td scope="col"><%= book.book_name %></td>
+    <td scope="col"><%= book.book_subject %></td>
+    <td scope="col"><%= book.book_year %></td>
+    <td scope="col"><%= link_to "詳細", teacher_book_path(book) %></td>
+  </tr>
