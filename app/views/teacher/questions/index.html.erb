@@ -1,7 +1,7 @@
 <p class="text-center"><%= "貴方の担当科目(#{current_teacher_member.subject})かつ、回答受付中の問題のみ表示されます。" %></p>
 
 
-<%= paginate @open_questions , theme: "twitter-bootstrap-4 "%>
+<%= paginate @open_questions , theme: "twitter-bootstrap-4" %>
 
 <%= render partial: "open_question", collection: @open_questions %>
 
