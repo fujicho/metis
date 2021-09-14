@@ -96,3 +96,17 @@ a {
     margin-bottom: 1rem;
   }
 }
+.title-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.text-overflow {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  /*IE対策*/
+  line-height: 1.5em;
+  max-height: 6.5em;
+}
