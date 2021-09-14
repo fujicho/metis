@@ -1,14 +1,15 @@
 <% p = QuestionPresenter.new(open_question,self) %>
+
 <% unless open_question.closed %>
-<div class="row justify-content-center">
-  <div class="card d-frex flex-column mb-2 col-6 justify-content-center">
+  <div class=" card col-5 my-4" style="height: 18rem">
     <div class="card-body">
       <p><%= p.book_name %></p>
-      <h5><%= p.title  %></h5>
-      <p class="card-text"><%= p.body %></p>
-      <p><%= link_to "詳細を見る", [ :teacher, open_question ] %></p>
-      <div class="float-end"><%= p.posted_at %></div>
+      <h5 class="title-overflow my-3"><%= p.title  %></h5>
+      <p class="text-overflow card-text overflow-hidden"><%= p.body %></p>
+    </div>
+    <div class="row d-flex mx-2 my-2 justify-content-end">
+      <p class="col"><%= link_to "詳細を見る", [ :teacher, open_question ] %></p>
+      <div class="col"><%= p.posted_at %></div>
     </div>
   </div>
-</div>
 <% end %>
