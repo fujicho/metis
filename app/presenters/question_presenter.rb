@@ -9,8 +9,7 @@ class QuestionPresenter < ModelPresenter
     end
   end
 
-  def created_at
-    object.created_at.strftime('%Y/%m/%d %H:%M')
+  def posted_at
+    "投稿日 " + object.created_at.strftime('%Y/%m/%d %H:%M')
   end
-
 end
