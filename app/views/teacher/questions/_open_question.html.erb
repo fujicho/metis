@@ -1,8 +1,14 @@
+<% p = QuestionPresenter.new(open_question,self) %>
 <% unless open_question.closed %>
-    <%= open_question.book.book_name %>
-    <%= "(#{open_question.subject})"%>
-    <%= open_question.title  %>
-    <%= open_question.body %>
-    <%= open_question.created_at.strftime('%Y/%m/%d %H:%M') %>
-    <%= link_to "詳細", [ :teacher, open_question ] %>
-  <% end %>
+<div class="row justify-content-center">
+  <div class="card d-frex flex-column mb-2 col-6 justify-content-center">
+    <div class="card-body">
+      <p><%= p.book_name %></p>
+      <h5><%= p.title  %></h5>
+      <p class="card-text"><%= p.body %></p>
+      <p><%= link_to "詳細を見る", [ :teacher, open_question ] %></p>
+      <div class="float-end"><%= p.posted_at %></div>
+    </div>
+  </div>
+</div>
+<% end %>
