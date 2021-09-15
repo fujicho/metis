@@ -12,4 +12,8 @@ class QuestionPresenter < ModelPresenter
   def posted_at
     "投稿日 " + object.created_at.strftime('%Y/%m/%d')
   end
+
+  def posted_by
+    object.student_member.family_name + " " + object.student_member.given_name + "(" + object.student_member.grade.to_s + "-" + object.student_member.a_class.to_s + ")"
+  end
 end
