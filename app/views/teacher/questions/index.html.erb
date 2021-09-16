@@ -2,8 +2,11 @@
 
 
 <%= paginate @open_questions , theme: "twitter-bootstrap-4" %>
-
-<%= render partial: "open_question", collection: @open_questions %>
+<div class="container">
+  <div class="row justify-content-around">
+    <%= render partial: "open_question", collection: @open_questions %>
+  </div>
+</div>
 
 回答受付終了↓
 <%= paginate @closed_questions, param_name: :closed_page , theme: "twitter-bootstrap-4" %>
