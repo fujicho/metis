@@ -9,18 +9,19 @@
         <p ><%= p.posted_by %></p>
         <div class="col text-end"><%= p.posted_at %></div>
       </div>
-      <p class="btn btn-outline-secondary btn-block mx-auto">
-        <%= link_to "質問に答える", new_teacher_question_answer_path(@question) %>
-      </p>
+        <% if @question.closed? %>
+          <p class="btn btn-outline-danger btn-block mx-auto disabled">
+            この質問への回答コメントは締め切られています。
+          </p>
+        <% else %>
+          <p class="btn btn-outline-secondary btn-block mx-auto">
+            <%= link_to "質問に答える", new_teacher_question_answer_path(@question) %>
+          </p>
+        <% end %>
     </div>
   </div>
 </div>
 
 <% if @answers.present? %>
   <%= render partial: "answer", collection: @answers %>
-<% end %>
-<% if @question.closed? %>
-  この質問への回答コメントは締め切られています。
-<% else %>
-  <%= link_to "回答する", new_teacher_question_answer_path(@question) %>
 <% end %>
