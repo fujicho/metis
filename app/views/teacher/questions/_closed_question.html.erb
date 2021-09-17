@@ -1,8 +1,15 @@
+<% p = QuestionPresenter.new(closed_question,self) %>
+
 <% if closed_question.closed %>
-    <%= closed_question.book.book_name %>
-    <%= "(#{closed_question.subject})"%>
-    <%= closed_question.title  %>
-    <%= closed_question.body %>
-    <%= closed_question.created_at.strftime('%Y/%m/%d %H:%M') %>
-    <%= link_to "詳細", [ :teacher, closed_question ] %>
-  <% end %>
+  <div class=" card col-lg-5 my-4" style="height: 18rem">
+    <div class="card-body">
+      <p><%= p.book_name %></p>
+      <h5 class="title-overflow my-3"><%= p.title  %></h5>
+      <p class="text-overflow card-text overflow-hidden"><%= p.body %></p>
+    </div>
+    <div class="row d-flex mx-2 my-2 justify-content-end">
+      <p class="col"><%= link_to "詳細を見る", [ :teacher, closed_question ] %></p>
+      <div class="col text-end"><%= p.posted_at %></div>
+    </div>
+  </div>
+<% end %>
