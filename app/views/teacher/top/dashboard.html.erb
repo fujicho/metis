@@ -1,6 +1,6 @@
 <h4 class="text-center">お知らせ新着一覧(最新5件)</h4>
 
-<div class="row justify-content-center mt-3">
+<div class="row justify-content-center py-4">
     <small class="text-center mb-3"><%= link_to "過去のお知らせ一覧はこちら" , :teacher_board_messages %></small>
 
   <%= render partial: "teacher/shared/board_message", collection: @board_messages %>
