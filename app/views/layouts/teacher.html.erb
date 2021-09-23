@@ -17,7 +17,7 @@
         <div class="main-content row d-lg-flex justify-content-center pb-3">
           <%= render "teacher/shared/side_navbar" if current_teacher_member %>
           <div class="content col-8"><%= yield %></div>
-          <div class="col-lg-2"></div>
+          <% if current_teacher_member %><div class="col-lg-2"></div><% end %>
         </div>
         <%= render "teacher/shared/footer" %>
       </div>
