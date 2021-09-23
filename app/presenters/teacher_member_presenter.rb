@@ -1,3 +1,6 @@
 class TeacherMemberPresenter < ModelPresenter
-  delegate :email, to: :object
+  delegate :email, :subject, :birthday, :start_date, :homeroom_1, :homeroom_2 ,to: :object
+
+  
+
 end
