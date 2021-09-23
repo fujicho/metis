@@ -16,8 +16,10 @@
         <%= render "teacher/shared/header" %>
         <div class="main-content row d-lg-flex justify-content-center">
           <%= render "teacher/shared/side_navbar" if current_teacher_member %>
-          <div class="content col-10"><%= yield %></div>
+          <div class="content col-8"><%= yield %></div>
+          <div class="col-lg-2"></div>
         </div>
+        <%= render "teacher/shared/footer" %>
       </div>
     </div>
   </body>
