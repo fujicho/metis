@@ -1,25 +1,5 @@
 class StudentMemberFormPresenter < FormPresenter
 
-  def full_name_block(name1, name2, label_text, options = {})
-    markup(:div, class: "col-10 my-2 row") do |m|
-      m << decorated_label(name1, label_text, class: "form-label")
-      m << text_field( name1, class: "form-control my-2 mx-3 col", placeholder: "性")
-      m << text_field( name2, class: "form-control my-2 mx-3 col", placeholder: "名")
-      m << error_messages_for(name1)
-      m << error_messages_for(name2)
-    end
-  end
-
-  def full_name_block_kana(name1, name2, label_text, options = {})
-    markup(:div, class: "col-10 my-2 row") do |m|
-      m << decorated_label(name1, label_text, class: "form-label")
-      m << text_field( name1, class: "form-control my-2 mx-3 col", placeholder: "セイ")
-      m << text_field( name2, class: "form-control my-2 mx-3 col", placeholder: "メイ")
-      m << error_messages_for(name1)
-      m << error_messages_for(name2)
-    end
-  end
-
   def suspended_check_box
     markup(:div) do |m|
       m << check_box(:suspended)
