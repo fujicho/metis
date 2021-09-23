@@ -1,16 +1,19 @@
 <template>
-  <header>
-    <h1>
-      <a href="/">Metista</a>
-    </h1>
-    <nav>
-      <ul>
-        <v-btn href="/account" text color="primary" dark>アカウント</v-btn>
-        <v-btn href="/session" text data-method="delete" color="primary" dark>ログアウト</v-btn>
-        <v-spacer></v-spacer>
-      </ul>
-    </nav>
-  </header>
+  <div id="app">
+    <header>
+      <v-navigation-drawer app>Navigation</v-navigation-drawer>
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <h1>
+        <a href="/">Metista</a>
+      </h1>
+      <nav>
+        <ul>
+          <v-btn href="/account" text color="primary" dark large>アカウント</v-btn>
+          <v-btn href="/session" text data-method="delete" color="primary" dark large>ログアウト</v-btn>
+        </ul>
+      </nav>
+    </header>
+  </div>
 </template>
 
 <script>
