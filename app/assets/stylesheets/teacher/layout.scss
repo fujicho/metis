@@ -12,6 +12,14 @@ html, body {
   background-color: #F4F5F7;
   color: #333333;
 }
+div#wrapper {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  position: relative;
+  box-sizing: border-box;
+  min-height: 100%;
+  margin: 0 auto;
+}
 .header {
   a,
   a:visited,
@@ -39,10 +47,14 @@ html, body {
   }
 }
 
+
+
 .logo {
   font-family: 'Orbitron', sans-serif;
+  color: #F4F5F7;
 }
-#container {
+
+div#container {
   padding-top: 50px;
   .login-form {
     padding-top: 0.5rem;
@@ -50,13 +62,17 @@ html, body {
     input {
       margin-bottom: 1rem;
     }
+    .logo {
+      color:#696969
+    }
   }
 }
-div#wrapper {
-  padding-top: 20px;
-}
 footer {
-  
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
 }
 .side-nav {
   height: 100%;
