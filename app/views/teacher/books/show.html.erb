@@ -1,2 +1,27 @@
-<%= @book.book_name %>
-<%= link_to "削除", teacher_book_path(@book), method: :delete %>
+<% @title = @book.book_name  %>
+
+<div class="row justify-content-center my-5">
+  <div class="col-8">
+    <div class="card">
+      <h4 class="card-header">
+        書籍情報
+      </h4>
+      <div class="card-body">
+        <table class="table table-borderless">
+          <thead>
+            <th scope="col-1"><h4>書籍情報</h4></th>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">書籍名</th>
+              <td><%= @book.book_name %></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="text-end">
+          <h6><%= link_to "削除", teacher_book_path(@book) %></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
