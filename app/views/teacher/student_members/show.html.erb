@@ -90,36 +90,42 @@
               <th scope="row">建物、部屋番号等</th>
               <td><%= p2.address2 %></td>
             </tr>
+            <tr>
+              <th scope="row"></th>
+            </tr>
+            <% if @student_member.parents_address %>
+              <% p3 = AddressPresenter.new(@student_member.parents_address, self)  %>
+              <tr>
+                <th scope="row"><h4>保護者住所情報</h4></th>
+              </tr>
+              <tr>
+                <th scope="row">郵便番号</th>
+                <td><%= p3.postal_code %></td>
+              </tr>
+              <tr>
+                <th scope="row">市区町村</th>
+                <td><%= p3.city %></td>
+              </tr>
+              <tr>
+                <th scope="row">番地</th>
+                <td><%= p3.address1 %></td>
+              </tr>
+              <tr>
+                <th scope="row">建物、部屋番号等</th>
+                <td><%= p3.address2 %></td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
+        <div class="text-center">
+          <% unless @student_member.suspended %>
+            <p>このアカウントは有効です。</p>
+          <% else %>
+            <p>このアカウントは停止されています。</p>
+          <% end %>
+          <h5><%= link_to "情報を編集するにはこちら", [ :edit, :teacher, :student_member ] %></h5>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<% if @student_member.home_address %>
-  <%= p2.postal_code %>
-  <%= p2.prefecture %>
-  <%= p2.city %>
-  <%= p2.address1 %>
-  <%= p2.address2 %>
-<% end %>
-
-
-<%= p1.suspended_mark %>
-<% unless @student_member.suspended %>
-  <p>このアカウントは有効です。</p>
-<% else %>
-  <p>このアカウントは停止されています。</p>
-<% end %>
-
-<% if @student_member.parents_address %>
-  <p>保護者住所</p>
-  <% p3 = AddressPresenter.new(@student_member.parents_address, self)  %>
-  <%= p3.postal_code %>
-  <%= p3.prefecture %>
-  <%= p3.city %>
-  <%= p3.address1 %>
-  <%= p3.address2 %>
-<% end %>
-<%= link_to "編集", [ :edit, :teacher, :student_member ] %>
