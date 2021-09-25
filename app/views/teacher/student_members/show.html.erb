@@ -1,23 +1,103 @@
 <% @title = "生徒詳細情報"  %>
-<h1><%= @title %></h1>
-
 <% p1 = StudentMemberPresenter.new(@student_member,self)  %>
-<%= p1.student_number %>
-<%= p1.full_name %>
-<%= p1.full_name_kana %>
-<%= p1.home_room %>
-<%= p1.email %>
-<%= p1.telephone_number %>
-<%= p1.emergency_contact %>
-<%= p1.homeroom_teacher %>
-<%= p1.gender %>
-<%= p1.birth_day %>
-<%= p1.start_date %>
-卒業予定
-<%= p1.graduation_date%>
+<% p2 = AddressPresenter.new(@student_member.home_address, self)  %>
+
+<div class="row justify-content-center my-5">
+  <div class="col-8">
+    <div class="card">
+      <h4 class="card-header">
+        アカウント情報
+      </h4>
+      <div class="card-body">
+        <table class="table table-borderless">
+          <thead>
+            <th scope="col-1"><h4>基本情報</h4></th>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">学生番号</th>
+              <td><%= p1.student_number %></td>
+            </tr>
+            <tr>
+              <th scope="row">氏名</th>
+              <td><%= p1.full_name %></td>
+            </tr>
+            <tr>
+              <th scope="row">氏名(カナ)</th>
+              <td><%= p1.full_name_kana %></td>
+            </tr>
+            <tr>
+              <th scope="row">性別</th>
+              <td><%= p1.gender %></td>
+            </tr>
+            <tr>
+              <th scope="row">生年月日</th>
+              <td><%= p1.birth_day %></td>
+            </tr>
+            <tr>
+              <th scope="row">登録メールアドレス</th>
+              <td>*********</td>
+            </tr>
+            <tr>
+              <th scope="row">登録パスワード</th>
+              <td>*********</td>
+            </tr>
+            <tr>
+              <th scope="row">入学日</th>
+              <td><%= p1.start_date %></td>
+            </tr>
+            <tr>
+              <th scope="row">卒業予定日</th>
+              <td><%= p1.graduation_date %></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+            </tr>
+            <tr>
+              <th scope="row"><h4>クラス情報</h4></th>
+            </tr>
+            <tr>
+              <th scope="row">クラス学年</th>
+              <td><%= p1.home_room %></td>
+            </tr>
+            <tr>
+              <th scope="row">担任</th>
+              <td><%= p1.homeroom_teacher %></td>
+            </tr>
+            <tr>
+              <th scope="row">文理</th>
+              <td><%= p1.bunri %></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+            </tr>
+            <tr>
+              <th scope="row"><h4>住所情報</h4></th>
+            </tr>
+            <tr>
+              <th scope="row">郵便番号</th>
+              <td><%= p2.postal_code %></td>
+            </tr>
+            <tr>
+              <th scope="row">市区町村</th>
+              <td><%= p2.city %></td>
+            </tr>
+            <tr>
+              <th scope="row">番地</th>
+              <td><%= p2.address1 %></td>
+            </tr>
+            <tr>
+              <th scope="row">建物、部屋番号等</th>
+              <td><%= p2.address2 %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 
 <% if @student_member.home_address %>
-  <% p2 = AddressPresenter.new(@student_member.home_address, self)  %>
   <%= p2.postal_code %>
   <%= p2.prefecture %>
   <%= p2.city %>
