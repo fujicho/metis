@@ -1,6 +1,5 @@
 <% @title = "生徒詳細情報"  %>
 <% p1 = StudentMemberPresenter.new(@student_member,self)  %>
-<% p2 = AddressPresenter.new(@student_member.home_address, self)  %>
 
 <div class="row justify-content-center my-5">
   <div class="col-8">
@@ -71,50 +70,11 @@
             <tr>
               <th scope="row"></th>
             </tr>
-            <tr>
-              <th scope="row"><h4>住所情報</h4></th>
-            </tr>
-            <tr>
-              <th scope="row">郵便番号</th>
-              <td><%= p2.postal_code %></td>
-            </tr>
-            <tr>
-              <th scope="row">市区町村</th>
-              <td><%= p2.city %></td>
-            </tr>
-            <tr>
-              <th scope="row">番地</th>
-              <td><%= p2.address1 %></td>
-            </tr>
-            <tr>
-              <th scope="row">建物、部屋番号等</th>
-              <td><%= p2.address2 %></td>
-            </tr>
+            <%= render "student_home_address" if @student_member.home_address %>
             <tr>
               <th scope="row"></th>
             </tr>
-            <% if @student_member.parents_address %>
-              <% p3 = AddressPresenter.new(@student_member.parents_address, self)  %>
-              <tr>
-                <th scope="row"><h4>保護者住所情報</h4></th>
-              </tr>
-              <tr>
-                <th scope="row">郵便番号</th>
-                <td><%= p3.postal_code %></td>
-              </tr>
-              <tr>
-                <th scope="row">市区町村</th>
-                <td><%= p3.city %></td>
-              </tr>
-              <tr>
-                <th scope="row">番地</th>
-                <td><%= p3.address1 %></td>
-              </tr>
-              <tr>
-                <th scope="row">建物、部屋番号等</th>
-                <td><%= p3.address2 %></td>
-              </tr>
-            <% end %>
+            <%= render "student_parents_address" if @student_member.parents_address %>
           </tbody>
         </table>
         <div class="text-center">
