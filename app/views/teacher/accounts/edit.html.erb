@@ -10,7 +10,7 @@
         <%= form_with model: @teacher_member, url: :teacher_account do |f| %>
           <%= render "form", f: f %>
           <div class="mt-4">
-          　<%= f.submit "更新", class: "btn btn-outline-secondary btn-block mx-auto"%>
+            <%= f.submit "更新", class: "btn btn-outline-secondary btn-block mx-auto"%>
             <%= link_to "キャンセル" , :teacher_account, class: "btn btn-outline-secondary btn-block col-3 my-3 mx-auto" %>
           </div>
         <% end %>
