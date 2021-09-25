@@ -1,6 +1,7 @@
 class StudentMemberPresenter < ModelPresenter
   delegate :suspended?,:email ,:student_number, :homeroom_teacher,
-    :emergency_contact, :telephone_number, :birth_day,to: :object
+    :emergency_contact, :telephone_number, :birth_day,
+    :bunri ,to: :object
 
   def suspended_mark
     suspended? ? raw("&#x2611;") : raw("&#x2610;")
