@@ -1,16 +1,20 @@
 <% 
   if @student_member
     full_name = @student_member.family_name + @student_member.given_name 
+    @title = "#{full_name}さんのログインログアウト記録"
   else
     @title = "生徒のログインログアウト記録"
   end
 %>
-<h3 class="text-center mb-3">生徒のログインログアウト記録</h3>
+
+<h3 class="text-center mb-3"><%= @title %></h3>
 <%= paginate @events, theme: "twitter-bootstrap-4" %>
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">氏名</th>
+      <% unless @student_member  %>
+        <th scope="col">氏名</th>
+      <% end %>
       <th scope="col">ログインorログアウト</th>
       <th scope="col">時間</th>
     </tr>
