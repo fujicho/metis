@@ -1,9 +1,19 @@
-<%= @title = "学生アカウントの編集" %>
-<h1><%= @title %></h1>
+<% @title = "学生アカウント編集" %>
 
-<%= form_with model: @student_form, scope: "form",
-  url: [ :teacher, @student_form.student_member ] do |f| %>
-  <%= render "form", f: f %>
-  <%= f.submit "更新" %>
-  <%= link_to "生徒一覧に戻る", [ :teacher, :student_members ] %>
-<% end %>
+<div class="row justify-content-center my-5">
+  <div class="col-8">
+    <div class="card">
+      <h4 class="card-header">
+        学生アカウント編集
+      </h4>
+      <div class="card-body">
+      <%= form_with model: @student_form, scope: "form",
+        url: [ :teacher, @student_form.student_member ] do |f| %>
+        <%= render "form", f: f %>
+        <%= f.submit "更新", class: "btn btn-outline-secondary btn-block mx-auto" %>
+        <%= link_to "生徒一覧に戻る", [ :teacher, :student_members ], class: "btn btn-outline-secondary btn-block col-3 my-3 mx-auto" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

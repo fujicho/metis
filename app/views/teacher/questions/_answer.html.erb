@@ -1,4 +1,12 @@
-    <%= answer.body %>
-    <%= answer.created_at.strftime('%Y/%m/%d') %>
-    <%= answer.teacher_member&.family_name %>
-    <%= answer.student_member&.family_name %>
+<% p = AnswerPresenter.new(answer,self) %>
+<div class="row justify-content-center my-2">
+  <div class="card d-flex flex-column col-7 justify-content-center">
+    <div class="card-body">
+      <p class="card-text"><%= safe_join(p.body.split("\n"), tag(:br)) %></p>
+      <div class="row justify-content-between">
+        <span class="col-1 badge rounded-pill bg-success ms-2"><%= p.posted_by_badge %></span>
+        <div class="col text-end"><%= p.posted_at %></div>
+      </div>
+    </div>
+  </div>
+</div>

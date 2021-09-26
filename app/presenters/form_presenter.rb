@@ -13,16 +13,45 @@ class FormPresenter
   def error_messages_for(name)
     markup do |m|
       object.errors.full_messages_for(name).each do |message|
-        m.div(class: "error-messsage") do |m|
+        m.div(class: "badge rounded-pill bg-danger") do |m|
           m.text message
         end
       end
     end
   end
 
+
+  def full_name_block(name1, name2, label_text, options = {})
+    markup(:div, class: "col-10 my-2 row") do |m|
+      m << decorated_label(name1, label_text, class: "form-label")
+      m << text_field( name1, class: "form-control my-2 mx-3 col", placeholder: "性")
+      m << text_field( name2, class: "form-control my-2 mx-3 col", placeholder: "名")
+      m << error_messages_for(name1)
+      m << error_messages_for(name2)
+    end
+  end
+
+  def full_name_block_kana(name1, name2, label_text, options = {})
+    markup(:div, class: "col-10 my-2 row") do |m|
+      m << decorated_label(name1, label_text, class: "form-label")
+      m << text_field( name1, class: "form-control my-2 mx-3 col", placeholder: "セイ")
+      m << text_field( name2, class: "form-control my-2 mx-3 col", placeholder: "メイ")
+      m << error_messages_for(name1)
+      m << error_messages_for(name2)
+    end
+  end
+
   def text_field_block(name, label_text, options= {})
+  markup(:div, class: "col-5") do |m|
+      m << label(name, label_text, class: options[:required] ? "required" : nil ,class: "form-label mt-2")
+      m << text_field(name,options)
+      m << error_messages_for(name)
+    end
+  end
+  
+  def email_field_block(name, label_text, options= {})
   markup(:div) do |m|
-      m << label(name, label_text, class: options[:required] ? "required" : nil)
+      m << label(name, label_text, class: options[:required] ? "required" : nil ,class: "form-label mt-2")
       m << text_field(name,options)
       m << error_messages_for(name)
     end
@@ -30,7 +59,7 @@ class FormPresenter
 
   def text_area_block(name, label_text, options= {})
     markup(:div) do |m|
-      m << label(name, label_text, class: options[:required] ? "required" : nil)
+      m << label(name, label_text, class: options[:required] ? "required" : nil ,class: "form-label mt-2")
       m << text_area(name,options)
       m << error_messages_for(name)
     end
@@ -40,16 +69,16 @@ class FormPresenter
   def password_field_block(name,label_text, options = {})
     markup(:div, class: "input-block") do |m|
       m << label(name, label_text,
-        class: options[:required] ? "required" : nil)
+        class: options[:required] ? "required" : nil, class: "form-label mt-2")
       m << password_field(name, options)
       m << error_messages_for(name)
     end
   end
 
   def drop_down_list_block(name, label_text, choices, options = {})
-    markup(:div, class: "input-block") do |m|
-      m << label(name,label_text, class: options[:required] ? "required" : nil)
-      m << form_builder.select(name, choices, {include_blank: true}, options)
+    markup(:div, class: "input-block col-4") do |m|
+      m << label(name,label_text, class: options[:required] ? "required" : nil, class: "form-label mt-2")
+      m << form_builder.select(name, choices, {include_blank: true}, class: "form-select")
       m << error_messages_for(name)
     end
   end

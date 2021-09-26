@@ -1,9 +1,25 @@
-<%= form_with model: @book_search_form, scope: "search", url: :teacher_books,
-    html: { method: :get, class: "search"} do |f| %>
-  <% p = FormPresenter.new(f, self) %>
-  <%= p.text_field_block(:book_name, "書籍名:",) %>
-  <%= p.drop_down_list_block(:book_subject, "教科:" , Book::SUBJECT_NAMES) %>
-  <%= p.drop_down_list_block(:book_type, "参考書or過去問:" , [["参考書", "work"], ["過去問", "past"]] )%>
-  <%= p.drop_down_list_block(:book_year, "年度(過去問):", Book::BOOK_YEAR.reverse) %>
-  <%= f.submit("検索") %>
-<% end %>
+<div class="row justify-content-center my-5">
+  <div class="col-8">
+    <div class="card">
+      <h4 class="card-header">
+        書籍を管理する
+        <%= link_to "(新規登録はこちら)", :new_teacher_book, class: "fw-light fs-6" %>
+      </h4>
+      <div class="card-body">
+        <%= form_with model: @book_search_form, scope: "search", url: :teacher_books,
+            html: { method: :get, class: "search"} do |f| %>
+          <% p = FormPresenter.new(f, self) %>
+          <%= p.text_field_block(:book_name, "書籍名", class: "form-control") %>
+          <div class="row justify-content-start">
+            <%= p.drop_down_list_block(:book_subject, "教科" , Book::SUBJECT_NAMES) %>
+            <%= p.drop_down_list_block(:book_type, "参考書or過去問" , [["参考書", "work"], ["過去問", "past"]] )%>
+          </div>
+          <%= p.drop_down_list_block(:book_year, "年度(過去問)", Book::BOOK_YEAR.reverse) %>
+          <div class="text-center">
+          <%= f.submit "検索",  class: "btn btn-outline-secondary col-6 mt-4" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

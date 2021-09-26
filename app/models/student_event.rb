@@ -6,7 +6,8 @@ class StudentEvent < ApplicationRecord
 
   DESCRIPTIONS = {
     logged_in: "ログイン",
-    logged_out: "ログアウト"
+    logged_out: "ログアウト",
+    rejected: "アカウント停止済"
   }
 
   def description

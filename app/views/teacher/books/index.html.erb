@@ -1,8 +1,20 @@
 <% @title = "Q&A 書籍管理"  %>
-<h1><%= @title %></h1>
 
 <%= render "search_form" %>
 
-<%= render partial: "book", collection: @books %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">タイプ</th>
+      <th scope="col">書籍名</th>
+      <th scope="col">教科</th>
+      <th scope="col">年度(過去問のみ)</th>
+      <th scope="col">    </th>
+    </tr>
+  </thead>
 
-<%= link_to "書籍の新規登録", :new_teacher_book %>
+  <tbody>
+    <%= render partial: "book", collection: @books %>
+  </tbody>
+</table>
+

@@ -1,10 +1,12 @@
 <% p = StudentMemberPresenter.new(student_member,self)  %>
-  <%= p.full_name %>
-  <%= p.gender %>
-  <%= p.home_room %>
-  <%= p.suspended_mark %>
-  <%= link_to "詳細", [ :teacher, student_member ] %> |
-  <%= link_to "編集", [ :edit, :teacher , student_member ] %> |
-  <%= link_to "ログイン、ログアウト記録",[ :teacher, student_member , :student_events] %> | 
-  <%= link_to "削除", [ :teacher , student_member ], method: :delete, 
-    data: { confirm: "本当に削除しますか？" } %>
+<tr>
+  <td scope="col"><%= p.full_name %></td>
+  <td scope="col"><%= p.gender %></td>
+  <td scope="col"><%= p.home_room %></td>
+  <td scope="col"><%= link_to "詳細", [ :teacher, student_member ] %></td>
+  <td scope="col"><%= link_to "編集", [ :edit, :teacher , student_member ] %></td>
+  <td scope="col"><%= link_to "ログイン、ログアウト記録",[ :teacher, student_member , :student_events] %></td>
+  <td scope="col"><%= link_to "削除", [ :teacher , student_member ], method: :delete, 
+    data: { confirm: "本当に削除しますか？" } %></td>
+  <td scope="col"><%= p.suspended_mark %></td>
+</tr>

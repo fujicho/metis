@@ -1,7 +1,21 @@
 <% @title = "掲示板編集(確認)"  %>
-<%= form_with model: @board_form, scope: "form", url: [ :teacher, @board_message ]  do |f| %>
-  <%= render "confirming_form", f: f %>
-  <%= f.submit "送信" %>
-  <%= f.submit "訂正", name: "correct" %>
-  <%= link_to "キャンセル", :teacher_root %>
-<% end %>
+
+<div class="board_message row justify-content-center my-5">
+  <div class="col-8">
+    <div class="card">
+      <h4 class="card-header">
+        編集内容の確認
+      </h4>
+      <div class="card-body">
+      <%= form_with model: @board_form, scope: "form", url: [ :teacher, @board_message ] do |f| %>
+        <%= render "confirming_form", f: f %>
+        <div class="row justify-content-around mt-3">
+          <%= f.submit "送信", class: "btn btn-outline-secondary btn-block mx-auto col-5" %>
+          <%= f.submit "訂正", name: "correct", class: "btn btn-outline-secondary btn-block mx-auto col-5" %>
+        </div>
+        <%= link_to "キャンセル", :teacher_root, class: "btn btn-outline-secondary btn-block col-3 mb-3 mx-auto" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

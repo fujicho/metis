@@ -2,9 +2,9 @@ class Teacher::StudentEventsController < Teacher::Base
   def index
     if params[:student_member_id]
       @student_member = StudentMember.find(params[:student_member_id])
-      @events = @student_member.events
+      @events = @student_member.events.order(occurred_at: :desc)
     else
-      @events = StudentEvent
+      @events = StudentEvent.order(occurred_at: :desc)
     end
     @events = @events.order(occurred_at: :desc).includes(:member).page(params[:page])
   end

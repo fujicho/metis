@@ -1,8 +1,17 @@
-<h1>書籍新規登録</h1>
-
-<%= form_with model: @book, scope: "form",
-  url: :teacher_books do |f| %>
-  <%= render "form", f: f %>
-  <%= f.submit "登録" %>
-  <%= link_to "キャンセル", :teacher_books %>
-<% end %>
+<div class="row justify-content-center my-5">
+  <div class="col-8">
+    <div class="card">
+      <h4 class="card-header">
+      書籍を新しく登録する
+      </h4>
+      <div class="card-body">
+        <%= form_with model: @book, scope: "form",
+          url: :teacher_books do |f| %>
+          <%= render "form", f: f %>
+            <%= f.submit "登録", class: "btn btn-outline-secondary btn-block mx-auto col-3 mb-3" %>
+            <%= link_to "キャンセル", :teacher_books, class: "btn btn-outline-secondary btn-block col-3 mb-3 mx-auto" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

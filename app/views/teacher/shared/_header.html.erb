@@ -1,12 +1,19 @@
-<header>
-  <span class="logo-mark">metista</span>
-  <%= 
-    if current_teacher_member
-      link_to "ログアウト", :teacher_session, method: :delete
-    else
-      link_to "ログイン", :teacher_login
-    end
-  %>
-  <%= link_to "アカウント", :teacher_account if current_teacher_member %>
-  <%= link_to "掲示板投稿", :new_teacher_board_message if current_teacher_member %>
-</header>
+<nav class="header navbar navbar-dark fixed-top" style="background-color:#4E7199">
+  <%#  中サイズで以下表示されるサイドオフキャンバスナビゲーションバー%>
+  <%  if current_teacher_member %>
+    <div class="d-lg-none ms-2">
+      <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-expanded="false" aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"></span>
+      </button>
+    </div>
+  <% end %>
+
+  <%= link_to "Metista", :teacher_root, class: "logo nav-link navbar-brand" %>
+
+  <%= content_tag(:span, flash.notice,class: "header-flash") if flash.notice %>
+
+  <%= link_to "ログイン", :teacher_login , class: "nav-link text-light ms-auto" unless current_teacher_member %>
+
+  <%= render "teacher/shared/header_dropdown" if current_teacher_member%>
+</nav>
+<%= render "teacher/shared/side_toggle_navbar" if current_teacher_member %>

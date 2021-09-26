@@ -1,0 +1,8 @@
+<%# 中サイズ以下の時に出現するトグルバーの中身 %>
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+  <div class="offcanvas-header ">
+    <h5>こんにちは、<%= current_teacher_member.family_name %>さん</h5>
+    <button type="button" class="btn-close text-reset ms-auto" data-bs-dismiss="offcanvas" aria-label="閉じる"></button>
+</div>
+  <%= render "teacher/shared/side_navbar_content" %>
+</div>

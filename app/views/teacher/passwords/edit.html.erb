@@ -1,12 +1,23 @@
-<%= @title = "パスワード変更" %>
-<h1><%= @title %></h1>
+<% @title = "パスワード変更" %>
 
-<%= form_with model: @change_password_form, url: :teacher_password,
-  method: :patch do |f| %>
-  <% p = FormPresenter.new(f, self) %>
-    <%= p.password_field_block(:current_password, "現在のパスワード", required: true) %>
-    <%= p.password_field_block(:new_password, "新しいパスワード", required: true) %>
-    <%= p.password_field_block(:new_password_confirmation, "新しいパスワード(確認)", required: true) %>
-  <%= f.submit "変更" %>
-  <%= link_to "キャンセル", :teacher_account %>
-<% end %>
+<div class="row justify-content-center my-5">
+  <div class="col-6">
+    <div class="card">
+      <h4 class="card-header">
+        パスワード変更
+      </h4>
+      <div class="card-body row justify-content-center mx-auto">
+        <%= form_with model: @change_password_form, url: :teacher_password,
+          method: :patch do |f| %>
+          <% p = FormPresenter.new(f, self) %>
+            <%= p.password_field_block(:current_password, "現在のパスワード", class: "form-control") %>
+            <%= p.password_field_block(:new_password, "新しいパスワード" ,class: "form-control") %>
+            <%= p.password_field_block(:new_password_confirmation, "新しいパスワード(確認)" ,class: "form-control" ) %>
+          <%= f.submit "変更" , class: "btn btn-outline-secondary btn-block my-3 mx-auto"%>
+          <%= link_to "キャンセル", :teacher_account, class: "btn btn-outline-secondary btn-block my-3 mx-auto" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

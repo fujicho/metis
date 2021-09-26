@@ -8,4 +8,14 @@ class BookPresenter < ModelPresenter
       object.book_name
     end
   end
+
+  def type
+    if object.book_type == "past"
+      "過去問"
+    elsif object.book_type == "work"
+      "参考書、問題集"
+    else
+      nil
+    end
+  end
 end

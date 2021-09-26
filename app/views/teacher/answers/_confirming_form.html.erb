@@ -1,4 +1,4 @@
 <% p = ConfirmingFormPresenter.new(f, self) %>
 
-以下の内容で投稿します。よろしいですか？
-<%= p.text_area_block(:body, "回答またはコメント") %>
+<p>以下の内容で投稿します。よろしいですか？</p>
+<%= p.text_area_block(:body, "回答またはコメント", class: "form-control", rows: 5) %>

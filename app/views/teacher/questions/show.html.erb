@@ -1,13 +1,25 @@
-show
-<%= @question.book.book_name %>
-<%= @question.title %>
-<%= @question.body %>
-<%= @question.student_member.family_name %>
+<% p = QuestionPresenter.new(@question,self) %>
+<div class="row justify-content-center">
+  <div class="card d-flex flex-column col-8 justify-content-center">
+    <div class="card-body">
+      <h5><%= p.title %></h5>
+      <small><%= p.book_name %></small>
+      <p class="card-text"><%= safe_join(p.body.split("\n"), tag(:br)) %></p>
+      <div class="row d-flex mx-2 my-2 justify-content-end">
+        <p ><%= p.posted_by %></p>
+        <div class="col text-end"><%= p.posted_at %></div>
+      </div>
+      <% if @question.closed? %>
+        <p class="btn btn-outline-danger btn-block mx-auto disabled">
+          この質問への回答コメントは締め切られています。
+        </p>
+      <% else %>
+        <%= link_to "質問に答える", new_teacher_question_answer_path(@question) ,class: "btn btn-outline-secondary btn-block mx-auto"%>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <% if @answers.present? %>
-<%= render partial: "answer", collection: @answers %>
-<% end %>
-<% if @question.closed? %>
-  この質問への回答コメントは締め切られています。
-<% else %>
-  <%= link_to "回答する", new_teacher_question_answer_path(@question) %>
+  <%= render partial: "answer", collection: @answers %>
 <% end %>

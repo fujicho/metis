@@ -1,7 +1,8 @@
-<% unless @student_member  %>
+<tr>
+  <% unless @student_member  %>
+    <td scope="col"><%= link_to(event.member.family_name + event.member.given_name, [ :teacher, event.member, :student_events]) %></td>
+  <% end %>
+  <td scope="col"><%= event.description %></td>
+  <td scope="col"><%= event.occurred_at.strftime("%Y/%m/%d/%H:%M:%S") %></td>
+</tr>
 
-<%= link_to(event.member.family_name + event.member.given_name, [ :teacher, event.member, :student_events]) %>
-
-<% end %>
-<%= event.description %>
-<%= event.occurred_at.strftime("%Y/%m/%d%H:%M:%S") %>

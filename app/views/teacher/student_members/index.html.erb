@@ -1,12 +1,26 @@
 <% @title = "生徒一覧"  %>
-<h1><%= @title %></h1>
 
 <%= render "search_form" %>
 
-<%= paginate @student_members %>
+<%= paginate @student_members, theme: "twitter-bootstrap-4" %>
 
-<%= render partial: "student_member", collection: @student_members %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">氏名</th>
+      <th scope="col">性別</th>
+      <th scope="col">クラス</th>
+      <th scope="col">詳細</th>
+      <th scope="col">編集</th>
+      <th scope="col">ログインログアウト記録</th>
+      <th scope="col">削除</th>
+      <th scope="col">無効</th>
+    </tr>
+  </thead>
 
-<%= paginate @student_members %>
+  <tbody>
+    <%= render partial: "student_member", collection: @student_members %>
+  </tbody>
+</table>
 
-<%= link_to "新規登録", :new_teacher_student_member %>
+<%= paginate @student_members, theme: "twitter-bootstrap-4" %>

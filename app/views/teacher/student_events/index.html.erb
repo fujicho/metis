@@ -1,15 +1,29 @@
 <% 
   if @student_member
     full_name = @student_member.family_name + @student_member.given_name 
+    @title = "#{full_name}さんのログインログアウト記録"
   else
     @title = "生徒のログインログアウト記録"
   end
 %>
-<%= link_to "生徒一覧", :teacher_student_members %>
 
-<%= render partial: "event", collection: @events %>
+<h3 class="text-center mb-3"><%= @title %></h3>
+<%= paginate @events, theme: "twitter-bootstrap-4" %>
+<table class="table">
+  <thead>
+    <tr>
+      <% unless @student_member  %>
+        <th scope="col">氏名</th>
+      <% end %>
+      <th scope="col">ログインorログアウト</th>
+      <th scope="col">時間</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "event", collection: @events %>
+  </tbody>
+</table>
 <% if @events.empty? %>
   記録がありません。
 <% end %>
-<%= paginate @events %>
-<%= link_to "生徒一覧", :teacher_student_members %>
+<%= paginate @events, theme: "twitter-bootstrap-4" %>

@@ -1,11 +1,72 @@
 <% @title = "アカウント情報" %>
-<h1><%= @title %></h1>
-
 <% p = TeacherMemberPresenter.new(@teacher_member,self)  %>
 
-<%= p.email %>
-<%= p.full_name %>
-<%= p.full_name_kana %>
-パスワード *********
-<%= link_to "アカウント情報編集", :edit_teacher_account %>
-<%= link_to "パスワード変更", :edit_teacher_password %>
+<div class="row justify-content-center my-5">
+  <div class="col-8">
+    <div class="card">
+      <h4 class="card-header">
+        アカウント情報
+      </h4>
+      <div class="card-body">
+        <table class="table table-borderless">
+          <thead>
+            <th scope="col-1"><h4>基本情報</h4></th>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">氏名</th>
+              <td><%= p.full_name %></td>
+            </tr>
+            <tr>
+              <th scope="row">氏名(カナ)</th>
+              <td><%= p.full_name_kana %></td>
+            </tr>
+            <tr>
+              <th scope="row">生年月日</th>
+              <td><%= p.birthday %></td>
+            </tr>
+            <tr>
+              <th scope="row">登録メールアドレス</th>
+              <td><%= p.email %></td>
+            </tr>
+            <tr>
+              <th scope="row">登録パスワード</th>
+              <td>*********<%= link_to "パスワード変更はこちら", :edit_teacher_password %></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+            </tr>
+            <tr>
+              <th scope="row"><h4>担当情報</h4></th>
+            </tr>
+            <tr>
+              <th scope="row">科目</th>
+              <td><%= p.subject %></td>
+            </tr>
+            <tr>
+              <th scope="row">クラス</th>
+              <td><%= p.homeroom_1 %></td>
+            </tr>
+            <tr>
+              <th scope="row">クラス2</th>
+              <td><%= p.homeroom_2 %></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+            </tr>
+            <tr>
+              <th scope="row"><h4>その他情報</h4></th>
+            </tr>
+            <tr>
+              <th scope="row">入職日</th>
+              <td><%= p.start_date %></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="text-end">
+          <h5><%= link_to "アカウント編集はこちら", :edit_teacher_account %></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,9 @@
 <% p = ConfirmingFormPresenter.new(f, self) %>
 
-以下の内容で投稿します。よろしいですか？
-<%= p.text_field_block(:subject, "題名") %>
+<p>以下の内容で投稿します。よろしいですか？</p>
 
-<%= p.text_area_block(:body, "本文") %>
+<h4><%= p.text_field_block(:subject, "題名") %></h4>
 
-<%= p.drop_down_list_block(:tag, "文理", BoardMessage::BOARD_TAGS ) %>
+<p><%= p.text_area_block(:body, "本文") %></p>
+
+<span class="badge bg-secondary"><%= p.drop_down_list_block(:tag, "文理", BoardMessage::BOARD_TAGS , class: "form-select form-select-sm") %></span>

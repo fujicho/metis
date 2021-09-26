@@ -1,10 +1,18 @@
-question index
-<%= "貴方の担当科目(#{current_teacher_member.subject})かつ、回答受付中の問題のみ表示されます。" %>
-<%= paginate @open_questions %>
+<p class="text-center"><%= "貴方の担当科目(#{current_teacher_member.subject})かつ、回答受付中の問題のみ表示されます。" %></p>
 
-<%= render partial: "open_question", collection: @open_questions %>
 
-回答受付終了↓
-<%= paginate @closed_questions, param_name: :closed_page %>
+<%= paginate @open_questions, theme: "twitter-bootstrap-4" %>
+<div class="container">
+  <div class="row justify-content-around">
+    <%= render partial: "open_question", collection: @open_questions %>
+  </div>
+</div>
 
-<%= render partial: "closed_question", collection: @closed_questions %>
+<p class="text-center">回答受付終了</p>
+<%= paginate @closed_questions, param_name: :closed_page , theme: "twitter-bootstrap-4" %>
+
+<div class="container">
+  <div class="row justify-content-around">
+    <%= render partial: "closed_question", collection: @closed_questions %>
+  </div>
+</div>
