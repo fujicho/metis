@@ -4,18 +4,20 @@
     <title><%= browser_name %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'student', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'student', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <div id="wrapper">
-      <%= render "student/shared/header" %>
       <div id="container">
-        <%= yield %>
-      </div>
-      <%= render "shared/footer" %>
+        <%= render "student/shared/header" %>
+        <div class="main-content row d-lg-flex justify-content-center pb-3">
+          <div class="content col-8"><%= yield %></div>
+        </div>
+        <%= render "student/shared/footer" %>
+        </div>
     </div>
   </body>
 </html>
