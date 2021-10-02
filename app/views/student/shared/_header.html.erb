@@ -1,8 +1,8 @@
-<nav class="header navbar navbar-dark fixed-top" style="background-color:#318dee">
+<nav class="header navbar navbar-dark fixed-top">
   <%= link_to "Metista", :student_root, class: "logo nav-link navbar-brand" %>
 
   <%= content_tag(:span, flash.notice,class: "header-flash") if flash.notice %>
 
-  <%= link_to "ログイン", :student_login , class: "nav-link text-light ms-auto d-none d-lg-inline" unless current_student_member %>
-  <%= link_to "ログアウト", :student_session , method: :delete, class: "nav-link text-light ms-auto d-none d-lg-inline" if current_student_member %>
+  <%= link_to "ログイン", :student_login , class: "nav-link text-light ms-auto" unless current_student_member %>
+  <%= link_to "ログアウト", :student_session , method: :delete, class: "nav-link text-light ms-auto" if current_student_member %>
 </nav>
