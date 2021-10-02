@@ -21,19 +21,39 @@ div#wrapper {
   margin: 0 auto;
 }
 div#container {
-  padding-top: 50px
+  padding-top: 50px;
+  .login-form {
+    padding-top: 0.5rem;
+    margin-top: 8rem;
+    }
+  input {
+    margin-bottom: 1rem;
+    }
+  .logo {
+    color:#696969
+  }
 }
 .logo {
   font-family: 'Orbitron', sans-serif;
   color: #F4F5F7;
 }
-.header {
+.header { 
   opacity: 0.7;
+  background-color: #318dee;
 }
-footer {
+#nav-footer {
   background-color: #F6F6F6;
   color: #5d5d5d;
   height: 58px;
+}
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  margin-top: 5rem;
+  background-color: #318dee;
 }
 .fa-layers-text {
   font-size: 1.2rem;
@@ -44,4 +64,9 @@ footer {
   color: #5d5d5d;
   font-weight: 900;
   white-space: nowrap;
+}
+a {
+	display: inline-block;
+	text-decoration: none;
+  color: #333333;
 }
