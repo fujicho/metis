@@ -30,12 +30,14 @@ div#container {
     margin-bottom: 1rem;
     }
   .logo {
-    color:#696969
+    color:#696969;
   }
 }
-.logo {
-  font-family: 'Orbitron', sans-serif;
-  color: #F4F5F7;
+.header {
+  .logo {
+    font-family: 'Orbitron', sans-serif;
+    color: #F4F5F7 !important;
+  }
 }
 .header { 
   opacity: 0.7;
