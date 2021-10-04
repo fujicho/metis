@@ -11,7 +11,13 @@ html, body {
   height: 100%;
   background-color: #F4F5F7;
   color: #333333;
+  font-size: 16px;
 }
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  color: #F4F5F7 ;
+}
+
 div#wrapper {
   padding-top: 20px;
   padding-bottom: 40px;
@@ -25,18 +31,18 @@ div#container {
   .login-form {
     padding-top: 0.5rem;
     margin-top: 8rem;
+    .logo {
+      color:#696969 !important;
+    }
     }
   input {
     margin-bottom: 1rem;
     }
-  .logo {
-    color:#696969;
-  }
 }
 .header {
   .logo {
     font-family: 'Orbitron', sans-serif;
-    color: #F4F5F7 !important;
+    color: #F4F5F7 ;
   }
 }
 .header { 
@@ -52,7 +58,7 @@ footer {
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 50px;
+  height: 58px;
   width: 100%;
   margin-top: 5rem;
   background-color: #318dee;
