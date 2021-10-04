@@ -76,9 +76,9 @@ class FormPresenter
   end
 
   def drop_down_list_block(name, label_text, choices, options = {})
-    markup(:div, class: "input-block col-4") do |m|
+    markup(:div, class: "input-block col-5") do |m|
       m << label(name,label_text, class: options[:required] ? "required" : nil, class: "form-label mt-2")
-      m << form_builder.select(name, choices, {include_blank: true}, class: "form-select")
+      m << form_builder.select(name, choices, {include_blank: true}, class: "form-select mb-3")
       m << error_messages_for(name)
     end
   end
