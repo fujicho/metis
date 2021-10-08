@@ -1,0 +1,10 @@
+<%= link_to new_student_question_path(mbook.id) do %>
+<div class="card text-dark bg-light mb-3 col">
+  <div class="card-body">
+    <p class="card-text"><%= mbook.book_subject %></p>
+    <h5 class="card-title"><%= mbook.book_name %><%= " " + mbook.book_year.to_s %></h5>
+    <p><%= link_to "質問する", new_student_question_path(mbook.id) , class: "btn btn-outline-secondary mt-2" %></p>
+    <p><%= link_to "過去の質問を見る", teacher_book_path(mbook) , class: "btn btn-outline-secondary" %></p>
+  </div>
+</div>
+<% end %>
