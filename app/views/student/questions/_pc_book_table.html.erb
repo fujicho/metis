@@ -1,0 +1,15 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">タイプ</th>
+      <th scope="col">書籍名</th>
+      <th scope="col">教科</th>
+      <th scope="col">年度(過去問のみ)</th>
+      <th scope="col">    </th>
+      <th scope="col">    </th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "book", collection: @books%>
+  </tbody>
+</table>
