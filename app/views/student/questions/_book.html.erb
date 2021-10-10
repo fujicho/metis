@@ -5,5 +5,5 @@
   <td scope="col"><%= book.book_subject %></td>
   <td scope="col"><%= book.book_year %></td>
   <td scope="col"><%= link_to "質問する",  new_student_question_path(book.id)%></td>
-  <td scope="col"><%= link_to "過去の質問", teacher_book_path(book) %></td>
+  <td scope="col"><%= link_to "過去の質問", student_book_path(book) %></td>
 </tr>
