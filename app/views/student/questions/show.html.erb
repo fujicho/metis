@@ -1,12 +1,19 @@
+<div class="row d-flex justify-content-center">
+  <div class="card d-flex mb-4 col-10">
+    <div class="card-body">
+      <h5><%= @question.title %></h5>
+      <h6 class="card-subtitle my-2 text-muted"><%= @question.book.book_name %></h6>
+      <p class="card-text"><%= safe_join(@question.body.split("\n"), tag(:br)) %></p>
+      <h6 class="card-subtitle my-2 text-muted"><%= @question.created_at.strftime('%Y/%m/%d') %></h6>
+      <% if @question.closed? %>
+        <p class="btn btn-outline-danger btn-block mx-auto disabled">
+          この質問への回答コメントは締め切られています。
+        </p>
+      <% else %>
+        <%= link_to "コメント、追記する", new_student_question_answers_path(@question) ,class: "btn btn-outline-secondary btn-block mx-auto"%>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-このページに質問と、回答ツリーが表示される
-<%= @question.book.book_name %>
-<%= @question.title %>
-<%= @question.body %>
-<%= @question.student_member.family_name %>
 <%= render partial: "answer", collection: @answers %>
-<% if @question.closed? %>
-  この質問への回答は締め切られました
-<% else %>
-  <%= link_to "コメント、追記する", new_student_question_answers_path(@question) %>
-<% end %>
