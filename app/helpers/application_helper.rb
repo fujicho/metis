@@ -7,7 +7,7 @@ module ApplicationHelper
     end
   end
 
-  def answer_closed
+  def answer_closed?
     params[:answer][:question][:closed]
   end
 end
