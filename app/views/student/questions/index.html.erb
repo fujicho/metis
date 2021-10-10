@@ -2,6 +2,8 @@
 
 <%= render "search_form" %>
 
+<%= paginate @books, theme: "twitter-bootstrap-4" %>
+
 <div class="row justify-content-center">
   <div class="d-none d-lg-inline-block">
     <%= render "pc_book_table" %>
