@@ -1,20 +1,21 @@
-<footer class="fixed-bottom border-top">
+<div id="nav-footer" class="fixed-bottom border-top d-lg-none">
   <div class="row justify-content-center">
-      <%= link_to :student_questions, class: "bottom-nav-icon fa-layers fa-fw col-3" do %>
-          <i class="fas fa-question fa-2x"></i>
-          <span class="fa-layers-text" data-fa-transform="shrink-8 down-3">質問する</span>
-      <% end %>
-      <%= link_to :student_questions, class: "bottom-nav-icon fa-layers fa-fw col-3" do %>
-          <i class="fa fa-book fa-2x" aria-hidden="true"></i>
-          <span class="fa-layers-text" data-fa-transform="bottom-nav-icon shrink-8 down-3">過去の質問</span>
-      <% end %>
-      <%= link_to :student_questions, class: "bottom-nav-icon fa-layers fa-fw col-3" do %>
-          <i class="fas fa-chalkboard-teacher fa-2x"></i>
-          <span class="fa-layers-text" data-fa-transform="shrink-8 down-3">掲示板</span>
-      <% end %>
-      <%= link_to :student_questions, class: "bottom-nav-icon fa-layers fa-fw col-3" do %>
-          <i class="fas fa-user fa-2x"></i>
-          <span class="fa-layers-text" data-fa-transform="shrink-8 down-3">アカウント</span>
-      <% end %>
+		<%= link_to :student_questions, class: "bottom-nav-icon fa-layers fa-fw col-3" do %>
+				<i class="fas fa-question fa-2x"></i>
+				<span class="fa-layers-text" data-fa-transform="shrink-8 down-3">質問する</span>
+		<% end %>
+		<%= link_to :student_my_questions, class: "bottom-nav-icon fa-layers fa-fw col-3" do %>
+				<i class="fa fa-book fa-2x" aria-hidden="true"></i>
+				<span class="fa-layers-text" data-fa-transform="bottom-nav-icon shrink-8 down-3">過去の質問</span>
+		<% end %>
+		<%= link_to :student_questions, class: "bottom-nav-icon fa-layers fa-fw col-3" do %>
+				<i class="fas fa-chalkboard-teacher fa-2x"></i>
+				<span class="fa-layers-text" data-fa-transform="shrink-8 down-3">掲示板</span>
+		<% end %>
+		<%= link_to :student_questions, class: "bottom-nav-icon fa-layers fa-fw col-3" do %>
+				<i class="fas fa-user fa-2x"></i>
+				<span class="fa-layers-text" data-fa-transform="shrink-8 down-3">アカウント</span>
+		<% end %>
   </div>
-</footer>
+</div>
+<%= render "student/shared/footer", class: "d-none d-lg-inline-block" %>
