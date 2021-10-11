@@ -1,13 +1,24 @@
-<h1>質問する</h1>
-confirm
-<%= @question.book.book_name+"について質問する" %>
 
-以下の内容で質問を投稿します。よろしいですか？
-<%= form_with model: @question, scope: "form",url: :student_questions do |f| %>
-  <%= render "confirming_form",f: f %>
-  <%= hidden_field_tag :book_id, @question.book.id %>
-  <%= @question.book.book_subject %>
-  <%= f.submit "訂正" ,name: "correct" %>
-  <%= f.submit "送信"%>
-  <%= link_to "キャンセル", :student_root %>
-<% end %>
+<h4 class="text-center"><%= @question.book.book_name+"について質問する" %></h4>
+
+<div class="row justify-content-center my-5">
+<div class="col-8">
+<div class="card">
+  <h4 class="card-header">
+    投稿内容の確認
+  </h4>
+  <div class="card-body">
+    <%= form_with model: @question, scope: "form",url: :student_questions do |f| %>
+      <%= render "confirming_form",f: f %>
+      <%= hidden_field_tag :book_id, @question.book.id %>
+      <p class="form-text"><%= @question.book.book_subject %></p>
+      <p>以上の内容で質問します。よろしいですか？</p>
+      <div class="row justify-content-around mt-3">
+        <%= f.submit "訂正" ,name: "correct" ,class: "btn btn-outline-secondary btn-block mx-auto col-5" %>
+        <%= f.submit "送信" , class: "btn btn-outline-secondary btn-block mx-auto col-5"%>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
+</div>
