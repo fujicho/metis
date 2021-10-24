@@ -1,12 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Orbitron:wght@800&display=swap');
+
+* {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  background-color: #F4F5F7;
+  color: #333333;
+  font-size: 16px;
 }
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  color: #F4F5F7 ;
+}
+
 div#wrapper {
+  padding-top: 20px;
+  padding-bottom: 40px;
   position: relative;
   box-sizing: border-box;
   min-height: 100%;
-  padding-bottom: 48px;
-  background-color: #cccccc;
+  margin: 0 auto;
+}
+div#container {
+  padding-top: 50px;
+  .login-form {
+    padding-top: 0.5rem;
+    margin-top: 8rem;
+    .logo {
+      color:#696969 !important;
+    }
+    }
+  input {
+    margin-bottom: 1rem;
+    }
+}
+.header {
+  .logo {
+    font-family: 'Orbitron', sans-serif;
+    color: #F4F5F7 ;
+  }
+}
+.header { 
+  background-color: #318dee;
+}
+#nav-footer {
+  background-color: #F6F6F6;
+  color: #5d5d5d;
+  height: 58px;
+}
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 58px;
+  width: 100%;
+  margin-top: 5rem;
+  background-color: #2a6aaf;
+}
+.fa-layers-text {
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+.bottom-nav-icon {
+  margin-top: 1em;
+  color: #5d5d5d;
+  font-weight: 900;
+  white-space: nowrap;
+}
+a {
+	display: inline-block;
+	text-decoration: none;
+  color: #333333;
+}
+.pagination {
+  justify-content: center;
+}
+.pagination>li>a {          
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {     
+  background: #318dee !important;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {        
+border-radius: 15px;    /*角を丸くする*/
+}
+.btn-block {
+  display: block;
 }

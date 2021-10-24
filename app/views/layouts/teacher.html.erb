@@ -4,6 +4,7 @@
     <title><%= browser_name %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': true %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag "teacher", media: "all", "data-turbolinks-track": "reload" %>
@@ -16,7 +17,7 @@
         <%= render "teacher/shared/header" %>
         <div class="main-content row d-lg-flex justify-content-center pb-3">
           <%= render "teacher/shared/side_navbar" if current_teacher_member %>
-          <div class="content col-8"><%= yield %></div>
+          <div class="content col-10 col-lg-8"><%= yield %></div>
           <% if current_teacher_member %><div class="col-lg-2"></div><% end %>
         </div>
         <%= render "teacher/shared/footer" %>

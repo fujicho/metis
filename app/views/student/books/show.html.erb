@@ -1,4 +1,11 @@
-このページが任意の本の質問一覧が出てくる。
-<%= @book.book_name %>
-
-<%= render partial: "question", collection: @question %>
+<div class="pb-5">
+<div class="text-center">
+  <h2><%= @book.book_name %>の質問一覧</h2>
+  <p class="form-text">解決済みのものを表示しています。</p>
+</div>
+  <% if @question.blank? %>
+    <h3 class="my-3 text-center">過去の質問はありません。</h3>
+  <% else %>
+    <%= render partial: "question", collection: @question %>
+  <% end %>
+</div>

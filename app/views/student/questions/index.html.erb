@@ -1,6 +1,15 @@
 <% @title = "質問する本を選ぶ" %>
-<h1><%= @title %></h1>
 
 <%= render "search_form" %>
 
-<%= render partial: "book", collection: @books%>
+<%= paginate @books, theme: "twitter-bootstrap-4" %>
+
+<div class="row justify-content-center">
+  <div class="d-none d-lg-inline-block">
+    <%= render "pc_book_table" %>
+  </div>
+
+  <div class="d-inline-block d-lg-none col-8 row">
+    <%= render partial: "mobile_book", collection: @books, as: :mbook%>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<% p1 = StudentMemberPresenter.new(@student_member,self)  %>
+
+<tr>
+  <th scope="row">学生番号</th>
+  <td><%= p1.student_number %></td>
+</tr>
+<tr>
+  <th scope="row">氏名</th>
+  <td><%= p1.full_name %></td>
+</tr>
+<tr>
+  <th scope="row">氏名(カナ)</th>
+  <td><%= p1.full_name_kana %></td>
+</tr>
+<tr>
+  <th scope="row">性別</th>
+  <td><%= p1.gender %></td>
+</tr>
+<tr>
+  <th scope="row">生年月日</th>
+  <td><%= p1.birth_day %></td>
+</tr>
+<tr>
+  <th scope="row">連絡先</th>
+  <td><%= p1.telephone_number %></td>
+</tr>
+<tr>
+  <th scope="row">緊急連絡先</th>
+  <td><%= p1.emergency_contact %></td>
+</tr>
+<tr>
+  <th scope="row">登録メールアドレス</th>
+  <td><%= p1.email %></td>
+</tr>
+<tr>
+  <th scope="row">登録パスワード</th>
+  <td>*********</td>
+</tr>
+<tr>
+  <th scope="row">入学日</th>
+  <td><%= p1.start_date %></td>
+</tr>
+<tr>
+  <th scope="row">卒業予定日</th>
+  <td><%= p1.graduation_date %></td>
+</tr>
+<tr>
+  <th scope="row"></th>
+</tr>
+<tr>
+  <th scope="row"><h4>クラス情報</h4></th>
+</tr>
+<tr>
+  <th scope="row">クラス学年</th>
+  <td><%= p1.home_room %></td>
+</tr>
+<tr>
+  <th scope="row">担任</th>
+  <td><%= p1.homeroom_teacher %></td>
+</tr>
+<tr>
+  <th scope="row">文理</th>
+  <td><%= p1.bunri %></td>
+</tr>
+<tr>
+  <th scope="row"></th>
+</tr>

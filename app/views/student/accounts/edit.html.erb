@@ -1,9 +1,0 @@
-<%= @title = "アカウント編集" %>
-変更できない箇所を修正したい場合、職員に連絡する必要があります。
-
-<%= form_with model: @student_form, scope: "form",
-  url: :confirm_student_account do |f| %>
-  <%= render "form", f: f %>
-  <%= f.submit "確認画面へ進む" %>
-  <%= link_to "キャンセル", :student_account %>
-<% end %>

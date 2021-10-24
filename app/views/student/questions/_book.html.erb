@@ -1,4 +1,9 @@
-  <% p = BookPresenter.new(book,self)  %>
-  <%= p.book_name %>
-  <%= link_to "質問する", new_student_question_path(book.id) %>
-  <%= link_to "この本の過去の質問を見る", student_book_path(book.id) %>
+<% p = BookPresenter.new(book,self)  %>
+<tr>
+  <td scope="col"><%= p.type %></td>
+  <td scope="col"><%= book.book_name %></td>
+  <td scope="col"><%= book.book_subject %></td>
+  <td scope="col"><%= book.book_year %></td>
+  <td scope="col"><%= link_to "質問する",  new_student_question_path(book.id)%></td>
+  <td scope="col"><%= link_to "過去の質問", student_book_path(book) %></td>
+</tr>

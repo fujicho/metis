@@ -1,8 +1,7 @@
-<% @title = "新着お知らせ一覧"  %>
-<h1><%= @title %></h1>
+<h4 class="text-center">お知らせ新着一覧</h4>
 
-<%= paginate @board_messages %>
-
-<%= render partial: "board_message", collection: @board_message  %>
-
-<%= paginate @board_messages %>
+<div class="row justify-content-center pt-4">
+  <%= paginate @board_messages , theme: "twitter-bootstrap-4" %>
+  <%= render partial: "student/shared/board_message", collection: @board_messages %>
+  <%= paginate @board_messages , theme: "twitter-bootstrap-4" %>
+</div>

@@ -1,17 +1,26 @@
-<h1>質問する</h1>
-new
+<% @title = "質問する"  %>
 <% if params[:book_id] %>
   <% @book =  Book.find(params[:book_id]) %>
 <% end %>
 
+<h3 class="text-center"><%= @book.book_name+"について質問する" %></h3>
 
-<%= @book.book_name+"について質問する" %>
-<%= @book.book_subject %>
-似たような質問を調べる
-
-<%= form_with model: @question, scope: "form",url: :confirm_student_questions do |f| %>
-  <%= render "form",f: f %>
-  <%= hidden_field_tag :book_id, @book.id %>
-  <%= f.submit "確認画面へ進む" %>
-  <%= link_to "キャンセル", :student_root %>
-<% end %>
+<div class="row justify-content-center my-5">
+  <div class="col-8">
+    <div class="card">
+      <h4 class="card-header">
+        新しく質問する
+      </h4>
+      <div class="card-body">
+        <%= form_with model: @question, scope: "form", url: :confirm_student_questions do |f| %>
+          <%= render "form",f: f %>
+          <%= hidden_field_tag :book_id, @book.id %>
+          <div class="mt-4">
+            <%= f.submit "確認画面へ進む", class: "btn btn-outline-secondary btn-block mx-auto" %>
+            <%= link_to "キャンセル", :student_root , class: "btn btn-outline-secondary btn-block col-3 mb-3 mx-auto"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

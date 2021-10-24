@@ -1,6 +1,7 @@
-<%= paginate @my_questions %>
+<%= paginate @my_questions , theme: "twitter-bootstrap-4" %>
 <% if @my_questions.blank? %>
   "過去の質問はありません"
 <% else %>
+  <p class="form-text text-center">貴方の過去の質問を表示しています。</p>
   <%= render partial: "my_question", collection: @my_questions %>
 <% end %>

@@ -1,0 +1,32 @@
+<ul class="nav flex-column ">
+  <div class="border-bottom border-2">
+    <li class="nav-link">
+      <h4 class="nav-text">Q&A</h4>
+    </li>
+    <li class="nav-item">
+      <%= link_to "質問する・似たような質問を探す",  :student_questions, class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "自分がした過去の質問を見る", :student_my_questions, class: "nav-link"%>
+    </li>
+  </div>
+  <div class="border-bottom border-2">
+    <li class="nav-link">
+      <h4 class="nav-text">お知らせ</h4>
+    </li>
+    <li class="nav-item">
+      <%= link_to "お知らせ掲示板を見る", :student_board_messages, class: "nav-link" %>
+    </li>
+  </div>
+  <div class="border-bottom border-2">
+    <li class="nav-link">
+      <h4 class="nav-text">アカウント</h4>
+    </li>
+    <li class="nav-item">
+      <%= link_to "マイアカウント", :student_account, class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "ログアウト", :student_session , method: :delete, class: "nav-link" %>
+    </li>
+  </div>
+</ul>

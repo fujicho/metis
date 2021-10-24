@@ -1,5 +1,5 @@
 <% p = FormPresenter.new(f,self)  %>
 
-<%= p.text_field_block(:title, "タイトル") %>
+<%= p.text_field_block(:title, "タイトル", class: "form-control") %>
 
-<%= p.text_area_block(:body, "質問内容") %>
+<%= p.text_area_block(:body, "質問内容", class: "form-control", rows: 5) %>
