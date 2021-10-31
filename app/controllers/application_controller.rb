@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   include ErrorHandlers if Rails.env.production?
 
   private def set_layout
-    if params[:controller].match(%r{\A(admin|teacher|student)/})
+    if params[:controller].match(%r{\A(teacher|student)/})
       Regexp.last_match[1]
     else
       "customer"
