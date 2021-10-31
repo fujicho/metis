@@ -1,7 +1,6 @@
 Rails.application.configure do
   config.metis = {
-    teacher: { host: "metis.example.com", path: "" },
-    admin: { host: "metis.example.com", path: "admin"},
+    teacher: { host: "heroku-metista.heroku.com", path: "" },
     student: { host: "metis.example.com", path: "mypage"}
   }
 end
