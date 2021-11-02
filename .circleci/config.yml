@@ -15,7 +15,7 @@ jobs:
   test:
     docker:
       - image: circleci/ruby:2.7
-      - image: circleci/11.2-alpine
+      - image: circleci/postgres:11.2-alpine
         environment:
           POSTGRES_ROOT_PASSWORD: ""
           POSTGRES_DATABASE: my2ndapp_test
