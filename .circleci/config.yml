@@ -35,7 +35,7 @@ jobs:
           command: bundle exec rails db:migrate
       - run:
           name: test
-          command: rspec spec
+          command: bundle exec rspec 
 
 workflows:
   version: 2
