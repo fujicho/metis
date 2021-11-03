@@ -18,7 +18,7 @@ jobs:
       - image: circleci/postgres:11.2-alpine
         environment:
           POSTGRES_ROOT_PASSWORD: ""
-          POSTGRES_DATABASE: my2ndapp_test
+          POSTGRES_DB: my2ndapp_test
           POSTGRES_USER: postgres
     environment:
       BUNDLE_JOBS: "3"
