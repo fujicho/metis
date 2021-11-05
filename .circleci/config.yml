@@ -53,6 +53,9 @@ jobs:
           name: push docker image
           command: heroku container:push web -a $HEROKU_APP_NAME
       - run:
+          name: release docker image
+          command: heroku container:release web -a $HEROKU_APP_NAME
+      - run:
           name: database setup
           command: heroku run bundle exec rake db:migrate RAILS_ENV=production -a $HEROKU_APP_NAME
 
@@ -69,4 +72,4 @@ workflows:
             - test
           filters:
             branches:
-              only: main
+              only: master
