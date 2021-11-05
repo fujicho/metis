@@ -4,7 +4,7 @@ Rails.application.configure do
       teacher: { host: "heroku-metista.herokuapp.com", path: "teacher" },
       student: { host: "heroku-metista.herokuapp.com", path: "mypage"}
     }
-  elsif Rails.env.development?
+  else
     config.metis = {
       teacher: { host: "example.com", path: "" },
       student: { host: "metis.example.com", path: "mypage"}
