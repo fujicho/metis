@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "教職員による生徒管理" do
+xfeature "教職員による生徒管理" do
   include FeaturesSpecHelper
   let(:teacher_member) { create(:teacher_member) }
   let!(:student_member) { create(:student_member)}

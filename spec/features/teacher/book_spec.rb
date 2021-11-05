@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "教職員による書籍登録" do
+xfeature "教職員による書籍登録" do
   include FeaturesSpecHelper
   let(:teacher_member) { create(:teacher_member) }
   let!(:book) { create(:book) }

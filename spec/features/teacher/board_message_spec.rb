@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "教職員による掲示板投稿、編集機能" do
+xfeature "教職員による掲示板投稿、編集機能" do
   include FeaturesSpecHelper
   let(:teacher_member) { create(:teacher_member) }
   let!(:board_message) { create(:board_message) }
