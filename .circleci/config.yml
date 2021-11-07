@@ -15,6 +15,9 @@ jobs:
       - run:
           name: install yarn
           command: yarn
+      - run:
+          name: install webpacker
+          command: rails webpacker:install
 
   test:
     docker:
