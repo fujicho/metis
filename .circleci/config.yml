@@ -12,6 +12,9 @@ jobs:
       - checkout:
           path: ~/metis
       - ruby/install-deps
+      - run:
+          name: install yarn
+          command: yarn
 
   test:
     docker:
