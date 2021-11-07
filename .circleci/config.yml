@@ -18,6 +18,9 @@ jobs:
       - run:
           name: install webpacker
           command: bin/rails webpacker:install
+      - run:
+          name: assets compile
+          command: bin/rails assets:precompile RAILS_ENV=production
 
   test:
     docker:
@@ -67,9 +70,6 @@ jobs:
       - run:
           name: database setup
           command: heroku run bundle exec rake db:migrate RAILS_ENV=production -a $HEROKU_APP_NAME
-      - run:
-          name: assets compile
-          command: heroku run bundle exec rake assets:precompile RAILS_ENV=production -a heroku-metista
 
 workflows:
   version: 2
