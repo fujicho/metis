@@ -6,7 +6,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6.5
+      - image: circleci/ruby:2.6.5-node
     working_directory: ~/metis
     steps:
       - checkout:
@@ -40,7 +40,7 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/ruby:2.6.5
+      - image: circleci/ruby:2.6.5-node
     steps:
       - checkout
       - setup_remote_docker:
