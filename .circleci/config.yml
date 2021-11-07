@@ -12,9 +12,6 @@ jobs:
       - checkout:
           path: ~/metis
       - ruby/install-deps
-      - run:
-          name: yarn Install
-          command: yarn install
 
   test:
     docker:
@@ -52,6 +49,9 @@ jobs:
       - run:
           name: heroku login
           command: heroku container:login
+      - run:
+          name: yarn install
+          command: heroku run install install
       - run:
           name: push docker image
           command: heroku container:push web -a heroku-metista
