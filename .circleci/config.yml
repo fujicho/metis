@@ -51,7 +51,7 @@ jobs:
           command: heroku container:login
       - run:
           name: yarn install
-          command: heroku run yarn install
+          command: heroku run yarn install -a heroku-metista
       - run:
           name: push docker image
           command: heroku container:push web -a heroku-metista
