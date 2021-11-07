@@ -69,7 +69,7 @@ jobs:
           command: heroku run bundle exec rake db:migrate RAILS_ENV=production -a $HEROKU_APP_NAME
       - run:
           name: assets compile
-          command: heroku run bundle exec rake assets:compile RAILS_ENV=production -a heroku-metista
+          command: heroku run bundle exec rake assets:precompile RAILS_ENV=production -a heroku-metista
 
 workflows:
   version: 2
