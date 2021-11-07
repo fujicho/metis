@@ -22,9 +22,6 @@
     "vuetify": "^2.5.5"
   },
   "version": "0.1.0",
-  "engines": {
-    "node": "12.16.1"
-  },
   "main": "index.js",
   "repository": "https://github.com/fujicho/2ndapp.git",
   "author": "fujicho <nnnn.sohei.fujita@gmail.com>",
