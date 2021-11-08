@@ -12,15 +12,9 @@ jobs:
       - checkout:
           path: ~/metis
       - ruby/install-deps
-      - run:
-          name: install yarn
-          command: yarn
-      - run:
-          name: install webpacker
-          command: bin/rails webpacker:install
-      - run:
-          name: assets compile
-          command: bin/rails assets:precompile RAILS_ENV=production
+      - node/install-packages: 
+          pkg-manager: yarn
+          cache-key: "yarn.lock"
 
   test:
     docker:
