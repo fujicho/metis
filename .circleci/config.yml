@@ -1,7 +1,6 @@
 version: 2.1
 orbs:
   ruby: circleci/ruby@1.1.2
-  node: circleci/node@2
   heroku: circleci/heroku@1.2.3
 
 jobs:
@@ -13,8 +12,12 @@ jobs:
       - checkout:
           path: ~/metis
       - ruby/install-deps
-      - node/install-packages: 
-          pkg-manager: yarn
+      - run:
+          name: install yarn
+          command: yarn
+      - run:
+          name: install webpacker
+          command: bin/rails webpacker:install
 
   test:
     docker:
