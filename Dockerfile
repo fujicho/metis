@@ -1,4 +1,5 @@
 FROM ruby:2.6.5
+ENV RAILS_ENV=production
 ENV RAILS_SERVE_STATIC_FILES=1
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 RUN apt-get update && apt-get install -y curl apt-transport-https wget && \
