@@ -15,6 +15,10 @@ COPY Gemfile.lock /my2ndapp/Gemfile.lock
 RUN bundle install
 COPY . /my2ndapp
 
+RUN SECRET_KEY_BASE=placeholder bundle exec rails assets:precompile \
+&& yarn cache clean \
+&& rm -rf node_modules tmp/cache
+
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
