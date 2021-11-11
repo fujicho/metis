@@ -51,7 +51,7 @@ jobs:
           command: heroku container:login
       - run:
           name: assets:precompile
-          command: heroku run rails assets:precompile RAILS_ENV=production
+          command: heroku run rails assets:precompile RAILS_ENV=production -a heroku-metista
       - run:
           name: push docker image
           command: heroku container:push web -a heroku-metista
