@@ -9,6 +9,7 @@ class Teacher::PasswordsController < Teacher::Base
   end
 
   def update
+    check_guest
     @change_password_form = Teacher::ChangePasswordForm.new(teacher_member_params)
     @change_password_form.object = current_teacher_member
     if @change_password_form.save
