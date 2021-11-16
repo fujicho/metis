@@ -42,7 +42,8 @@ given_names = %w{
       birthday: 60.years.ago.advance(seconds:rand(40.years)).to_date,
       gender: m < 5 ? "male" : "female",
       start_date: Date.today,
-      subject: m < 5 ? "数学" : "英語"
+      subject: m < 5 ? "数学" : "英語",
+      guest: false,
     )
 
     c.create_address!(
@@ -54,3 +55,24 @@ given_names = %w{
     )
   end
 end
+
+g = TeacherMember.create!(
+  email: "guest@example.jp",
+  password: "examplepass",
+  family_name: "ゲスト",
+  given_name: "ゲスト",
+  family_name_kana: "ゲスト",
+  given_name_kana: "ゲスト",
+  birthday: 60.years.ago.advance(seconds:rand(40.years)).to_date,
+  gender: "male",
+  start_date: Date.today,
+  subject: "数学",
+  guest: true,
+)
+g.create_address!(
+  postal_code: sprintf("%07d",rand(1000000)),
+  prefecture: Address::PREFECTURE_NAMES.sample,
+  city: city_names.sample,
+  address1: "中央区中央町1-2-3",
+  address2: "コーポつよし102",
+)
