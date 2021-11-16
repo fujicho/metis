@@ -7,7 +7,7 @@ Rails.application.configure do
   else
     config.metis = {
       teacher: { host: "example.com", path: "" },
-      student: { host: "metis.example.com", path: "mypage"}
+      student: { host: "example.com", path: "mypage"}
     }
   end
 end
