@@ -5,8 +5,8 @@
     <h1 class="logo">Metista</h1>
     <%= form_with model: @form, url: :student_session do |f| %>
       <% p = FormPresenter.new(f,self)  %>
-      <%= p.email_field_block(:student_number, "学生ID", placeholder: "10桁の学生番号", class: "form-control col-8") %>
-      <%= p.password_field_block(:password, "パスワード", placeholder: "パスワード", class: "form-control") %>
+      <%= p.email_field_block(:student_number, "学生ID", value: "0123456789", class: "form-control col-8") %>
+      <%= p.password_field_block(:password, "パスワード", value: "examplepass", class: "form-control") %>
       <p class="form-text">パスワードは8文字以上で文字と数字を含みます。</p>
       <%= content_tag(:p, flash.alert, class: "alert alert-danger") if flash.alert %>
       <%= f.submit "ログイン", class: "btn btn-outline-secondary col-12" %>

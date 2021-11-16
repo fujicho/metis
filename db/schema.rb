@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_16_081822) do
+ActiveRecord::Schema.define(version: 2021_11_16_025907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 2021_03_16_081822) do
     t.integer "birth_year"
     t.integer "birth_month"
     t.integer "birth_mday"
+    t.boolean "guest"
     t.index ["birth_year", "birth_month", "birth_mday"], name: "index_student_on_birth_year_month_and_mday"
     t.index ["birth_year", "birth_month"], name: "index_student_members_on_birth_year_and_birth_month"
     t.index ["birth_year", "family_name_kana", "given_name_kana"], name: "index_student_on_birth_year_and_furigana"
@@ -156,6 +157,7 @@ ActiveRecord::Schema.define(version: 2021_03_16_081822) do
     t.boolean "suspended", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "guest"
     t.index "lower((email)::text)", name: "index_teacher_members_on_LOWER_email", unique: true
     t.index ["family_name_kana", "given_name_kana"], name: "index_teacher_members_on_family_name_kana_and_given_name_kana"
   end

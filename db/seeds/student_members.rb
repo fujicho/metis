@@ -2,11 +2,11 @@ require "date"
 
 StudentMember.create!(
   student_number: "0123456789",
-  family_name: "本田",
-  given_name: "太郎",
-  family_name_kana: "ホンダ",
-  given_name_kana: "タロウ",
-  password: "password",
+  family_name: "藤田",
+  given_name: "ゲスト太郎",
+  family_name_kana: "フジタ",
+  given_name_kana: "ゲスト",
+  password: "examplepass",
   email: "fujita@example.com",
   gender: "male",
   birth_day: Date.parse("2000/04/02"),
@@ -17,7 +17,8 @@ StudentMember.create!(
   homeroom_teacher: "田宮",
   start_date: Date.parse("2020/04/01"),
   graduation_date: Date.parse("2023/03/31"),
-  bunri: "文系"
+  bunri: "文系",
+  guest: true
 ) 
 
 city_names = %w(札幌市 川崎市 高崎市)
@@ -109,7 +110,8 @@ bunri = %w{文系 理系 未選択}
       suspended: n == 1,
       start_date: start_year(birth_day),
       graduation_date: graduation_date(birth_day),
-      bunri: bunri.sample
+      bunri: bunri.sample,
+      guest: false
     )
 
     c.create_home_address!(

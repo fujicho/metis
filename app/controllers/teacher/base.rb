@@ -22,6 +22,13 @@ class Teacher::Base < ApplicationController
     end
   end
 
+  private def check_guest
+    if current_teacher_member.guest
+      redirect_to :teacher_root
+      flash.notice = "この機能はゲストアカウントではご利用できません。"
+    end
+  end
+
 
   TIMEOUT = 60.minutes
 
