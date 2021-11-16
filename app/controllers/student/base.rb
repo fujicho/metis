@@ -21,5 +21,12 @@ class Student::Base < ApplicationController
     end
   end
 
+  private def check_guest
+    if current_student_member.guest
+      redirect_to :student_root
+      flash.notice = "この機能はゲストアカウントではご利用できません。"
+    end
+  end
+
   helper_method :current_student_member
 end
