@@ -5,10 +5,12 @@ class Teacher::AccountsController < Teacher::Base
   end
 
   def edit
+    check_guest
     @teacher_member = current_teacher_member
   end
 
   def update
+    check_guest
     @teacher_member = current_teacher_member
     @teacher_member.assign_attributes(teacher_member_params)
     if @teacher_member.save
