@@ -6,7 +6,7 @@ module FeaturesSpecHelper
 
   def login_as_teacher_member(teacher_member,password = "password")
     visit teacher_login_path
-    within("#login-form") do
+    within(".login-form") do
       fill_in "メールアドレス", with: teacher_member.email
       fill_in "パスワード", with: password
       click_button "ログイン"
