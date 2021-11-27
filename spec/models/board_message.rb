@@ -18,5 +18,15 @@ RSpec.describe BoardMessage, type: :model do
     end
   end
 
-  
+  describe "バリデーション" do
+    example "subjectが空欄の場合無効" do
+      board_message = build(:board_message, subject:"")
+      expect(board_message).not_to be_valid
+    end
+
+    example "bodyが空欄の場合無効" do
+      board_message = build(:board_message, body:"")
+      expect(board_message).not_to be_valid
+    end
+  end
 end
