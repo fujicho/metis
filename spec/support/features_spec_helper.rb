@@ -12,4 +12,13 @@ module FeaturesSpecHelper
       click_button "ログイン"
     end
   end
+
+  def login_as_student_member(student_member,password = "password")
+    visit student_login_path
+    within(".login-form") do
+      fill_in "学生ID", with: student_member.student_number
+      fill_in "パスワード", with: password
+      click_button "ログイン"
+    end
+  end
 end
