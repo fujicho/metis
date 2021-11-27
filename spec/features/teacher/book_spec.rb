@@ -1,6 +1,6 @@
 require "rails_helper"
 
-xfeature "教職員による書籍登録" do
+feature "教職員による書籍登録" do
   include FeaturesSpecHelper
   let(:teacher_member) { create(:teacher_member) }
   let!(:book) { create(:book) }
@@ -11,8 +11,8 @@ xfeature "教職員による書籍登録" do
   end
 
   scenario "教職員が書籍登録をする" do
-    click_link "Q&A 書籍管理"
-    click_link "書籍の新規登録"
+    first(".side-nav").click_link "Q&A 書籍管理"
+    click_link "(新規登録はこちら)"
 
     within("#container") do
       fill_in "書籍名", with: "テスト題名"
@@ -31,8 +31,8 @@ xfeature "教職員による書籍登録" do
   end
 
   scenario "書籍登録の際、書籍名は空欄にできない(バリデーション及びそのメッセージ表示テスト)" do
-    click_link "Q&A 書籍管理"
-    click_link "書籍の新規登録"
+    first(".side-nav").click_link "Q&A 書籍管理"
+    click_link "(新規登録はこちら)"
 
     within("#container") do
       select "数学", from: "科目"
@@ -46,8 +46,8 @@ xfeature "教職員による書籍登録" do
   end
 
   scenario "書籍登録の際、複数の項目を空欄にすると、複数のバリデーションエラーメッセージが同時に表示される。" do
-    click_link "Q&A 書籍管理"
-    click_link "書籍の新規登録"
+    first(".side-nav").click_link "Q&A 書籍管理"
+    click_link "(新規登録はこちら)"
 
     within("#container") do
       select "参考書", from: "参考書or過去問"
