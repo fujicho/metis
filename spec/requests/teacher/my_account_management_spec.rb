@@ -18,7 +18,7 @@ describe "教職員による自身のアカウント管理" do
   describe "情報表示" do
     let(:teacher_member){create(:teacher_member)}
 
-    xexample "成功" do
+    example "成功" do
       get teacher_account_url
       expect(response.status).to eq(200)
     end
