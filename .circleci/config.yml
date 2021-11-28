@@ -39,7 +39,7 @@ jobs:
           command: yarn install
       - run:
           name: assets:precompile
-          command: bundle exec assets:precompile
+          command: bin/rails assets:precompile
       - run:
           name: test
           command: bundle exec rspec
