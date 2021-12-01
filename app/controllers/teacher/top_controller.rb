@@ -6,7 +6,7 @@ class Teacher::TopController < Teacher::Base
     if current_teacher_member
       render action: "dashboard"
     else
-      render action: "index"
+      redirect_to teacher_login_path
     end
   end
 end
