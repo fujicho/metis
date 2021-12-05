@@ -1,21 +1,39 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
 <div id="student-info" class="card-body">
   <%= render "student_fields", f: f %>
 </div>
 
 <h3 class="card-header">生徒住所入力</h3>
 <div id="student-address" class="card-body">
-  <%= f.check_box :inputs_home_address %>
-  <%= f.label :inputs_home_address, "自宅住所を入力する" %>
   <fieldset id="home-address-fields">
   <%= render "home_address_fields", f: f %>
+  <input type="text" v-bind:disabled="!able">
   </fieldset>
 </div>
 
 <h3 class="card-header">保護者住所入力</h3>
 <div id="parents-address" class="card-body">
-  <%= f.check_box :inputs_parents_address %>
+  <%= f.check_box :inputs_parents_address, "v-model" => "able" %>
   <%= f.label :inputs_parents_address, "保護者住所を入力する(別住所の場合のみ入力してください)" %>
   <fieldset id="parents-address-fields">
   <%= render "parents_address_fields", f: f %>
   </fieldset>
 </div>
+<script type="text/javascript">
+  var app = new Vue({
+  el: '#wrapper',
+  data: {
+    able: true,
+    toggleHomeAddressFields: true
+  },
+  watch: {
+    toggleHomeAddressFields(){
+      if (able) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  }
+})
+</script>
