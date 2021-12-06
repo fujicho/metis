@@ -1,6 +1,6 @@
 <%= f.fields_for :parents_address, f.object.student_member.parents_address do |ff| %>
 
-<% p = AddressFormPresenter.new(ff,self) %>
+<% p = VueAddressFormPresenter.new(ff,self) %>
 
 <%= p.postal_code_block(:postal_code, "郵便番号") %>
 <%= p.drop_down_list_block(:prefecture, "都道府県", StudentMemberAddress::PREFECTURE_NAMES) %>
