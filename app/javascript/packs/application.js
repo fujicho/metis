@@ -8,4 +8,4 @@ import "../stylesheets/application.scss";
 import '@fortawesome/fontawesome-free/js/all';
 import TurbolinksAdapter from 'vue-turbolinks'
 
-Vue.use(TurbolinksAdapter)
+Turbolinks.start()
