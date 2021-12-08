@@ -31,7 +31,6 @@ feature "教職員による生徒管理" do
       fill_in "入学日", with: "2018-4-23"
       fill_in "卒業予定日", with: "2021-3-31"
     end
-    check "form[inputs_home_address]"
 
     within("#student-address") do
       fill_in "郵便番号", with: "1111111"
