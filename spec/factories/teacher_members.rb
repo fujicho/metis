@@ -9,5 +9,6 @@ FactoryBot.define do
     start_date{Date.yesterday}
     end_date{nil}
     suspended{false}
+    birthday {Date.new(1986, 7, 1)}
   end
 end
