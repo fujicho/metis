@@ -7,6 +7,7 @@ FactoryBot.define do
     given_name_kana{"タロウ"}
     password{"password"}
     start_date{Date.yesterday}
+    birthday {Date.new(1986, 7, 1)}
     end_date{nil}
     suspended{false}
   end
