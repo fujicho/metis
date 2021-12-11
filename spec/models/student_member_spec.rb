@@ -64,10 +64,12 @@ RSpec.describe StudentMember, type: :model do
       expect(student).to be_valid
     end
 
-    example "family_name_kanaに長音符が含まれていても有効" do
+    example "family_nameに記号が含まれていると無効" do
       student = build(:student_member, family_name: "@藤田")
       expect(student).not_to be_valid
     end
+
+    
 
     example "birth_dayには未来の日付は設定できない" do
       student = build(:student_member, birth_day: Date.today + 1)
