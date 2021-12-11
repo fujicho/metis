@@ -46,6 +46,21 @@ RSpec.describe StudentMember, type: :model do
       student = create(:student_member, emergency_contact: "０３００００００００")
       expect(student.emergency_contact).to eq("0300000000")
     end
+
+    example "email前後の空白を除去" do
+      student = create(:student_member, email: " test@example.com ")
+      expect(student.email).to eq("test@example.com")
+    end
+
+    example "emailに含まれる全角英数字を半角英数字に変換" do
+      student = create(:student_member, email: "ｔｅｓｔ＠ｅｘａｍｐｌｅ.ｃｏｍ")
+      expect(student.email).to eq("test@example.com")
+    end
+
+    example "email前後の全角英数字を除去" do
+      student = create(:student_member, email: "\u{3000}test@example.com\u{3000}")
+      expect(student.email).to eq("test@example.com")
+    end
   end
 
   describe "バリデーション" do
@@ -69,11 +84,26 @@ RSpec.describe StudentMember, type: :model do
       expect(student).not_to be_valid
     end
 
-    
-
     example "birth_dayには未来の日付は設定できない" do
       student = build(:student_member, birth_day: Date.today + 1)
       expect(student).not_to be_valid
+    end
+
+    example "@を2個含むemailは無効" do
+      student = build(:student_member, email: "test@@example.com")
+      expect(student).not_to be_valid
+    end
+
+    example "他のstudentとemailが重複している場合は無効" do
+      student1 = create(:student_member)
+      student2 = build(:student_member, email: student1.email)
+      expect(student2).not_to be_valid
+    end
+
+    example "他のstudentとstudent_numberが重複している場合は無効" do
+      student1 = create(:student_member)
+      student2 = build(:student_member, student_number: student1.student_number)
+      expect(student2).not_to be_valid
     end
   end
 end
