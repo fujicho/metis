@@ -55,7 +55,7 @@ feature "生徒による質問投稿機能" do
     expect(page).to have_content "タイトルが入力されていません"
   end
 
-  scenario "質問の際、タイトルと本文両方空欄だと、二つ同時にバリデーションエラーメッセージが表示される" do
+  scenario "質問の際、タイトルと本文両方空欄にはできない。(バリデーションエラーメッセージが同時に表示されるかどうかのテスト)" do
     first(".side-nav").click_link "質問する・似たような質問を探す"
     
     first("tbody tr").click_link "質問する"
