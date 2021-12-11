@@ -16,6 +16,17 @@ RSpec.describe TeacherMember, type: :model do
     end
   end
 
+  describe "値の正規化" do
+    example "family_name_kanaに含まれる平仮名をカタカナに変換" do
+      teacher = create(:teacher_member, family_name_kana: "ふじた")
+      expect(teacher.family_name_kana).to eq("フジタ")
+    end
+    example "family_name_kanaに含まれる半角カナを全角カナに変換" do
+      teacher = create(:teacher_member, family_name_kana: "ﾌｼﾞﾀ")
+      expect(teacher.family_name_kana).to eq("フジタ")
+    end
+  end
+
   describe "バリデーション" do
     example "family_name_kanaに漢字が含まれていた場合無効" do
       teacher = build(:teacher_member, family_name_kana: "ふじ田")
