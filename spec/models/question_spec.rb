@@ -16,6 +16,21 @@ RSpec.describe Question, type: :model do
       question = create(:question, title: "方向ﾍﾞｸﾄﾙに関しての質問です。")
       expect(question.title).to eq("方向ベクトルに関しての質問です。")
     end
+
+    example "bodyの前後の空白を除去" do
+      question = create(:question, body: " 2題目がわかりません。 ")
+      expect(question.body).to eq("2題目がわかりません。")
+    end
+
+    example "bodyの全角数字を半角数字に変換" do
+      question = create(:question, body: "２題目がわかりません。")
+      expect(question.body).to eq("2題目がわかりません。")
+    end
+
+    example "bodyに含まれる半角カナを全角カナに変換" do
+      question = create(:question, body: "方向ﾍﾞｸﾄﾙに関しての質問です。")
+      expect(question.body).to eq("方向ベクトルに関しての質問です。")
+    end
   end
 
   describe "バリデーション" do
