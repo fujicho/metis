@@ -2,6 +2,7 @@
   <div class="card d-flex mb-4 col-10">
     <%= link_to [ :student, my_question] do %>
     <div class="card-body">
+      <h6 class="card-subtitle my-2 text-muted"><%= my_question.book.book_name %></h6>
       <h5><%= my_question.title %></h5>
       <p class="card-text"><%= safe_join(my_question.body.split("\n"), tag(:br)) %></p>
       <h6 class="card-subtitle my-2 text-muted"><%= my_question.created_at.strftime('%Y/%m/%d') %></h6>
