@@ -38,7 +38,8 @@ class Student::QuestionsController < Student::Base
       @question.book = Book.find(params[:book_id])
       @question.subject = @question.book.book_subject
       if @question.save
-        redirect_to :student_questions
+        redirect_to :student_my_questions
+        flash.notice = "質問を投稿しました"
       else
         render action: "new"
       end
