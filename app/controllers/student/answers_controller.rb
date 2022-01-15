@@ -11,7 +11,6 @@ class Student::AnswersController < Student::Base
     @answer.question = @question
     if @answer.valid?
       render action: "confirm"
-      binding.pry
     else
       render action: "new"
     end
@@ -23,13 +22,10 @@ class Student::AnswersController < Student::Base
       @answer.student_member = current_student_member
       @answer.question = @question
       if @answer.save
-        if params[:answer][:question][:closed]
-          binding.pry
+        if params[:answer][:question][:closed] == "true"
           @question.update_attributes(closed: "true")
-          binding.pry
         end
         redirect_to student_question_path(@question)
-        binding.pry
       else
         render action: "new"
       end

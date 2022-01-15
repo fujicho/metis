@@ -1,18 +1,25 @@
-student/answers new
-<%= render "question" %>
-
-<%= render "question_answers"%>
-
-<% @title = "回答またはコメント"  %>
-<%= form_with model: @answer,
-  url: confirm_student_question_answers_path do |f| %>
-  <%= render "form", f: f %>
-  <%= f.fields_for @question do |i| %>
-    <%= i.check_box :closed,{},checked_value = "true", unchecked_value = "false" %>
-    <%= i.label :closed, "解決済み" %>
-  <% end %>
-  解決した場合は解決済みにチェックを入れて、お礼を言いましょう。
-  解決済みにチェックを入れると今後回答及びコメントができなくなります。
-  <%= f.submit "確認画面へ進む" %>
-  <%= link_to "キャンセル", :student_questions %>
-<% end %>
+<div class="board_message row justify-content-center my-5">
+  <div class="col-8">
+    <div class="card">
+      <h4 class="card-header">
+        コメント、追記する
+      </h4>
+      <div class="card-body">
+        <%= form_with model: @answer,
+          url: confirm_student_question_answers_path do |f| %>
+          <%= render "form", f: f %>
+          <%= f.fields_for @question do |i| %>
+                <div class="mt-4">
+        <%= f.submit "確認画面へ進む", class: "btn btn-outline-secondary btn-block mx-auto"  %>
+        <%= link_to "キャンセル", teacher_question_path(@question), class: "btn btn-outline-secondary btn-block col-3 mb-3 mx-auto" %>
+      </div>
+          <%= i.check_box :closed,{},checked_value = "true", unchecked_value = "false" %>
+          <%= i.label :closed, "解決済み" %>
+          <p>解決した場合は解決済みにチェックを入れて、お礼を言いましょう。
+  解決済みにチェックを入れると今後回答及びコメントができなくなります。</p>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

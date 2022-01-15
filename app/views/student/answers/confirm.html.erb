@@ -1,10 +1,24 @@
 <% @title = "回答またはコメント(確認)"  %>
-<%= form_with model: @answer, url: :student_question_answers do |f| %>
-  <%= render "confirming_form", f: f %>
-  <%= f.fields_for @question do |i| %>
-    <%= i.hidden_field :closed, value: answer_closed? %>
-  <% end %>
-  <%= f.submit "送信" %>
-  <%= f.submit "訂正", name: "correct" %>
-  <%= link_to "キャンセル", :student_root %>
-<% end %>
+
+<div class="board_message row justify-content-center my-5">
+  <div class="col-8">
+  <div class="card">
+    <h4 class="card-header">
+      回答、コメントする(確認)
+    </h4>
+    <div class="card-body">
+    <%= form_with model: @answer, url: :student_question_answers do |f| %>
+      <%= render "confirming_form", f:f %>
+      <%= f.fields_for @question do |i| %>
+        <%= i.hidden_field :closed, value: answer_closed? %>
+      <% end %>
+      <div class="mt-4">
+        <%= f.submit "この内容で投稿する", class: "btn btn-outline-secondary btn-block mx-auto"  %>
+        <%= f.submit "訂正", name: "correct" ,class: "btn btn-outline-secondary btn-block mx-auto"  %>
+        <%= link_to "キャンセル", :student_root, class: "btn btn-outline-secondary btn-block col-3 mb-3 mx-auto" %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+  </div>
+</div>
