@@ -2,8 +2,8 @@
 <div class="row justify-content-center">
   <div class="card col-8">
     <div class="card-body">
+      <h6 class="card-subtitle my-2 text-muted"><%= p.book_name %></h6>
       <h5><%= p.title %></h5>
-      <small><%= p.book_name %></small>
       <p class="card-text"><%= safe_join(p.body.split("\n"), tag(:br)) %></p>
       <div class="row d-flex mx-2 my-2 justify-content-end">
         <p ><%= p.posted_by %></p>

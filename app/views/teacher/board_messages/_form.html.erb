@@ -2,7 +2,7 @@
 
 <%= p.text_field_block(:subject, "題名", class: "form-control") %>
 
-<%= p.text_area_block(:body, "本文", class: "form-control")%>
+<%= p.text_area_block(:body, "本文", class: "form-control", rows: "10")%>
 
 <div class="my-3 col-5">
   <%= p.drop_down_list_block(:tag, "文理",BoardMessage::BOARD_TAGS, class: "form-select form-select-sm") %>

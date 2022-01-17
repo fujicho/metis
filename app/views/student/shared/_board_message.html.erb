@@ -3,8 +3,9 @@
   <div class="card d-flex flex-column mb-2 justify-content-center col-10" >
     <div class="card-body">
       <h5><%= p.subject %></h5>
-      <h6 class="card-subtitle my-2 text-muted"><%= p.contributor %></h6>
       <p class="card-text"><%= safe_join(p.body.split("\n"), tag(:br)) %></p>
+      <h6 class="card-subtitle my-2 text-muted"><%= p.contributor %></h6>
+      <div class="col"><%= p.posted_at %></div>
       <span class="badge bg-secondary"><%= p.tag %></span>
     </div>
   </div>
