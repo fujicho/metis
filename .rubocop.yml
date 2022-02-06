@@ -1,0 +1,7 @@
+inherit_from: .rubocop_todo.yml
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+    - 'spec/requests/teacher/student_member_management.rb'
+    - 'node_modules/**/*'
+    - 'db/schema.rb'
